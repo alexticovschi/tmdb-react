@@ -1,5 +1,5 @@
 import React from "react";
-
+import './SearchBox.css';
 const SearchBox = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
