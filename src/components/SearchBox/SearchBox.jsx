@@ -1,13 +1,14 @@
 import React from "react";
 import './SearchBox.css';
-const SearchBox = () => {
+
+const SearchBox = ({ onSearchChange, getMovies }) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
   }
   return (
     <form onSubmit={onFormSubmit}>
-      <input type="text" name="search" placeholder="Search Movie..." />
-      <input type="button" value="Search" />
+      <input onChange={onSearchChange} type="text" name="search" placeholder="Search Movie..." />
+      <input onClick={getMovies} type="button" value="Search" />
     </form>
   );
 };
