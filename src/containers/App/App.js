@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SearchBox from '../components/SearchBox/SearchBox';
-import MovieList from '../components/MovieList/MovieList';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import MovieList from '../../components/MovieList/MovieList';
+import { withRouter } from 'react-router-dom';
 
 import './App.css';
 
@@ -65,4 +66,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
