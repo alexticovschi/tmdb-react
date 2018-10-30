@@ -9,7 +9,9 @@ import './App.css';
 class App extends Component {
   state = {
     keywords: '',
-    movies: []
+    movies: [],
+    total_pages: 0,
+    page: 2
   }
 
   componentDidMount(){
@@ -78,8 +80,13 @@ class App extends Component {
     const resp = await fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.keywords}&api_key=${APIKEY}`);
 
     const movies = await resp.json();
-    
-    this.setState({ movies: movies.results });
+    this.setState({total_pages: movies.total_pages});
+    console.log('total_pages:',this.state.total_pages);
+
+    this.setState({ 
+      page: 2,
+      movies: movies.results 
+    });
     console.log({movies})
   }
 
@@ -97,6 +104,26 @@ class App extends Component {
         console.log({movie});
   }
 
+  
+  loadMore = async () => {
+    if(!this.state.total_pages > 1) return false;
+
+    const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+    console.log('this.state.page:',this.state.page);
+
+    const resp = await fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.keywords}&api_key=${APIKEY}&page=${this.state.page}`);
+    let count = this.state.page + 1;
+    this.setState({page: count});
+    // Wait for the response and return as JSON
+    const movies = await resp.json();
+
+    const new_list = [...this.state.movies, ...movies.results];
+    this.setState({ movies: new_list });
+    console.log('[NEW MOVIE LIST]:',this.state.movies);
+    console.log('Current Page:', this.state.page);
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -111,6 +138,10 @@ class App extends Component {
           movieList={this.state.movies} 
           getMovieById={this.getMovieById} 
         />
+
+        {this.state.total_pages > 2 && this.state.total_pages >= this.state.page ? 
+          <button className="btn loadmore" onClick={this.loadMore}>Load More</button> 
+        : null} 
       </div>
     );
   }
