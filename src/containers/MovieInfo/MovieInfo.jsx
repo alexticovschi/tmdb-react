@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import './MovieInfo.css';
 
+import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
 
 class MovieInfo extends Component {
   state = {
-    movie: []
+    movie: [],
+    similar_movies: []
   }
 
   componentDidMount() {
     const { movie_id } = this.props.match.params;
     this.getMovieById(movie_id);
+    this.getSimilarMovies(movie_id);
   }
 
   getMovieById = async (ID) => {
@@ -22,6 +25,17 @@ class MovieInfo extends Component {
         this.setState({ movie });
         console.log('[MOVIE]:',this.state.movie);
         console.log({movie});
+  }
+
+  getSimilarMovies = async (ID) => {
+    const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+    const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/similar?&api_key=${APIKEY}&language=en-US&page=1`);
+
+    const movies = await resp.json();
+
+    this.setState({ similar_movies: movies.results });
+    console.log('[MOVIE]:',this.state.similar_movies);
+    console.log({movies});
   }
 
   render() {
@@ -52,6 +66,18 @@ class MovieInfo extends Component {
               <button className="btn btn-info b2" onClick={() => this.props.history.push('/')}>Back To Search</button>
             </div>
           </div>
+
+          {this.state.similar_movies.length > 0 ?
+                <div className="d4">
+                {/* <div className="d4" style={{height: 500, overflowX: "hidden", overflowY: "auto"}}> */}
+                    <h1>Similar Movies</h1>
+                    <SimilarMovieList
+                        movieList={this.state.similar_movies}
+                        getMovieById={this.getMovieById} />
+                    <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button>
+
+                </div>
+            : null}
         </div>
       </div>
     );
