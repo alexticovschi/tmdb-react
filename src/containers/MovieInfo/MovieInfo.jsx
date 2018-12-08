@@ -7,6 +7,7 @@ import './MovieInfo.css';
 class MovieInfo extends Component {
     state = {
         movie: [],
+        credits: [],
         similar_movies: []
     }
 
@@ -14,6 +15,7 @@ class MovieInfo extends Component {
         const { movie_id } = this.props.match.params;
         this.getMovieById(movie_id);
         this.getSimilarMovies(movie_id);
+        this.getMovieCredits(movie_id);
     }
 
     getMovieById = async (ID) => {
@@ -39,17 +41,28 @@ class MovieInfo extends Component {
         console.log({movies});
     }
 
+    getMovieCredits = async (ID) => {
+        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+        const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/credits?&api_key=${APIKEY}&language=en-US`);
+    
+        const credits = await resp.json();
+        this.setState({ credits: credits.cast });
+        console.log('[CREDITS]', credits);
+    }
+
     render() {
         const {movie} = this.state;
-        const base_url2 = 'https://image.tmdb.org/t/p/w342';
-        const base_url1 = 'https://image.tmdb.org/t/p/original';
+        // const base_url2 = 'https://image.tmdb.org/t/p/w342';
+        const base_url = 'https://image.tmdb.org/t/p/original';
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
+
+        console.log(this.state.credits);
         return (
             <div className="box">
                 <div className="flex-container">
                     <div className="box-left">
-                        <img className="img-info_original" src={base_url1 + movie.poster_path} alt={"img card"} />
+                        <img className="img-info_original" src={base_url + movie.poster_path} alt={"img card"} />
                     </div>
 
                     <div className="box-right">
