@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
 import Loader from '../../components/Loader/Loader';
+import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 
 import './MovieInfo.css';
 
@@ -53,7 +54,7 @@ class MovieInfo extends Component {
     render() {
         const {movie} = this.state;
         // const base_url2 = 'https://image.tmdb.org/t/p/w342';
-        const base_url = 'https://image.tmdb.org/t/p/original';
+        const base_url = 'https://image.tmdb.org/t/p/w780';
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
 
@@ -62,7 +63,7 @@ class MovieInfo extends Component {
             <div className="box">
                 <div className="flex-container">
                     <div className="box-left">
-                        <img className="img-info_original" src={base_url + movie.poster_path} alt={"img card"} />
+                        <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
                     </div>
 
                     <div className="box-right">
@@ -82,17 +83,32 @@ class MovieInfo extends Component {
                     </div> 
                 </div>
 
+                <div className="container cast">
+                    <h1 style={{color: '#fff', textAlign: 'center'}}><strong>Full Cast</strong></h1>
+
+                    <main className="main-content">
+                        {this.state.credits &&
+                            this.state.credits.map(actor => {
+                            
+                            return (
+                                <ActorImageCard actor={actor}/>
+                            )
+                            }
+                        )}
+                    </main>
+                </div>
+
                 <div className="flex-container">
-                {this.state.similar_movies.length > 0 ?
-                    <div className="similar_movies">
-                        <h1>Similar Movies</h1>
-                        <SimilarMovieList
-                            movieList={this.state.similar_movies}
-                            getMovieById={this.getMovieById} />
-                                
-                        <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button>
-                    </div>
-                    : null}
+                    {this.state.similar_movies.length > 0 ?
+                        <div className="similar_movies">
+                            <h1>Similar Movies</h1>
+                            <SimilarMovieList
+                                movieList={this.state.similar_movies}
+                                getMovieById={this.getMovieById} />
+                                    
+                            <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button>
+                        </div>
+                        : null}
                 </div>
 
                 <Loader/>

@@ -1,0 +1,30 @@
+.img-profile {
+    width: 175px !important;
+    height: 220px !important;
+}
+
+.container.cast {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(31, 30, 30);
+}
+
+.actor_name {
+    padding: 8px 0px;
+}
+
+.actor_card {
+    margin: 15px auto;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.6s;
+    opacity: 0.7;
+}
+
+.actor_card:hover {
+    opacity: 1;
+}
