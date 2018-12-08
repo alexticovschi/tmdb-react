@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './MovieInfo.css';
-
 import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
+import Loader from '../../components/Loader/Loader';
+
+import './MovieInfo.css';
 
 class MovieInfo extends Component {
     state = {
@@ -45,42 +46,44 @@ class MovieInfo extends Component {
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
         return (
-        <div className="box">
-            <div className="flex-container">
-                <div className="box-left">
-                    <img className="img-info_original" src={base_url1 + movie.poster_path} alt={"img card"} />
-                </div>
-
-                <div className="box-right">
-                    <h1 className="info-title"><strong>{movie.original_title}</strong></h1> 
-                    <hr/>
-                    {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
-                    <p><strong>Released: </strong>  {movie.release_date}</p>
-                    <p><strong>Tagline: </strong>  {movie.tagline}</p> 
-                    {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
-                    {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.homepage}</a></p> : null}
-                
-                    <p className="plot"><strong>Plot: </strong>  {movie.overview}</p>
-                    <div className="btn-div">
-                        <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
-                        <button className="btn btn-info b2" onClick={() => this.props.history.push('/')}>Back To Search</button>
+            <div className="box">
+                <div className="flex-container">
+                    <div className="box-left">
+                        <img className="img-info_original" src={base_url1 + movie.poster_path} alt={"img card"} />
                     </div>
-                </div> 
-            </div>
 
-            <div className="flex-container">
-            {this.state.similar_movies.length > 0 ?
-                <div className="similar_movies">
-                    <h1>Similar Movies</h1>
-                    <SimilarMovieList
-                        movieList={this.state.similar_movies}
-                        getMovieById={this.getMovieById} />
-                            
-                    <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button>
+                    <div className="box-right">
+                        <h1 className="info-title"><strong>{movie.original_title}</strong></h1> 
+                        <hr/>
+                        {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
+                        <p><strong>Released: </strong>  {movie.release_date}</p>
+                        <p><strong>Tagline: </strong>  {movie.tagline}</p> 
+                        {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
+                        {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.homepage}</a></p> : null}
+                    
+                        <p className="plot"><strong>Plot: </strong>  {movie.overview}</p>
+                        <div className="btn-div">
+                            <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
+                            <button className="btn btn-info b2" onClick={() => this.props.history.push('/')}>Back To Search</button>
+                        </div>
+                    </div> 
                 </div>
-                : null}
+
+                <div className="flex-container">
+                {this.state.similar_movies.length > 0 ?
+                    <div className="similar_movies">
+                        <h1>Similar Movies</h1>
+                        <SimilarMovieList
+                            movieList={this.state.similar_movies}
+                            getMovieById={this.getMovieById} />
+                                
+                        <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button>
+                    </div>
+                    : null}
+                </div>
+
+                <Loader/>
             </div>
-        </div>
         );
     }
 }
