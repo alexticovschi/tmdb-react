@@ -44,6 +44,10 @@ class ActorProfileInfo extends Component {
                                     <p>{actor.biography}</p>
                                 </div>
                             </div>
+                            <button 
+                                className="bio_btn" 
+                                onClick={() => this.props.history.goBack()}>Back To Movie Info</button>
+
                         </div>
                     </div>
 
