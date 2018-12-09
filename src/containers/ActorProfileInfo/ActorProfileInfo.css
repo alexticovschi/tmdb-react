@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+
+  .container {
+    max-width:1300px;
+    margin: 0 auto;
+  }
+  
+  .row {  
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .side {
+    flex: 10%;
+    background-color: #f1f1f1;
+    padding: 0px;
+  }
+  
+  .main {
+    flex: 50%;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .inner_main {
+    padding: 20px;
+  }
+  
+  .actor_profile_img {
+    max-width: 100% !important;
+    display: flex;
+    min-height: 207px !important;
+  }
+  
+  .bio_content > p {
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+
+  .bio_title {
+    color: rgb(109, 104, 104);
+  }
+  
+
+  .bio_btn {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+  }
+
+  .bio_btn {
+    background-color: white;
+    color: black;
+    border: 1px solid #000;
+  }
+  
+  .bio_btn:hover {
+    background-color: #000;
+    color: white;
+    outline: none;
+  }
+
+  @media screen and (min-width: 700px) {
+    .bio_content {
+        margin-top: 50px;
+    }
+  }
+
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+    .inner_main {
+        padding: 0px;
+    }
+  }

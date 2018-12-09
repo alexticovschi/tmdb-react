@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
 
+import './ActorProfileInfo.css';
 
 class ActorProfileInfo extends Component {
     state = {
