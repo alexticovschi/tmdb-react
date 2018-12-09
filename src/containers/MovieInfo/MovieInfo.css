@@ -50,7 +50,7 @@
 }
 
 .card-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .btn-info {
@@ -106,14 +106,6 @@ p strong {
     color: rgb(18, 78, 138);
 }
 
-.d2>p {
-    margin-right: 10px;
-}
-
-.d3 {
-    margin-top: -10px;
-}
-
 .similar_movies {
     background-color: rgb(255, 255, 255) !important;
 }
@@ -128,11 +120,6 @@ p strong {
     .b1 {
         margin-left: 0px;
     }
-
-    .d1 {
-        max-width: 100%;
-        height: auto;
-    }
 }
 
 @media only screen and (max-width: 765px) {
@@ -146,22 +133,12 @@ p strong {
         margin: 1px 0px;
     }
 
-    .d1,
-    .d2 {
-        width: auto;
-        padding: 0px;
-    }
-
     p {
         margin-left: 12px;
     }
 }
 
 @media only screen and (max-width: 1250px) {
-    .d2,
-    .d3 {
-        padding: 20px;
-    }
 
     .b1 {
         margin-left: 20px;
@@ -171,18 +148,5 @@ p strong {
         max-width: 100% !important;
         height: auto;
     }
-}
-
-.d1 {
-    flex-grow: 1;
-}
-
-.d2 {
-    flex-grow: 5;
-}
-
-.d3,.d4 {
-    width: 100%;
-    display: block;
 }
 

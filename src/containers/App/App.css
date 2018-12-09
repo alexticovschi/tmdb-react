@@ -15,7 +15,6 @@ header {
 
 input[type=text] {
   margin-top: 60px;
-  /* width: 30%; */
   box-sizing: border-box;
   border: 2px solid rgb(132, 159, 165);
   border-radius: 4px;
@@ -25,7 +24,6 @@ input[type=text] {
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.6s ease-in-out;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -42,7 +40,6 @@ input[type=button] {
   margin: 4px 2px;
   cursor: pointer;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .container {
@@ -61,19 +58,12 @@ h3 {
   margin: 0;
 }
 
-img {
-  /* height: 330px; */
-  max-width: 100%;
-  height: 434px;
-}
-
 @media screen and (min-width: 405px) {
   .card {
     width: 94%;
   }
   img {
-    width: 99%;
-    /* height: 350px auto; */
+    width: 100%;
   }
 }
 
@@ -82,10 +72,6 @@ img {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-  }
-
-  img {
-    height: auto;
   }
 }
 
@@ -107,27 +93,35 @@ img {
   }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 470px) {
   .card-title {
-    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 16px;
+    font-size: 1.5rem !important; 
+    margin-bottom: 50px;
+    border-bottom: 2px solid grey;
   }
 }
 
 .card {
-  /* margin-bottom: 0.5rem; */
   margin: 15px auto;
+  border-radius: 4px;
   background-color: white;
-  -webkit-box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -moz-box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.6s;
+}
+
+.card:hover {
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.card img {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .card-title {
   font-size: 1.2rem;
-}
-
-.card .movie-details {
-  font-size: 1.3rem;
 }
 
 .btn {
@@ -137,9 +131,6 @@ img {
   margin-top: 1rem;
   display: block;
   text-decoration: none;
-
-  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -156,7 +147,6 @@ img {
 .btn:hover, input[type=button]:hover {
   background-color: #2c5275;
 }
-
 
 
 @media only screen and (min-width: 965px) {
