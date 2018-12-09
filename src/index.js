@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App/App';
 import MovieInfo from './containers/MovieInfo/MovieInfo';
+import ActorProfileInfo from './containers/ActorProfileInfo/ActorProfileInfo';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -13,6 +14,7 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={App} />
             <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
+            <Route exact path="/movie-info/cast/:actor_id" component={ActorProfileInfo} />
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));
