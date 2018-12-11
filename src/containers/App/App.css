@@ -54,13 +54,15 @@ input[type=button] {
 
 h3 {
   font-family: 'Libre Baskerville', serif;
-  text-transform: uppercase;
   margin: 0;
 }
 
 @media screen and (min-width: 405px) {
   .card {
     width: 94%;
+  }
+  .iframe-card {
+    width: 96%;
   }
   img {
     width: 100%;
@@ -77,7 +79,7 @@ h3 {
 
 @media screen and (min-width: 800px) {
   .card {
-      flex: 0 1 calc(22.5%);
+      flex: 0 1 calc(18.8%);
   }
 }
 
@@ -85,11 +87,18 @@ h3 {
   .card {
       flex: 0 1 calc(31%);
   }
+/* 
+  .iframe-card {
+    flex: 0 1 calc(49%);
+  } */
 }
 
 @media screen and (max-width: 855px) {
   .card {
       flex: 0 1 calc(49% - 1rem);
+  }
+  .iframe-card {
+    flex: 0 1 calc(49% - 1rem);
   }
 }
 
@@ -103,7 +112,7 @@ h3 {
   }
 }
 
-.card {
+.card, .iframe-card {
   margin: 15px auto;
   border-radius: 4px;
   background-color: white;
@@ -120,20 +129,6 @@ h3 {
   border-top-right-radius: 4px;
 }
 
-.card-title {
-  font-size: 1.2rem;
-}
-
-.btn {
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-  padding: .6rem;
-  margin-top: 1rem;
-  display: block;
-  text-decoration: none;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .loadmore {
   margin: 0 auto;
   margin-bottom: 20px;
@@ -144,8 +139,37 @@ h3 {
   border-radius: 5px;
 }
 
-.btn:hover, input[type=button]:hover {
-  background-color: #2c5275;
+input[type=button],
+.loadmore {
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 14px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+
+  background-color: white;
+  color: black;
+  border: 1px solid #000;
+}
+
+input[type=button]:hover {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  outline: none;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.loadmore:hover {
+  background-color: #000;
+  color: white;
+  outline: none;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 

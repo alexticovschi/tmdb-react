@@ -1,20 +1,19 @@
 .box {
     background-color: #000;
     width: 100%;
+    height: 100%;
 }
 
 .img-info {
-    width: auto;
-    height: 100vh !important;
-    margin-bottom: -4px;
-    padding-bottom: 0px;
+    max-width: 100% !important;
+    display: flex;
 }
 
 .flex-container {
     max-width: 1300px;
+    max-height: 100% !important;
     margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
+    margin-top: -20px;
     justify-content: center;
 }
 
@@ -25,22 +24,31 @@
     font-size: 16px;
 }
 
-.box-left {
-    background-color: #000 !important;
+.row {  
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.box-right {
+.box-left {
+    flex: 30%;
     background-color: #f1f1f1;
-    padding: 0px 0px 0px 20px;
-    width: 660px;
-    margin-left: 0px;
-    height: 100vh !important;
+    padding: 0px;
+}
+  
+.box-right {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+.inner-box-right {
+    padding-left: 10px;
 }
 
 .info-title {
     text-align: left;
-    font-size: 2.5em;
-    margin-bottom: 36px;
+    font-size: 1.9rem;
+    margin-bottom: 20px;
 
     padding: 6px 4px;
     width: 96%;
@@ -50,13 +58,35 @@
 }
 
 .card-title {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .btn-info {
-    border: 1px solid #fff;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    border: none;
+    color: white;
+    padding: 12px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.5s;
     cursor: pointer;
+
+    position: relative;
+    bottom: 20px;
+    top: 10px;
+    left: 20px;
+}
+
+.btn:hover {
+    background-color: #000;
+    color: white;
+    outline: none;
 }
 
 
@@ -75,11 +105,9 @@
 .b1,
 .b2,
 .b3 {
-    font-family: sans-serif;
-    background-color: #000;
-    padding: 14px;
-    width: 26% auto;
-    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 1px solid #000;
 }
 .b3 {
     display: block;
@@ -88,7 +116,7 @@
 }
 
 .plot {
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     margin-top: 150px;
 }
@@ -96,17 +124,19 @@
 p {
     text-align: left;
     line-height: 26px;
-    font-size: 1.2rem;
+    font-size: 16px;
+    font-family: sans-serif;
 }
 
 p strong {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     padding:0px;
     border-radius: 3px;
     color: rgb(18, 78, 138);
 }
 
 .similar_movies {
+    padding-top: 10px;
     background-color: rgb(255, 255, 255) !important;
 }
 
