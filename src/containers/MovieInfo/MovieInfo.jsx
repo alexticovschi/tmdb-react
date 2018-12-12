@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
 import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
-
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 import './MovieInfo.css';
 
@@ -82,7 +81,8 @@ class MovieInfo extends Component {
 
         // console.log(this.state.credits);
         return (
-            <div className="box">
+            <div className="box" style={{ marginTop: "56px" }}>
+                <Navbar/>
                 <div className="container">
                     <div className="row">
                         <div className="box-left">

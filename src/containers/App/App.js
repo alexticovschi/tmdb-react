@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import MovieList from '../../components/MovieList/MovieList';
+import Navbar from "../../components/Navbar/Navbar";
+
 import { withRouter } from 'react-router-dom';
 
 import './App.css';
@@ -121,27 +123,30 @@ class App extends Component {
     this.setState({ movies: new_list });
     console.log('[NEW MOVIE LIST]:',this.state.movies);
     console.log('Current Page:', this.state.page);
-
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <SearchBox
-            onSearchChange={this.onSearchChange}
-            getMovies={this.performSearch}
+        <Navbar/>
+        <main style={{ marginTop: "57px" }}>
+          <header className="App-header">
+            <SearchBox
+              onSearchChange={this.onSearchChange}
+              getMovies={this.performSearch}
+            />
+          </header>
+
+          <MovieList
+            movieList={this.state.movies} 
+            getMovieById={this.getMovieById} 
           />
-        </header>
 
-        <MovieList
-          movieList={this.state.movies} 
-          getMovieById={this.getMovieById} 
-        />
+          {this.state.total_pages > 2 && this.state.total_pages >= this.state.page ? 
+            <button className="btn loadmore" onClick={this.loadMore}>Load More</button> 
+          : null} 
+        </main>
 
-        {this.state.total_pages > 2 && this.state.total_pages >= this.state.page ? 
-          <button className="btn loadmore" onClick={this.loadMore}>Load More</button> 
-        : null} 
       </div>
     );
   }

@@ -8,7 +8,7 @@
   }
 
   .container {
-    max-width:1300px;
+    max-width: 1300px;
     margin: 0 auto;
   }
   
@@ -18,19 +18,19 @@
   }
 
   .side {
-    flex: 10%;
+    flex: 20%;
     background-color: #f1f1f1;
     padding: 0px;
   }
   
   .main {
-    flex: 50%;
+    flex: 80%;
     background-color: white;
     padding: 20px;
   }
 
   .inner_main {
-    padding: 20px;
+    padding-left: 20px;
   }
   
   .actor_profile_img {
@@ -47,7 +47,22 @@
   .bio_title {
     color: rgb(109, 104, 104);
   }
+
+  h1.actor_nm {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.4rem;
+  }
   
+  h4 span {
+    color: rgb(49, 47, 47);
+    font-weight: 300;
+  }
+
+  .personal_info {
+    padding: 20px;
+    text-align: center;
+    background: rgb(233, 233, 233);
+  }
 
   .bio_btn {
     border-radius: 4px;
@@ -55,7 +70,7 @@
     align-items: center;
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 12px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -63,6 +78,11 @@
     margin: 4px 2px;
     transition-duration: 0.5s;
     cursor: pointer;
+
+    position: relative;
+    bottom: 20px;
+    top: 10px;
+    left: 20px;
   }
 
   .bio_btn {

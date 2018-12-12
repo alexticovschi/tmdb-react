@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Loader from "../../components/Loader/Loader";
 import ActorFilmographyList from "../../components/ActorFilmographyList/ActorFilmographyList";
-import { Link } from 'react-router-dom';
+import Navbar from "../../components/Navbar/Navbar";
 
 import "./ActorProfileInfo.css";
 
@@ -25,7 +25,7 @@ class ActorProfileInfo extends Component {
 
     const actorProfileInfo = await resp.json();
     this.setState({ actorProfileInfo });
-    console.log("[ACTOR PROFILE]", actorProfileInfo);
+    // console.log("[ACTOR PROFILE]", actorProfileInfo);
   };
 
   getActorFilmographyData = async ID => {
@@ -36,7 +36,7 @@ class ActorProfileInfo extends Component {
 
     const actorFilmographyData = await resp.json();
     const actorFilmography = actorFilmographyData.cast.filter((movie) => movie.media_type !== "tv");
-    console.log('[actorFilmography]',actorFilmographyData.cast);
+    // console.log('[actorFilmography]',actorFilmographyData);
     this.setState({ actorFilmographyData: actorFilmography });
   };
 
@@ -46,7 +46,8 @@ class ActorProfileInfo extends Component {
     const filmography = this.state.actorFilmographyData;
     return (
       <div>
-        <div className="container">
+        <Navbar/>
+        <div className="container" style={{ marginTop: "56px" }}>
           <div className="row">
             <div className="side">
               <img
