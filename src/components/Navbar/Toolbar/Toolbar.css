@@ -4,6 +4,8 @@
     left: 0;
     width: 100%;
     background: rgb(5, 0, 0);
+    /* background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%); */
+
     height: 56px;
     border-bottom: 1px solid #fff;
     z-index: 100;

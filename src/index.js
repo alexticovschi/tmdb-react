@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import App from './containers/App/App';
 import MovieInfo from './containers/MovieInfo/MovieInfo';
 import ActorProfileInfo from './containers/ActorProfileInfo/ActorProfileInfo';
+
+import Home from './containers/Home/Home';
+
 import * as serviceWorker from './serviceWorker';
 
-
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={App} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={App} />
             <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
             <Route exact path="/movie-info/cast/:actor_id" component={ActorProfileInfo} />
         </Switch>

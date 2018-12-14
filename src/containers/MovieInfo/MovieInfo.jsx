@@ -19,7 +19,6 @@ class MovieInfo extends Component {
         this.getMovieById(movie_id);
         this.getSimilarMovies(movie_id);
         this.getMovieCredits(movie_id);
-        // this.getRecomendations(movie_id);
         this.getTrailers(movie_id);
     }
 
@@ -32,7 +31,7 @@ class MovieInfo extends Component {
 
             this.setState({ movie });
             // console.log('[MOVIE]:',this.state.movie);
-            // console.log({movie});
+            console.log({movie});
     }
 
     getSimilarMovies = async (ID) => {
@@ -54,15 +53,6 @@ class MovieInfo extends Component {
         this.setState({ credits: credits.cast });
         // console.log('[CREDITS]', credits);
     }
-
-    // getRecomendations = async (ID) => {
-    //     const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
-    //     const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/recommendations?&api_key=${APIKEY}&language=en-US`);
-
-    //     const recomendations = await resp.json();
-    //     this.setState({ recomendations: recomendations });
-    //     console.log('[recomendations]', recomendations);
-    // }
 
     getTrailers = async (ID) => {
         const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
@@ -100,7 +90,7 @@ class MovieInfo extends Component {
                                 
                                 <div className="btn-div">
                                     <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
-                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/')}>Back To Search</button>
+                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/search')}>Back To Search</button>
                                 </div>
                             </div>
                         
@@ -108,8 +98,8 @@ class MovieInfo extends Component {
                     </div>    
                 </div>
 
-                <div className="flex-container">
-                    <div className="main-content" style={{marginTop:"40px"}}>
+                <div className="flex-container trailers">
+                    <div className="main-content" style={{marginTop:"30px"}}>
                         {this.state.trailers.map(trailer => (
                             <div key={trailer.key}>
 
@@ -126,8 +116,8 @@ class MovieInfo extends Component {
                     </div>
                 </div>
 
-                <div className="container">
-                        <h1 style={{color: '#fff', textAlign: 'center'}}><strong>Full Cast</strong></h1>
+                <div className="container actors" style={{borderTop:"1px solid #fff"}}>
+                        <h1><strong>Full Cast</strong></h1>
 
                         <main className="main-content">
                             {this.state.credits &&
@@ -146,10 +136,14 @@ class MovieInfo extends Component {
                                 movieList={this.state.similar_movies}
                                 getMovieById={this.getMovieById} />
                                     
-                            <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button>
+                            {/* <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button> */}
                         </div>
                         : null}
                 </div>
+
+                <footer className="footer">
+                     
+                </footer>
 
                 <Loader/>
             </div>
