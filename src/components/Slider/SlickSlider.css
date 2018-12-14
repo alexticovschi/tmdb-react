@@ -1,0 +1,30 @@
+
+.slick-arrow {
+    /* color: rgb(192, 14, 14); */
+}
+.slider_container {
+    margin-bottom: 60px;
+}
+
+.slider_slick_img {
+    padding: 0 10px;
+    opacity: 0.8;
+    transition: .4s ease;
+}
+
+.slider_slick_img:hover {
+    opacity: 1;
+}
+
+.slider_slick_box__title {
+    font-size: 1.6rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+
+    padding: 8px 10px;
+    width: 100%;
+    border-radius: 3px;
+    background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%);
+    color: rgb(219, 211, 211);
+} 
