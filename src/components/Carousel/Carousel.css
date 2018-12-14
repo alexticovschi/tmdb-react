@@ -1,0 +1,40 @@
+.carousel-img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center center / cover no-repeat !important;
+    border-radius: 2px;
+}
+
+.carousel .thumbs-wrapper,.carousel-status {
+    display: none;
+}
+
+.legend {
+    font-size: 1.2rem !important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0.9 !important;
+}
+
+.legend span.movie-title {
+    color: rgb(240, 253, 60);
+    font-size: 1.3rem;
+    margin-left: 20px !important;
+}
+
+.poster-small {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -250px;
+    height: 190px;
+    max-width: 120px;
+}
+
+@media (max-width: 765px) {
+    .control-dots {
+        display: none !important;
+    }
+    .legend span {
+        font-size: 1.2rem;
+    }
+    .legend {
+        font-size: 1rem !important;
+    }
+}
