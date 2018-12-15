@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/App/App';
 import MovieInfo from './containers/MovieInfo/MovieInfo';
 import ActorProfileInfo from './containers/ActorProfileInfo/ActorProfileInfo';
+import ActorImages from './containers/ActorImages/ActorImages';
 
 import Home from './containers/Home/Home';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
             <Route exact path="/search" component={App} />
             <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
             <Route exact path="/movie-info/cast/:actor_id" component={ActorProfileInfo} />
+            <Route exact path="/cast/:actor_id/images/profiles" component={ActorImages} />
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));

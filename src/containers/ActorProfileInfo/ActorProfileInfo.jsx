@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Loader from "../../components/Loader/Loader";
 import ActorFilmographyList from "../../components/ActorFilmographyList/ActorFilmographyList";
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from 'react-router-dom';
 
 import "./ActorProfileInfo.css";
 
 class ActorProfileInfo extends Component {
   state = {
     actorProfileInfo: [],
-    actorFilmographyData: []
+    actorFilmographyData: []  
   };
 
   componentDidMount() {
@@ -44,6 +45,7 @@ class ActorProfileInfo extends Component {
     const base_url = "https://image.tmdb.org/t/p/w500";
     const actor = this.state.actorProfileInfo;
     const filmography = this.state.actorFilmographyData;
+    console.log('actor:',actor)
     return (
       <div>
         <Navbar/>
@@ -74,6 +76,12 @@ class ActorProfileInfo extends Component {
               >
                 Back To Movie Info
               </button>
+              <Link 
+                to={`/cast/${actor.id}/images/profiles`}
+                className="bio_btn"
+              >
+                Images
+              </Link>
             </div>
           </div>
 
@@ -107,18 +115,12 @@ class ActorProfileInfo extends Component {
                 <ActorFilmographyList
                   movieList={filmography}
                 />
-
-                <button
-                  className="btn btn-info b3"
-                  onClick={() => this.props.history.push("/")}
-                >
-                  Back To Search
-                </button>
               </div>
             ) : null}
           </div>
         </div>
-
+        
+        <footer></footer>
         <Loader />
       </div>
     );
