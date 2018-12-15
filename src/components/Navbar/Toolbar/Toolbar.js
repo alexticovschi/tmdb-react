@@ -22,6 +22,9 @@ const Toolbar = props => (
             <a href="/search">Search</a>
           </li>
           <li>
+            <a href="/tv-shows">TV Shows</a>
+          </li>
+          <li>
             <a href="/login">Login </a>
           </li>
         </ul>

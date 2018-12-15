@@ -1,0 +1,12 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.btn-div {
+    align-items: center;
+    justify-content: center;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
