@@ -1,6 +1,9 @@
 .img-profile {
     width: 175px !important;
-    height: 220px !important;
+    height: 240px !important;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
@@ -30,4 +33,17 @@ a {
 
 .actor_card:hover {
     opacity: 1;
+}
+
+@media (max-width:475px) {
+    .img-profile {
+        width: 100% !important;
+        height: 100% !important;
+        margin-top: 24px;
+    }
+
+    a {
+        color: #fff;
+        font-size: 1.3rem;
+    }
 }

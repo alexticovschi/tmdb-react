@@ -19,8 +19,8 @@
 
   .side {
     flex: 20%;
-    background-color: #f1f1f1;
-    padding: 0px;
+    background-color: #ffffff;
+    padding-top: 20px;
   }
   
   .main {
@@ -36,6 +36,8 @@
   .actor_profile_img {
     max-width: 100% !important;
     display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 207px !important;
   }
   

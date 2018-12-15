@@ -4,6 +4,23 @@
     height: 100%;
 }
 
+.resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.resp-iframe {
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 490px;
+    border: 0;
+    margin-bottom: 40px;
+}
+
+
 .img-info {
     max-width: 100% !important;
     display: flex;
@@ -24,15 +41,34 @@
     font-size: 16px;
 }
 
+.container.actors {
+    background-color: rgb(107, 107, 107);
+    padding-bottom: 50px;
+}
+
+.container.actors h1 {
+    text-align: center;
+    color:rgb(255, 255, 255);
+}
+
+.flex-container.trailers {
+    /* background-color: rgb(212, 212, 212); */
+    background-color: rgb(255, 255, 255);
+}
+
 .row {  
     display: flex;
     flex-wrap: wrap;
+    background-color: #fff; 
+    padding-bottom: 30px;
 }
 
 .box-left {
     flex: 30%;
-    background-color: #f1f1f1;
-    padding: 0px;
+    background-color: #fff;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 0px;
 }
   
 .box-right {
@@ -94,7 +130,7 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    margin-left: 0px;
+    margin-left: -20px;
 }
 
 .b1 {
@@ -103,16 +139,10 @@
 }
 
 .b1,
-.b2,
-.b3 {
+.b2 {
     background-color: white;
     color: black;
     border: 1px solid #000;
-}
-.b3 {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
 }
 
 .plot {
@@ -140,15 +170,21 @@ p strong {
     background-color: rgb(255, 255, 255) !important;
 }
 
+.similar_movies h1 {
+    color:rgb(70, 70, 70);
+}
 
-@media only screen and (max-width: 665px) {
-    .plot {
-        padding: 0px;
-        text-align: left;
-    }
+
+
+@media only screen and (max-width: 1250px) {
 
     .b1 {
         margin-left: 0px;
+    }
+
+    .img-info_original {
+        max-width: 100% !important;
+        height: auto;
     }
 }
 
@@ -164,19 +200,33 @@ p strong {
     }
 
     p {
-        margin-left: 12px;
+        margin-left: 0px;
+    }
+
+    .resp-iframe {
+        height: 330px;
     }
 }
 
-@media only screen and (max-width: 1250px) {
+
+@media only screen and (max-width: 665px) {
+    .plot {
+        padding: 0px;
+        text-align: left;
+    }
 
     .b1 {
-        margin-left: 20px;
+        margin-left: 0px;
+    }
+    .resp-iframe {
+        height: 270px;
     }
 
-    .img-info_original {
-        max-width: 100% !important;
-        height: auto;
-    }
+
 }
 
+@media (max-width:475px) {
+    .resp-iframe {
+        height: 220px;
+    }
+}
