@@ -5,6 +5,8 @@ import Navbar from "../../components/Navbar/Navbar";
 
 import { withRouter } from 'react-router-dom';
 
+import ScrollUpButton from "react-scroll-up-button"; 
+
 import './App.css';
 
 
@@ -14,6 +16,22 @@ class App extends Component {
     movies: [],
     total_pages: 0,
     page: 2
+  }
+
+  handleClick = () => {
+    this.setState({sendState: 'loading'})
+    //simulating an API
+    setTimeout(() => {
+      this.setState({sendState: 'finished'})
+    }, 3000)
+  }
+
+  onLoading = () => {
+    this.setState({ loading: true });
+  }
+
+  onIconLoading = () => {
+    this.setState({ iconLoading: true });
   }
 
   componentDidMount(){
@@ -66,10 +84,6 @@ class App extends Component {
     console.log('[searchField]:',this.state.searchField);
   }
 
-  // componentDidMount() {
-  //   this.performSearch();
-  // }
-
   onSearchChange = (event) => {
     event.preventDefault();
 
@@ -97,15 +111,18 @@ class App extends Component {
     // https://api.themoviedb.org/3/movie/tt4154756?api_key=9baa3cbfd9b62ea4f97966abadf41653
     const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`);
 
-        // Wait for the response and return as JSON
-        const movie = await resp.json();
+    const movie = await resp.json();
 
-        // Return the object
-        this.setState({ movie });
-        console.log('[MOVIE]:',this.state.movie);
-        console.log({movie});
+    this.setState({ movie });
+    console.log('[MOVIE]:',this.state.movie);
+    console.log({movie});
   }
 
+  // getTrendingMovies = async (ID) => {
+  //   const resp = await fetch('https://api.themoviedb.org/3/trending/all/day?api_key=9baa3cbfd9b62ea4f97966abadf41653');
+  //   const trending = await resp.json();
+  //   this.setState({ movies: trending.results });
+  // }
   
   loadMore = async () => {
     if(!this.state.total_pages > 1) return false;
@@ -113,6 +130,9 @@ class App extends Component {
     const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
     console.log('this.state.page:',this.state.page);
 
+    // this.onLoading();
+    // this.onIconLoading();
+    this.setState({sendState: 'loading'})
     const resp = await fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.keywords}&api_key=${APIKEY}&page=${this.state.page}`);
     let count = this.state.page + 1;
     this.setState({page: count});
@@ -121,6 +141,13 @@ class App extends Component {
 
     const new_list = [...this.state.movies, ...movies.results];
     this.setState({ movies: new_list });
+
+    // this.setState({ 
+    //   loading: false, 
+    //   onIconLoading: false
+    // });
+    this.setState({sendState: 'finished'})
+
     console.log('[NEW MOVIE LIST]:',this.state.movies);
     console.log('Current Page:', this.state.page);
   }
@@ -145,8 +172,12 @@ class App extends Component {
           {this.state.total_pages > 2 && this.state.total_pages >= this.state.page ? 
             <button className="btn loadmore" onClick={this.loadMore}>Load More</button> 
           : null} 
-        </main>
 
+        </main>
+          
+        <ScrollUpButton ContainerClassName="scroll-up-button"/>
+
+        <footer></footer>
       </div>
     );
   }

@@ -3,6 +3,7 @@ import Loader from "../../components/Loader/Loader";
 import ActorFilmographyList from "../../components/ActorFilmographyList/ActorFilmographyList";
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from 'react-router-dom';
+import ScrollUpButton from "react-scroll-up-button"; 
 
 import "./ActorProfileInfo.css";
 
@@ -65,6 +66,9 @@ class ActorProfileInfo extends Component {
             <div className="main">
               <div className="inner_main">
                 <h1 className="actor_nm">{actor.name}</h1>
+
+                <hr className="separator"/>
+
                 <div className="bio_content">
                   <h2 className="bio_title">Biography</h2>
                   <p>{actor.biography}</p>
@@ -121,6 +125,9 @@ class ActorProfileInfo extends Component {
         </div>
         
         <footer></footer>
+        
+        <ScrollUpButton ContainerClassName="scroll-up-button"/>
+
         <Loader />
       </div>
     );

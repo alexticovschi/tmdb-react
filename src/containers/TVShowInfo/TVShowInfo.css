@@ -3,14 +3,6 @@ body {
     margin-bottom: -120px;
 }
 
-.separator {
-    background-image: radial-gradient(circle, rgba(39, 37, 37, 0.191) 0%, rgba(34, 22, 22, 0) 90%);
-    border: none;
-    height: 2px;
-}
-
-
-
 .react-rater-star.is-active,
 .react-rater-star.is-active-half:before {
     color: #fc6;

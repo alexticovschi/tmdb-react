@@ -7,6 +7,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import './MovieInfo.css';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
+import ScrollUpButton from "react-scroll-up-button"; 
+
 
 class MovieInfo extends Component {
     state = {
@@ -83,9 +85,11 @@ class MovieInfo extends Component {
                         <div className="box-right">
                             <div className="inner-box-right">
                                 <h1 className="info-title">{movie.original_title}</h1> 
-                                <hr/>
+
+                                <hr className="separator"/>
+                                
                                 {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
-                                <p><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></p>
+                                <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>
 
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
                                 <p><strong>Tagline: </strong>  {movie.tagline}</p> 
@@ -143,9 +147,9 @@ class MovieInfo extends Component {
                         : null}
                 </div>
 
-                <footer className="footer">
-                     
-                </footer>
+                <footer></footer>
+                        
+                <ScrollUpButton ContainerClassName="scroll-up-button"/>
 
                 <Loader/>
             </div>

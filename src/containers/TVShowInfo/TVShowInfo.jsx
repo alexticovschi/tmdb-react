@@ -5,6 +5,7 @@ import TVShowsList from "../../components/TVShowsList/TVShowsList";
 
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
+import ScrollUpButton from "react-scroll-up-button"; 
 
 import './TVShowInfo.css';
 
@@ -55,9 +56,11 @@ class TVShowInfo extends Component {
                         <div className="box-right">
                             <div className="inner-box-right">
                                 <h1 className="info-title">{tvShow.original_name}</h1> 
-                                <hr/>
+                            
+                                <hr className="separator"/>
+                            
                                 {list !== null ? <p><strong>Genre:</strong> {genre}</p> : null}
-                                <p><strong>Rating: </strong><Rater interactive={false} total={5} rating={tvShow.vote_average / 2} /></p>
+                                <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={tvShow.vote_average / 2} /></div>
                                 <p><strong>Overview: </strong>  {tvShow.overview}</p> 
                                 <p><strong>First Air Date: </strong>  {tvShow.first_air_date}</p>                                
                                 <p><strong>Episodes: </strong>  {tvShow.number_of_episodes}</p> 
@@ -91,6 +94,9 @@ class TVShowInfo extends Component {
                 </div>
 
                 <footer></footer>
+
+                <ScrollUpButton ContainerClassName="scroll-up-button"/>
+
                 <Loader/>
             </div>
         );

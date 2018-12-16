@@ -158,7 +158,7 @@ p {
     font-family: sans-serif;
 }
 
-p strong {
+.star-rating,p strong {
     font-size: 1.1rem;
     padding:0px;
     border-radius: 3px;
