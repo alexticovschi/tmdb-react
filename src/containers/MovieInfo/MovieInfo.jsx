@@ -5,6 +5,8 @@ import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import Navbar from "../../components/Navbar/Navbar";
 
 import './MovieInfo.css';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 class MovieInfo extends Component {
     state = {
@@ -27,11 +29,11 @@ class MovieInfo extends Component {
         // https://api.themoviedb.org/3/movie/tt4154756?api_key=9baa3cbfd9b62ea4f97966abadf41653
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`);
 
-            const movie = await resp.json();
+        const movie = await resp.json();
 
-            this.setState({ movie });
-            // console.log('[MOVIE]:',this.state.movie);
-            console.log({movie});
+        this.setState({ movie });
+        // console.log('[MOVIE]:',this.state.movie);
+        console.log({movie});
     }
 
     getSimilarMovies = async (ID) => {
@@ -65,7 +67,7 @@ class MovieInfo extends Component {
 
     render() {
         const {movie} = this.state;
-        const base_url = 'https://image.tmdb.org/t/p/w780';
+        const base_url = 'https://image.tmdb.org/t/p/w500';
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
 
@@ -83,10 +85,12 @@ class MovieInfo extends Component {
                                 <h1 className="info-title">{movie.original_title}</h1> 
                                 <hr/>
                                 {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
+                                <p><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></p>
+
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
                                 <p><strong>Tagline: </strong>  {movie.tagline}</p> 
                                 {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
-                                {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.homepage}</a></p> : null}
+                                {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
                                 
                                 <div className="btn-div">
                                     <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
@@ -98,25 +102,23 @@ class MovieInfo extends Component {
                     </div>    
                 </div>
 
-                <div className="flex-container trailers">
-                    <div className="main-content" style={{marginTop:"30px"}}>
-                        {this.state.trailers.map(trailer => (
-                            <div key={trailer.key}>
-
+                <div className="flex-container">
+                    <div className="resp-container" style={{marginTop:"30px"}}>
+                        {this.state.trailers.slice(0,1).map(trailer => (
                                 <iframe 
-                                    className="iframe-card"
+                                    key={trailer.key}
+                                    className="resp-iframe"
                                     style={{borderRadius:"6px", margin:"10px auto"}} 
                                     title="1" 
-                                    width="400" 
-                                    height="200"
+                                    allow="encrypted-media" 
+                                    allowFullScreen
                                     src={`https://www.youtube.com/embed/${trailer.key}`}
                                 />
-                            </div>
                         ))}
                     </div>
-                </div>
+                </div> 
 
-                <div className="container actors" style={{borderTop:"1px solid #fff"}}>
+                <div className="container actors" style={{borderTop:"1px solid #fff", paddingTop: "20px"}}>
                         <h1><strong>Full Cast</strong></h1>
 
                         <main className="main-content">
@@ -131,7 +133,7 @@ class MovieInfo extends Component {
                 <div className="flex-container">
                     {this.state.similar_movies.length > 0 ?
                         <div className="similar_movies">
-                            <h1>Similar Movies</h1>
+                            <h1><strong>Similar Movies</strong></h1>
                             <SimilarMovieList
                                 movieList={this.state.similar_movies}
                                 getMovieById={this.getMovieById} />
