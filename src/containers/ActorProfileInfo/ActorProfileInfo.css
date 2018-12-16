@@ -66,6 +66,18 @@
     background: rgb(233, 233, 233);
   }
 
+  .actor-biography-anchor {
+    color: rgb(100, 173, 185);
+  }
+
+  .actor-biography-anchor:hover {
+    color: rgb(72, 117, 124);
+  }
+
+  .actor-bio-text {
+    line-height: 1.4rem;
+  }
+
   .bio_btn {
     border-radius: 4px;
     display: flex;

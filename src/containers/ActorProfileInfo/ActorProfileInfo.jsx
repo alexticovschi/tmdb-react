@@ -4,6 +4,7 @@ import ActorFilmographyList from "../../components/ActorFilmographyList/ActorFil
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button"; 
+import ShowMore from 'react-show-more';
 
 import "./ActorProfileInfo.css";
 
@@ -71,7 +72,17 @@ class ActorProfileInfo extends Component {
 
                 <div className="bio_content">
                   <h2 className="bio_title">Biography</h2>
-                  <p>{actor.biography}</p>
+
+                  <div className="actor-bio-text">
+                    <ShowMore
+                      lines={3}
+                      more='Show more'
+                      less='Show less'
+                      anchorClass='actor-biography-anchor'
+                    >
+                      {actor.biography}
+                    </ShowMore>
+                  </div>
                 </div>
               </div>
               <button
@@ -125,7 +136,7 @@ class ActorProfileInfo extends Component {
         </div>
         
         <footer></footer>
-        
+
         <ScrollUpButton ContainerClassName="scroll-up-button"/>
 
         <Loader />
