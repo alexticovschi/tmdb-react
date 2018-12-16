@@ -41,15 +41,18 @@ export default class ActorImages extends Component {
     render() {
         const { actorImages } = this.state;
         const name = this.state.actorProfileInfo.name; 
+
+        console.log(actorImages)
         return (
-            <div>
+            <div className="actor-images-wrapper">
                 <Navbar/>
 
                 <div className="container actors" style={{marginTop:"70px"}}>
                     <h1 className="actor_images_name"><strong>{name}</strong></h1>
                     
+                    <hr className="separator"/>
 
-                    <main className="main-content">
+                    <main className="main-content actors">
                         {actorImages && actorImages.map((img,i) => (
                             <ActorImage key={i} img_path={img.file_path}/>
                         ))}

@@ -6,7 +6,7 @@ const ActorImageCard = ({actor}) => {
     const base_url = 'https://image.tmdb.org/t/p/w342';
 
     return (
-        <Link to={`/movie-info/cast/${actor.id}`} className="actor_card">
+        <Link to={`/cast/actor-bio/${actor.id}`} className="actor_card">
             <img 
                 className="img-profile" 
                 src={actor.profile_path === null ? 

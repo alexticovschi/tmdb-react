@@ -29,7 +29,7 @@ ReactDOM.render(
             <Route exact path="/tv-shows/latest" component={LatestTvShows} />
             <Route exact path="/tv-show-info/:tv_show_id" component={TVShowInfo} />
             <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
-            <Route exact path="/movie-info/cast/:actor_id" component={ActorProfileInfo} />
+            <Route exact path="/cast/actor-bio/:actor_id" component={ActorProfileInfo} />
             <Route exact path="/cast/:actor_id/images/profiles" component={ActorImages} />
         </Switch>
     </BrowserRouter>
