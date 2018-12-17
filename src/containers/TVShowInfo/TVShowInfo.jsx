@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
 import Navbar from "../../components/Navbar/Navbar";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
+import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
+import SlickSliderTV from "../../components/Slider/SlickSliderTVShows.js";
 
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
@@ -9,41 +11,55 @@ import ScrollUpButton from "react-scroll-up-button";
 
 import './TVShowInfo.css';
 
+const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+
 class TVShowInfo extends Component {
     state = {
         tvShow: [],
-        similarTVShows: []
+        tvShowCredits: [],
+        similarTVShows: [],
+        tvShowRecommedations: []
     }
 
     componentDidMount() {
         const { tv_show_id } = this.props.match.params;
         this.getTVShowById(tv_show_id);
         this.getSimilarTVShows(tv_show_id);
+        this.getTVShowCredits(tv_show_id);
+        this.getTVShowsRecommendations(tv_show_id);
     }
 
     getTVShowById = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/tv/${ID}?&api_key=${APIKEY}&language=en-US`);
         const tvShow = await resp.json();
         this.setState({ tvShow });
     }
 
+    getTVShowCredits = async (ID) => {
+        const resp = await fetch(`https://api.themoviedb.org/3/tv/${ID}/credits?&api_key=${APIKEY}&language=en-US`);
+        const tvShowCredits = await resp.json();
+        this.setState({ tvShowCredits: tvShowCredits.cast });
+    }
+
     getSimilarTVShows = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/tv/${ID}/similar?&api_key=${APIKEY}&language=en-US&page=1`);
         const similarTVShows = await resp.json();
         this.setState({ similarTVShows: similarTVShows.results });
     }
-    
+
+    getTVShowsRecommendations = async (ID) => {
+        const resp = await fetch(`https://api.themoviedb.org/3/tv/${ID}/recommendations?&api_key=${APIKEY}&language=en-US&page=1`);
+        const tvShowRecommedations = await resp.json();
+        this.setState({ tvShowRecommedations: tvShowRecommedations.results });
+    }
+
     render() {
-        const {tvShow} = this.state;
+        const {tvShow, tvShowRecommedations} = this.state;
         const base_url = 'https://image.tmdb.org/t/p/w500';
         const genres = tvShow.genres;
         let gen = [];
         let list = genres && genres.map(g => gen.push(g.name));
         let genre = gen.map(x => x + ' ');
-
-        console.log(this.state)
 
         return (
             <div className="box" style={{ marginTop: "56px" }}>
@@ -55,7 +71,7 @@ class TVShowInfo extends Component {
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
-                                <h1 className="info-title">{tvShow.original_name}</h1> 
+                                <h1 className="info-title"><span>{tvShow.original_name}</span></h1> 
                             
                                 <hr className="separator"/>
                             
@@ -77,13 +93,37 @@ class TVShowInfo extends Component {
                     </div>    
                 </div>
 
-                
-                <div className="flex-container">
+                {this.state.tvShowCredits.length > 0 ?
+                    <div className="container actors" style={{borderTop:"1px solid #fff", paddingTop: "20px"}}>
+                        <h1><strong>Cast</strong></h1>
+                        <hr className="separator"/>
+                        <main className="main-content">
+                            {this.state.tvShowCredits &&
+                                this.state.tvShowCredits.map(actor => <ActorImageCard key={actor.id} actor={actor}/>
+                            )}
+                        </main>
+                    </div>
+                : null }
+
+                {this.state.tvShowRecommedations.length > 0 ?
+                    <div className="container">
+                        <hr className="slider_slick_container__separator"/>
+                        <div className="slider_slick_box" style={{paddingBottom:"5px"}}>
+                            <h1 style={{textAlign: "center"}}>Recommendations</h1>
+                            <hr className="separator"/>
+
+                            <SlickSliderTV items={tvShowRecommedations}/>
+                        </div>
+                    </div>
+                : null}
+
+                <div className="container" style={{marginTop:"8px"}}>
                     {this.state.similarTVShows.length > 0 ?
                         <div>
-                            <hr className="separator"/>
                             <div className="similar_movies">
-                                    <h1>Similar TV Shows</h1>
+                                    <h1 style={{textAlign: "center"}}>Similar TV Shows</h1>
+                                    <hr className="separator"/>
+
                                     <TVShowsList
                                         tvShowList={this.state.similarTVShows}
                                         getTVShowById={this.getTVShowById}

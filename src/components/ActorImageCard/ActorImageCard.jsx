@@ -10,7 +10,7 @@ const ActorImageCard = ({actor}) => {
             <img 
                 className="img-profile" 
                 src={actor.profile_path === null ? 
-                'https://www.matajikesarwala.com/wp-content/uploads/2018/05/man-dummy.jpg' 
+                'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg' 
             : base_url + actor.profile_path} alt={"img card"} />
             <div className="actor_name">{actor.name}</div>
         </Link>         
