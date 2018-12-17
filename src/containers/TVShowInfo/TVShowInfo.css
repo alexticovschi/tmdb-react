@@ -3,6 +3,10 @@ body {
     margin-bottom: -120px;
 }
 
+h1 {
+    color: rgb(70, 70, 70);
+}
+
 .react-rater-star.is-active,
 .react-rater-star.is-active-half:before {
     color: #fc6;

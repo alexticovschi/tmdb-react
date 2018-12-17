@@ -16,6 +16,10 @@
     opacity: 1;
 }
 
+*:focus {
+    outline: 0 !important;
+}
+
 .slider_slick_box__title {
     font-size: 1.6rem;
     margin-top: 20px;

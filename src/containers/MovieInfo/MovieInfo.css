@@ -8,7 +8,7 @@
     position: relative;
     overflow: hidden;
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .resp-iframe {
@@ -26,7 +26,7 @@
     display: flex;
 }
 
-.flex-container {
+/* .flex-container {
     max-width: 1300px;
     max-height: 100% !important;
     margin: 0 auto;
@@ -39,10 +39,12 @@
     margin: 0px;
     text-align: center;
     font-size: 16px;
-}
+} */
 
 .container.actors {
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(126, 73, 73);
+    background: radial-gradient(at 30% top, rgb(255, 255, 255) 0%, rgb(175, 201, 194) 70%);
+
     padding-bottom: 50px;
 }
 
@@ -51,10 +53,6 @@
     color:rgb(77, 76, 76);
 }
 
-.flex-container.trailers {
-    /* background-color: rgb(212, 212, 212); */
-    background-color: rgb(255, 255, 255);
-}
 
 .row {  
     display: flex;
@@ -89,8 +87,17 @@
     padding: 6px 4px;
     width: 96%;
     border-radius: 3px;
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(0, 0, 0); */
+    background: radial-gradient(at 30% top, rgb(124, 197, 181) 0%, rgba(8, 28, 36, 1) 70%);
+
     color: #fff;
+}
+
+h1 strong {
+    text-align: center;
+}
+h1.info-title span {
+    padding-left: 6px;
 }
 
 .card-title {
@@ -158,11 +165,12 @@ p {
     font-family: sans-serif;
 }
 
-.star-rating,p strong {
+.star-rating, p strong {
     font-size: 1.1rem;
-    padding:0px;
+    padding: 0px;
+    left: 0;
     border-radius: 3px;
-    color: rgb(18, 78, 138);
+    color: rgb(13, 73, 55);
 }
 
 .similar_movies {
@@ -174,7 +182,11 @@ p {
     color:rgb(70, 70, 70);
 }
 
-
+.cube {
+    height: 40px;
+    width: 40px;
+    background-color: #000 !important;
+}
 
 @media only screen and (max-width: 1250px) {
 

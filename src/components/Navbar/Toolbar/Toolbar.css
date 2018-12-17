@@ -19,7 +19,7 @@
   }
   
   .toolbar__logo a {
-    color: #fff;
+    color: #00d373;
     text-decoration: none;
     font-size: 1.2rem;
   }
@@ -49,7 +49,7 @@
   
   .toolbar_navigation-items a:hover,
   .toolbar_navigation-items a:active {
-    color: #fa923f;
+    color: #b4e4ce;
   }
   
   @media (max-width: 768px) {

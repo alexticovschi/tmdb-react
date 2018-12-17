@@ -1,5 +1,9 @@
 body {
-  background-color: rgb(185, 184, 184);
+  background-color: rgb(243, 241, 241);
+}
+
+.container {
+  background-color: rgb(255, 255, 255);
 }
 
 .slider_slick_container__separator {
