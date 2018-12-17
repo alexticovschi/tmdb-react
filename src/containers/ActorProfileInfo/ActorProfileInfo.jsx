@@ -5,22 +5,25 @@ import Navbar from "../../components/Navbar/Navbar";
 import { Link } from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button"; 
 import ShowMore from 'react-show-more';
+import ImageZoom from 'react-medium-image-zoom';
 
 import "./ActorProfileInfo.css";
 
 class ActorProfileInfo extends Component {
   state = {
     actorProfileInfo: [],
-    actorFilmographyData: []  
+    actorFilmographyData: [],
+    actorTaggedImages: []  
   };
 
   componentDidMount() {
     const { actor_id } = this.props.match.params;
     this.getActorProfileInfo(actor_id);
     this.getActorFilmographyData(actor_id);
+    this.getActorTaggedImages(actor_id);
   }
 
-  getActorProfileInfo = async ID => {
+  getActorProfileInfo = async (ID) => {
     const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
     const resp = await fetch(
       `https://api.themoviedb.org/3/person/${ID}?api_key=${APIKEY}&language=en-US`
@@ -31,7 +34,7 @@ class ActorProfileInfo extends Component {
     // console.log("[ACTOR PROFILE]", actorProfileInfo);
   };
 
-  getActorFilmographyData = async ID => {
+  getActorFilmographyData = async (ID) => {
     const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
     const resp = await fetch(
       `https://api.themoviedb.org/3/person/${ID}/combined_credits?api_key=${APIKEY}&language=en-US`
@@ -43,11 +46,24 @@ class ActorProfileInfo extends Component {
     this.setState({ actorFilmographyData: actorFilmography });
   };
 
+  getActorTaggedImages = async (ID) => {
+    const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
+    const resp = await fetch(
+      `https://api.themoviedb.org/3/person/${ID}/tagged_images?api_key=${APIKEY}&language=en-US&page=1`
+    );
+
+    const actorTaggedImages = await resp.json();
+    this.setState({ actorTaggedImages: actorTaggedImages.results });
+    console.log(actorTaggedImages)
+  };
+
   render() {
     const base_url = "https://image.tmdb.org/t/p/w500";
+    const base_url2 = 'https://image.tmdb.org/t/p/original';
+
     const actor = this.state.actorProfileInfo;
     const filmography = this.state.actorFilmographyData;
-    console.log('actor:',actor)
+    // console.log('actor:',actor)
     return (
       <div>
         <Navbar/>
@@ -58,7 +74,7 @@ class ActorProfileInfo extends Component {
                 className="actor_profile_img"
                 src={
                   actor.profile_path === null
-                    ? "https://www.matajikesarwala.com/wp-content/uploads/2018/05/man-dummy.jpg"
+                    ? "https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg"
                     : base_url + actor.profile_path
                 }
                 alt={"img card"}
@@ -122,11 +138,34 @@ class ActorProfileInfo extends Component {
                : null}
             </div>
           </div>
+          
+          {this.state.actorTaggedImages.length > 0 ?
+            <div>
+              <div className="masonry">
+                  {this.state.actorTaggedImages.map((img, i) => (
+                    <div className="item">
+                      <ImageZoom
+                        image={{
+                            src: `${base_url + img.file_path}`,
+                            alt: 'actor profile image small',
+                            className: 'actor img'                    
+                        }}
+                        zoomImage={{
+                            src: `${base_url2 + img.file_path}`,
+                            alt: 'actor profile image original'
+                        }}
+                      />      
+                    </div>
+                  ))}
+              </div>
+              <hr className="separator"/>
+            </div>
+          : null}
 
-          <div className="flex-container">
+          <div className="container">
             {filmography.length && filmography.length > 0 ? (
               <div className="similar_movies">
-                <h1>{actor.name} - <span className="bio_title">Filmography</span></h1>
+                <h1 style={{textAlign:"center"}}>{actor.name} - <span className="bio_title">Filmography</span></h1>
                 <ActorFilmographyList
                   movieList={filmography}
                 />
