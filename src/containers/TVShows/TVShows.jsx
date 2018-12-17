@@ -30,13 +30,13 @@ class TVShows extends Component {
             <div>
                 <Navbar/>
 
-                <div className="flex-container" style={{marginTop:"68px"}}> 
+                <div className="container" style={{marginTop:"68px"}}> 
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
 
                         <hr className="separator"/>
 
-                        <h1>Airing Today</h1>
+                        <h1 style={{textAlign:"center"}}>Airing Today</h1>
                         <TVShowsList
                             tvShowList={airingTodayTVShows}
                             getTVShowById={this.getTVShowById}

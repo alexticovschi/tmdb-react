@@ -28,13 +28,13 @@ class LatestTvShows extends Component {
             <div>
                 <Navbar/>
 
-                <div className="flex-container" style={{marginTop:"68px"}}>
+                <div className="container" style={{marginTop:"68px"}}>
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
                         
                         <hr className="separator"/>
 
-                        <h1>Latest TV Shows</h1>
+                        <h1 style={{textAlign:"center"}}>Latest TV Shows</h1>
                         <TVShowsList
                             tvShowList={latestTVShows}
                             getTVShowById={this.getTVShowById}

@@ -29,13 +29,13 @@ class PopularTvShows extends Component {
             <div>
                 <Navbar/>
 
-                <div className="flex-container" style={{marginTop:"68px"}}> 
+                <div className="container" style={{marginTop:"68px"}}> 
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
                         
                         <hr className="separator"/>
 
-                        <h1>Popular TV Shows</h1>
+                        <h1 style={{textAlign:"center"}}>Popular TV Shows</h1>
                         <TVShowsList
                             tvShowList={popularTvShows}
                             getTVShowById={this.getTVShowById}

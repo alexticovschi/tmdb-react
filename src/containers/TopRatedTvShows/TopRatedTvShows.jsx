@@ -29,13 +29,13 @@ class TopRatedTvShows extends Component {
             <div>
                 <Navbar/>
 
-                <div className="flex-container" style={{marginTop:"68px"}}> 
+                <div className="container" style={{marginTop:"68px"}}> 
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
                         
                         <hr className="separator"/>
 
-                        <h1>Top Rated TV Shows</h1>
+                        <h1 style={{textAlign:"center"}}>Top Rated TV Shows</h1>
                         <TVShowsList
                             tvShowList={topRatedTVShows}
                             getTVShowById={this.getTVShowById}

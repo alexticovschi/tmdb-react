@@ -11,7 +11,7 @@ const MovieItem = ({title, poster, id}) => {
             className="card">
             
             <img src={poster} alt="film poster"/>
-            <h4 className="card-title">{title}</h4>
+            {/* <h4 className="card-title">{title}</h4> */}
         </Link>
     );
 };
