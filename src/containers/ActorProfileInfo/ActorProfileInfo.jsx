@@ -143,7 +143,7 @@ class ActorProfileInfo extends Component {
             <div>
               <div className="masonry">
                   {this.state.actorTaggedImages.map((img, i) => (
-                    <div className="item">
+                    <div className="item" key={i}>
                       <ImageZoom
                         image={{
                             src: `${base_url + img.file_path}`,
