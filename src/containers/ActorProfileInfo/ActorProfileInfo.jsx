@@ -148,13 +148,16 @@ class ActorProfileInfo extends Component {
                         image={{
                             src: `${base_url + img.file_path}`,
                             alt: 'actor profile image small',
-                            className: 'actor img'                    
+                            className: 'actor-img'                    
                         }}
                         zoomImage={{
                             src: `${base_url2 + img.file_path}`,
                             alt: 'actor profile image original'
                         }}
-                      />      
+                      />    
+                      <div className="text-content">
+                        <div className="title">{img.media.original_title} ({img.media.release_date.substr(0,4)})</div>
+                      </div>
                     </div>
                   ))}
               </div>

@@ -134,6 +134,29 @@
   }
 
 
+  .text-content {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    margin-bottom: 4px;
+    transition: opacity 800ms;
+    text-align: center;
+  }
+
+  .text-content .title {
+    padding-top: 16px;
+  }
+
+  .item:hover .text-content {
+    opacity: 1;
+  }
+
+
 
   /*************************
   *** CSS Masonry Layout ***
@@ -148,6 +171,7 @@
 
   /* The Masonry Brick */
   .item {
+    position: relative;
     /* background: #fff; */
     /* padding: 0.5em; */
     margin: 0 0 0.5em;
