@@ -70,21 +70,26 @@ class MovieInfo extends Component {
     render() {
         const {movie} = this.state;
         const base_url = 'https://image.tmdb.org/t/p/w500';
+        const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
+        // const base_url3 = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
 
         // console.log(this.state.credits);
         return (
             <div className="box" style={{ marginTop: "56px" }}>
+
                 <Navbar/>
                 <div className="container">
+
                     <div className="row">
                         <div className="box-left">
                             <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
-                                <h1 className="info-title">{movie.original_title}</h1> 
+
+                                <h1 className="info-title"><span>{movie.original_title}</span></h1> 
 
                                 <hr className="separator"/>
                                 
@@ -93,9 +98,10 @@ class MovieInfo extends Component {
 
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
                                 <p><strong>Tagline: </strong>  {movie.tagline}</p> 
+                                <p><strong>Overview: </strong>  {movie.overview}</p> 
                                 {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
-                                
+
                                 <div className="btn-div">
                                     <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
                                     <button className="btn btn-info b2" onClick={() => this.props.history.push('/search')}>Back To Search</button>
@@ -103,27 +109,34 @@ class MovieInfo extends Component {
                             </div>
                         
                         </div>
-                    </div>    
-                </div>
 
-                <div className="flex-container">
-                    <div className="resp-container" style={{marginTop:"30px"}}>
-                        {this.state.trailers.slice(0,1).map(trailer => (
-                                <iframe 
-                                    key={trailer.key}
-                                    className="resp-iframe"
-                                    style={{borderRadius:"6px", margin:"10px auto"}} 
-                                    title="1" 
-                                    allow="encrypted-media" 
-                                    allowFullScreen
-                                    src={`https://www.youtube.com/embed/${trailer.key}`}
-                                />
-                        ))}
-                    </div>
+                        <div>            
+                            <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
+                        </div>
+                    </div>    
                 </div> 
 
+                {this.state.trailers.length > 0 ?
+                    <div className="container">
+                        <div className="resp-container" style={{marginTop:"10px", marginBottom:"10px"}}>
+                            {this.state.trailers.slice(0,1).map(trailer => (
+                                    <iframe 
+                                        key={trailer.key}
+                                        className="resp-iframe"
+                                        style={{borderRadius:"6px", margin:"10px auto"}} 
+                                        title="1" 
+                                        allow="encrypted-media" 
+                                        allowFullScreen
+                                        src={`https://www.youtube.com/embed/${trailer.key}`}
+                                    />
+                            ))}
+                        </div>
+                    </div>
+                : null}
+
                 <div className="container actors" style={{borderTop:"1px solid #fff", paddingTop: "20px"}}>
-                        <h1><strong>Full Cast</strong></h1>
+                        <h1><strong>Cast</strong></h1>
+                        <hr className="separator"/>
 
                         <main className="main-content">
                             {this.state.credits &&
@@ -134,17 +147,18 @@ class MovieInfo extends Component {
                         </main>
                 </div>
 
-                <div className="flex-container">
+                <div className="container">
                     {this.state.similar_movies.length > 0 ?
                         <div className="similar_movies">
-                            <h1><strong>Similar Movies</strong></h1>
+                            <h1 style={{textAlign:"center"}}><strong>Similar Movies</strong></h1>
+                            <hr className="separator"/>
+
                             <SimilarMovieList
                                 movieList={this.state.similar_movies}
                                 getMovieById={this.getMovieById} />
                                     
-                            {/* <button className="btn btn-info b3" onClick={() => this.props.history.push('/')}>Back To Search</button> */}
                         </div>
-                        : null}
+                    : null}
                 </div>
 
                 <footer></footer>
