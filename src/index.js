@@ -10,7 +10,7 @@ import PopularTvShows from './containers/PopularTvShows/PopularTvShows';
 import NowOnTheAirTVShows from './containers/NowOnTheAirTVShows/NowOnTheAirTVShows';
 import TopRatedTvShows from './containers/TopRatedTvShows/TopRatedTvShows';
 import LatestTvShows from './containers/LatestTvShows/LatestTvShows';
-
+import ScrollToTop from './components/ScrollToTop';
 import Home from './containers/Home/Home';
 
 import * as serviceWorker from './serviceWorker';
@@ -20,6 +20,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
+            <ScrollToTop>
             <Route exact path="/" component={Home} />
             <Route exact path="/search" component={App} />
             <Route exact path="/tv-shows" component={TVShows} />
@@ -31,6 +32,7 @@ ReactDOM.render(
             <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
             <Route exact path="/cast/actor-bio/:actor_id" component={ActorProfileInfo} />
             <Route exact path="/cast/:actor_id/images/profiles" component={ActorImages} />
+            </ScrollToTop>
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));
