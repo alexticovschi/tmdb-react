@@ -56,11 +56,13 @@ class TVShowInfo extends Component {
     render() {
         const {tvShow, tvShowRecommedations} = this.state;
         const base_url = 'https://image.tmdb.org/t/p/w500';
+        const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
         const genres = tvShow.genres;
         let gen = [];
         let list = genres && genres.map(g => gen.push(g.name));
         let genre = gen.map(x => x + ' ');
-
+        
+        console.log(this.state)
         return (
             <div className="box" style={{ marginTop: "56px" }}>
                 <Navbar/>
@@ -89,6 +91,10 @@ class TVShowInfo extends Component {
                                     <button className="btn btn-info b2" onClick={() => this.props.history.goBack()}>Back To Previous Page</button>
                                 </div>
                             </div>
+                        </div>
+
+                        <div>            
+                            <img className="custom_bg_poster" src={base_url2 + tvShow.backdrop_path} alt=""/>
                         </div>
                     </div>    
                 </div>
