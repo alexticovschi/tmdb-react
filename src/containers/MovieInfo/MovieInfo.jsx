@@ -3,6 +3,7 @@ import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList
 import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import Navbar from "../../components/Navbar/Navbar";
+import SlickSlider from "../../components/Slider/SlickSliderMovieInfo";
 
 import './MovieInfo.css';
 import Rater from 'react-rater';
@@ -15,6 +16,7 @@ class MovieInfo extends Component {
         movie: [],
         credits: [],
         similar_movies: [],
+        movieRecommedations: [],
         trailers: []
     }
 
@@ -23,6 +25,7 @@ class MovieInfo extends Component {
         this.getMovieById(movie_id);
         this.getSimilarMovies(movie_id);
         this.getMovieCredits(movie_id);
+        this.getMovieRecommendations(movie_id);
         this.getTrailers(movie_id);
     }
 
@@ -58,6 +61,14 @@ class MovieInfo extends Component {
         // console.log('[CREDITS]', credits);
     }
 
+    getMovieRecommendations = async (ID) => {
+        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+
+        const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/recommendations?&api_key=${APIKEY}&language=en-US&page=1`);
+        const movieRecommedations = await resp.json();
+        this.setState({ movieRecommedations: movieRecommedations.results });
+    }
+
     getTrailers = async (ID) => {
         const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/videos?&api_key=${APIKEY}&language=en-US`);
@@ -68,7 +79,7 @@ class MovieInfo extends Component {
     }
 
     render() {
-        const {movie} = this.state;
+        const {movie, movieRecommedations} = this.state;
         const base_url = 'https://image.tmdb.org/t/p/w500';
         const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
         // const base_url3 = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
@@ -146,6 +157,22 @@ class MovieInfo extends Component {
                             )}
                         </main>
                 </div>
+
+                {this.state.movieRecommedations.length > 0 ?
+                    <div className="container">
+                        <hr className="slider_slick_container__separator"/>
+                        <div className="slider_slick_box" style={{paddingBottom:"5px"}}>
+                            <h1 style={{textAlign: "center"}}>Recommendations</h1>
+                            <hr className="separator"/>
+
+                            <SlickSlider items={movieRecommedations}/>
+                        </div>
+
+                        <hr className="separator"/>
+
+                    </div>
+                : null}
+            
 
                 <div className="container">
                     {this.state.similar_movies.length > 0 ?
