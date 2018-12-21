@@ -63,7 +63,7 @@ class ActorProfileInfo extends Component {
 
     const actor = this.state.actorProfileInfo;
     const filmography = this.state.actorFilmographyData;
-    // console.log('actor:',actor)
+    console.log(this.state)
     return (
       <div>
         <Navbar/>
@@ -99,8 +99,29 @@ class ActorProfileInfo extends Component {
                       {actor.biography}
                     </ShowMore>
                   </div>
+
+              <div>
+                <h4>
+                  Known For: <span>{actor.known_for_department}</span>
+                </h4>
+                <h4>
+                  Gender: <span>{actor.gender === 1 ? "Female" : "Male"}</span>
+                </h4>
+                <h4>
+                  Birthday: <span>{actor.birthday}</span>
+                </h4>
+                <h4>
+                  Place of Birth: <span>{actor.place_of_birth}</span>
+                </h4>
+                {actor.homepage !== null ?
+                  <h4>
+                      Official Site: <span><a href={actor.homepage} >{actor.homepage}</a></span>
+                  </h4>
+                : null}
+              </div>
                 </div>
               </div>
+
               <button
                 className="bio_btn"
                 onClick={() => this.props.history.goBack()}
@@ -115,32 +136,11 @@ class ActorProfileInfo extends Component {
               </Link>
             </div>
           </div>
-
-          <div className="personal_info">
-            <div>
-              <h2>Personal Info</h2>
-              <h4>
-                Known For: <span>{actor.known_for_department}</span>
-              </h4>
-              <h4>
-                Gender: <span>{actor.gender === 1 ? "Female" : "Male"}</span>
-              </h4>
-              <h4>
-                Birthday: <span>{actor.birthday}</span>
-              </h4>
-              <h4>
-                Place of Birth: <span>{actor.place_of_birth}</span>
-              </h4>
-              {actor.homepage !== null ?
-                <h4>
-                    Official Site: <span><a href={actor.homepage} >{actor.homepage}</a></span>
-                </h4>
-               : null}
-            </div>
-          </div>
           
           {this.state.actorTaggedImages.length > 0 ?
             <div>
+              <hr className="separator"/>
+
               <div className="masonry">
                   {this.state.actorTaggedImages.map((img, i) => (
                     <div className="item" key={i}>
@@ -156,7 +156,14 @@ class ActorProfileInfo extends Component {
                         }}
                       />    
                       <div className="text-content">
-                        <div className="title">{img.media.original_title} ({img.media.release_date.substr(0,4)})</div>
+                        <div className="title">
+                          {img.media.original_title || img.media.original_name} 
+                          ({
+                            img.media.release_date ? img.media.release_date.substr(0,4) : null 
+                              || 
+                            img.media.first_air_date ? img.media.first_air_date.substr(0,4) : null
+                          })
+                        </div>
                       </div>
                     </div>
                   ))}
