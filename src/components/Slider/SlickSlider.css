@@ -1,7 +1,18 @@
 
-.slick-arrow {
-    /* color: rgb(192, 14, 14); */
+.slick-arrow.slick-prev, .slick-arrow.slick-next {
+    font-size: 20px !important;
+    width: 80px;
+    z-index: 1;
 }
+
+
+.slick-next:before, .slick-prev:before {
+    font-size: 40px;
+    line-height: 1;
+    opacity: .75;
+    color: rgb(124, 120, 120);
+}
+
 .slider_container {
     margin-bottom: 60px;
 }
