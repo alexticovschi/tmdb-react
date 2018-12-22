@@ -1,13 +1,8 @@
+.container.actors {
+    min-height: 68vh;
+}
+
 .actor_images_name {
     padding-top: 30px;
 }
 
-/* .actor-images-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-} */
-
-/* .row {
-    flex: 1;
-  } */

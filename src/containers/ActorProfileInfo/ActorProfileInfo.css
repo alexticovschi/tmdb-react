@@ -47,7 +47,8 @@
     font-family: sans-serif;
   }
 
-  .bio_title, h4 {
+  .bio_title,
+  h4 {
     font-family: 'Times New Roman', Times, serif;
 
     color: rgb(109, 104, 104);
@@ -69,11 +70,13 @@
     font-weight: 600;
     font-size: 1.3rem;
   }
+
   h4 span {
     color: rgb(49, 47, 47);
     font-weight: 400;
     font-size: 18.5px;
   }
+
   .personal_info {
     padding: 20px;
     text-align: center;
@@ -147,10 +150,8 @@
   @media (max-width:700px) {
     .side {
       margin-top: -100px !important;
-    }  
+    }
   }
-
-
 
   .text-content {
     background: rgba(0, 0, 0, 0.5);

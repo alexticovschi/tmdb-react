@@ -3,6 +3,11 @@ body {
     margin-bottom: -120px;
 }
 
+.box {
+    background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%);
+
+}
+
 h1 {
     color: rgb(70, 70, 70);
 }
