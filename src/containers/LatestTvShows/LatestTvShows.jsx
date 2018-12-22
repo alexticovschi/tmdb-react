@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from "../../components/Navbar/Navbar";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import Loader from '../../components/Loader/Loader';
 import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TVShowNavigationButtons';
@@ -26,8 +25,6 @@ class LatestTvShows extends Component {
 
         return (
             <div>
-                <Navbar/>
-
                 <div className="container" style={{marginTop:"68px"}}>
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
@@ -43,7 +40,6 @@ class LatestTvShows extends Component {
                 </div>
                 
                 <Loader/>
-                <footer></footer>
             </div>
         )
     }

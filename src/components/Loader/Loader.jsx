@@ -12,9 +12,9 @@ class Loader extends Component {
 
       setTimeout(() => {
         document.querySelector('.loader-container').remove();
-      }, 2000);
+      }, 100);
 
-    }, 600);
+    }, 1000);
   }
 
   render() {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from "../../components/Navbar/Navbar";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import Loader from '../../components/Loader/Loader';
 import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TVShowNavigationButtons';
@@ -21,30 +20,26 @@ class NowOnTheAirTVShows extends Component {
         this.setState({ nowOnTheAirTVShows: nowOnTheAirTVShows.results });
     }
 
-
     render() {
         const nowOnTheAirTVShows = this.state.nowOnTheAirTVShows;
 
         return (
             <div>
-                <Navbar/>
-
                 <div className="container" style={{marginTop:"68px"}}> 
                     <div className="similar_movies">
-                            <TVShowNavigationButtons/>
+                        <TVShowNavigationButtons/>
                             
-                            <hr className="separator"/>
+                        <hr className="separator"/>
 
-                            <h1 style={{textAlign:"center"}}>Now On The Air TV Shows</h1>
-                            <TVShowsList
-                                tvShowList={nowOnTheAirTVShows}
-                                getTVShowById={this.getTVShowById}
-                            />
+                        <h1 style={{textAlign:"center"}}>Now On The Air TV Shows</h1>
+                        <TVShowsList
+                            tvShowList={nowOnTheAirTVShows}
+                            getTVShowById={this.getTVShowById}
+                        />
                     </div>
                 </div>
                 
                 <Loader/>
-                <footer></footer>
             </div>
         )
     }

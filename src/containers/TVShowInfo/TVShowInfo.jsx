@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
-import Navbar from "../../components/Navbar/Navbar";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SlickSliderTV from "../../components/Slider/SlickSliderTVShows.js";
 
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
-import ScrollUpButton from "react-scroll-up-button"; 
 
 import './TVShowInfo.css';
 
@@ -65,7 +63,6 @@ class TVShowInfo extends Component {
         console.log(this.state)
         return (
             <div className="box" style={{ marginTop: "56px" }}>
-                <Navbar/>
                 <div className="container">
                     <div className="row">
                         <div className="box-left">
@@ -87,7 +84,7 @@ class TVShowInfo extends Component {
                                 {tvShow.homepage ? <p><strong>Website: </strong>  <a href={tvShow.homepage} target="_blank" rel="noopener noreferrer">{tvShow.original_name} Official Website</a></p> : null}
 
                                 <div className="btn-div">
-                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/tv-shows')}>Back To TV Shows</button>
+                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/tv-shows')}>Back To Main</button>
                                     <button className="btn btn-info b2" onClick={() => this.props.history.goBack()}>Back To Previous Page</button>
                                 </div>
                             </div>
@@ -138,10 +135,6 @@ class TVShowInfo extends Component {
                         </div>
                     : null}        
                 </div>
-
-                <footer></footer>
-
-                <ScrollUpButton ContainerClassName="scroll-up-button"/>
 
                 <Loader/>
             </div>

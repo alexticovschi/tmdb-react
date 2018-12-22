@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Carousel from "../../components/Carousel/Carousel";
-import Navbar from "../../components/Navbar/Navbar";
-import Loader from "../../components/Loader/Loader";
-import SlickSlider from "../../components/Slider/SlickSlider";
+import MovieList from '../../components/MovieList/MovieList';
+// import SlickSlider from "../../components/Slider/SlickSlider";
 
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -10,10 +9,12 @@ import './Home.css';
 
 class Home extends Component {
     state = {
+        movie: [],
         upcomingMovies: [],
         nowPlayingMovies: [],
         popularMovies: [],
-        topRatedMovies: []
+        topRatedMovies: [],
+        latestMovies: []
     }
 
     componentDidMount() {
@@ -21,15 +22,7 @@ class Home extends Component {
         this.getNowPlayingMovies();
         this.getPopularMovies();
         this.getTopRatedMovies();
-    }
-
-    getLatestMovies = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
-        const resp = await fetch(`https://api.themoviedb.org/3/movie/latest?&api_key=${APIKEY}&language=en-US`);
-
-        const latest = await resp.json();
-
-        this.setState({ latest });
+        this.getLatestMovies();
     }
 
     getUpcomingMovies = async (ID) => {
@@ -68,18 +61,44 @@ class Home extends Component {
         this.setState({ topRatedMovies: topRatedMovies.results });
     }
 
+    getLatestMovies = async (ID) => {
+        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+        const resp = await fetch(`https://api.themoviedb.org/3/discover/movie?&api_key=${APIKEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`);
+
+        const latestMovies = await resp.json();
+
+        this.setState({ latestMovies: latestMovies.results });
+    }
+
+    getMovieById = async (ID) => {
+        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
+        // https://api.themoviedb.org/3/movie/tt4154756?api_key=9baa3cbfd9b62ea4f97966abadf41653
+        const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`);
+    
+        const movie = await resp.json();
+    
+        this.setState({ movie });
+        // console.log('[MOVIE]:',this.state.movie);
+      }
+
     render() {
-        const upcoming = this.state.upcomingMovies;
-        const popular = this.state.popularMovies;
-        const toprated = this.state.topRatedMovies;
-
+        // const upcoming = this.state.upcomingMovies;
+        // const popular = this.state.popularMovies;
+        // const toprated = this.state.topRatedMovies;
+        // console.log(this.state)
         return (
-            <div>
-                <Navbar/>
-                <main className="container" style={{ marginTop: "56px" }}>
+            <div className="wrapper">
+                <div className="carousel-container">
                     <Carousel movies={this.state.nowPlayingMovies} />    
+                </div>
 
-                    <div className="slider_slick_box">
+                <main className="container">
+                    <MovieList
+                        movieList={this.state.latestMovies} 
+                        getMovieById={this.getMovieById} 
+                    />
+
+                    {/* <div className="slider_slick_box">
                         <div className="slider_slick_box__title">Upcoming</div>
                         <SlickSlider items={upcoming}/>
                     </div>
@@ -94,12 +113,9 @@ class Home extends Component {
                     <div className="slider_slick_box">
                         <div className="slider_slick_box__title">Top Rated</div>
                         <SlickSlider items={toprated}/>
-                    </div>
+                    </div> */}
                 </main>
-
-                <footer></footer>
-
-                <Loader/>
+                
             </div>
 
         )

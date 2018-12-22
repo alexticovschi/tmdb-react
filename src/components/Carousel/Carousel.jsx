@@ -9,7 +9,7 @@ export default ({movies}) => {
     // console.log(movies);
     const base_url = 'https://image.tmdb.org/t/p/original';
     return (
-        <Carousel autoPlay>
+        <Carousel autoPlay infiniteLoop={true} useKeyboardArrows={true}>
             {movies.map(movie => (
                 <div key={movie.id}>
                     <img className="carousel-img" src={base_url + movie.backdrop_path} alt="carousel img"/>

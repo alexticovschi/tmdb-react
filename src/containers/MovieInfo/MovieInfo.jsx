@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
 import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
-import Navbar from "../../components/Navbar/Navbar";
 import SlickSlider from "../../components/Slider/SlickSliderMovieInfo";
 
 import './MovieInfo.css';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
-import ScrollUpButton from "react-scroll-up-button"; 
-
 
 class MovieInfo extends Component {
     state = {
@@ -89,10 +86,7 @@ class MovieInfo extends Component {
         // console.log(this.state.credits);
         return (
             <div className="box" style={{ marginTop: "56px" }}>
-
-                <Navbar/>
                 <div className="container">
-
                     <div className="row">
                         <div className="box-left">
                             <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
@@ -118,7 +112,6 @@ class MovieInfo extends Component {
                                     <button className="btn btn-info b2" onClick={() => this.props.history.push('/search')}>Back To Search</button>
                                 </div>
                             </div>
-                        
                         </div>
 
                         <div>            
@@ -131,31 +124,29 @@ class MovieInfo extends Component {
                     <div className="container">
                         <div className="resp-container" style={{marginTop:"10px", marginBottom:"10px"}}>
                             {this.state.trailers.slice(0,1).map(trailer => (
-                                    <iframe 
-                                        key={trailer.key}
-                                        className="resp-iframe"
-                                        style={{borderRadius:"6px", margin:"10px auto"}} 
-                                        title="1" 
-                                        allow="encrypted-media" 
-                                        allowFullScreen
-                                        src={`https://www.youtube.com/embed/${trailer.key}`}
-                                    />
+                                <iframe 
+                                    key={trailer.key}
+                                    className="resp-iframe"
+                                    style={{borderRadius:"6px", margin:"10px auto"}} 
+                                    title="1" 
+                                    allow="encrypted-media" 
+                                    allowFullScreen
+                                    src={`https://www.youtube.com/embed/${trailer.key}`}
+                                />
                             ))}
                         </div>
                     </div>
                 : null}
 
                 <div className="container actors" style={{borderTop:"1px solid #fff", paddingTop: "20px"}}>
-                        <h1><strong>Cast</strong></h1>
-                        <hr className="separator"/>
+                    <h1><strong>Cast</strong></h1>
+                    <hr className="separator"/>
 
-                        <main className="main-content">
-                            {this.state.credits &&
-                                this.state.credits.map(actor => {
-                                    return <ActorImageCard key={actor.id} actor={actor}/>
-                                }
-                            )}
-                        </main>
+                    <main className="main-content">
+                        {this.state.credits &&
+                            this.state.credits.map(actor => <ActorImageCard key={actor.id} actor={actor}/>
+                        )}
+                    </main>
                 </div>
 
                 {this.state.movieRecommedations.length > 0 ?
@@ -169,7 +160,6 @@ class MovieInfo extends Component {
                         </div>
 
                         <hr className="separator"/>
-
                     </div>
                 : null}
             
@@ -182,15 +172,11 @@ class MovieInfo extends Component {
 
                             <SimilarMovieList
                                 movieList={this.state.similar_movies}
-                                getMovieById={this.getMovieById} />
-                                    
+                                getMovieById={this.getMovieById} 
+                            />                           
                         </div>
                     : null}
                 </div>
-
-                <footer></footer>
-                        
-                <ScrollUpButton ContainerClassName="scroll-up-button"/>
 
                 <Loader/>
             </div>

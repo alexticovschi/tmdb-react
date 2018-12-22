@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from "../../components/Navbar/Navbar";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import Loader from '../../components/Loader/Loader';
 import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TVShowNavigationButtons';
@@ -21,14 +20,11 @@ class TopRatedTvShows extends Component {
         this.setState({ topRatedTVShows: topRatedTVShows.results });
     }
 
-
     render() {
         const topRatedTVShows = this.state.topRatedTVShows;
 
         return (
             <div>
-                <Navbar/>
-
                 <div className="container" style={{marginTop:"68px"}}> 
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
@@ -44,7 +40,6 @@ class TopRatedTvShows extends Component {
                 </div>
                 
                 <Loader/>
-                <footer></footer>
             </div>
         )
     }

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Loader from "../../components/Loader/Loader";
 import ActorFilmographyList from "../../components/ActorFilmographyList/ActorFilmographyList";
-import Navbar from "../../components/Navbar/Navbar";
 import { Link } from 'react-router-dom';
-import ScrollUpButton from "react-scroll-up-button"; 
 import ShowMore from 'react-show-more';
 import ImageZoom from 'react-medium-image-zoom';
+import Loader from '../../components/Loader/Loader';
 
 import "./ActorProfileInfo.css";
 
@@ -66,7 +64,6 @@ class ActorProfileInfo extends Component {
     console.log(this.state)
     return (
       <div>
-        <Navbar/>
         <div className="container" style={{ marginTop: "56px" }}>
           <div className="row">
             <div className="side">
@@ -126,7 +123,7 @@ class ActorProfileInfo extends Component {
                 className="bio_btn"
                 onClick={() => this.props.history.goBack()}
               >
-                Back To Movie Info
+                Back To Main
               </button>
               <Link 
                 to={`/cast/${actor.id}/images/profiles`}
@@ -168,11 +165,12 @@ class ActorProfileInfo extends Component {
                     </div>
                   ))}
               </div>
-              <hr className="separator"/>
             </div>
           : null}
 
           <div className="container">
+            <hr className="separator"/>
+
             {filmography.length && filmography.length > 0 ? (
               <div className="similar_movies">
                 <h1 style={{textAlign:"center"}}>{actor.name} - <span className="bio_title">Filmography</span></h1>
@@ -184,11 +182,7 @@ class ActorProfileInfo extends Component {
           </div>
         </div>
         
-        <footer></footer>
-
-        <ScrollUpButton ContainerClassName="scroll-up-button"/>
-
-        <Loader />
+        <Loader/>
       </div>
     );
   }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ActorImage from '../../components/ActorImage/ActorImage';
 import Loader from "../../components/Loader/Loader";
-import Navbar from "../../components/Navbar/Navbar";
-
 import './ActorImages.css';
 
 export default class ActorImages extends Component {
@@ -42,11 +40,9 @@ export default class ActorImages extends Component {
         const { actorImages } = this.state;
         const name = this.state.actorProfileInfo.name; 
 
-        console.log(actorImages)
+        // console.log(actorImages);
         return (
             <div className="actor-images-wrapper">
-                <Navbar/>
-
                 <div className="container actors" style={{marginTop:"70px"}}>
                     <h1 className="actor_images_name"><strong>{name}</strong></h1>
                     
@@ -62,13 +58,11 @@ export default class ActorImages extends Component {
                         className="bio_btn actor_img_btn"
                         onClick={() => this.props.history.goBack()}
                     >
-                        Back to main
+                        Back To Main
                     </button>
                 </div>
 
                 <Loader/>
-
-                <footer></footer>
             </div>
         )
     }

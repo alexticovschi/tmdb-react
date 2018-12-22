@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 export default class SlickSlider extends Component {
   render() {
     const settings = {
-      dots: false,
+      dots: true,
       infinite: true,
-      arrows: true,
-      // autoplay: true,
+      arrows: false,
+      autoplay: true,
       autoplaySpeed: 4500,
       speed: 1000,
-      slidesToShow: 5,
+      slidesToShow: 6,
       slidesToScroll: 4,
       adaptiveHeight: true,
       responsive: [
@@ -35,7 +35,7 @@ export default class SlickSlider extends Component {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 3,
             slidesToScroll: 2,
             arrows: false
           }
