@@ -87,12 +87,10 @@ class Home extends Component {
         // const toprated = this.state.topRatedMovies;
         // console.log(this.state)
         return (
-            <div className="wrapper">
-                <div className="carousel-container">
-                    <Carousel movies={this.state.nowPlayingMovies} />    
-                </div>
-
+            <div className="wrapper" style={{marginTop:"56px"}}>
                 <main className="container">
+                    <Carousel movies={this.state.nowPlayingMovies} />    
+
                     <MovieList
                         movieList={this.state.latestMovies} 
                         getMovieById={this.getMovieById} 
