@@ -7,7 +7,7 @@ const SearchBox = ({ onSearchChange, getMovies }) => {
   }
   return (
     <form onSubmit={onFormSubmit}>
-      <input onChange={onSearchChange} type="text" name="search" placeholder="Search Movie..." />
+      <input onChange={onSearchChange} className="searchBox" type="search" name="search" placeholder="Search Movie..." />
       <input onClick={getMovies} type="button" value="Search" />
     </form>
   );
