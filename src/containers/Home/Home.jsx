@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Carousel from "../../components/Carousel/Carousel";
 import MovieList from '../../components/MovieList/MovieList';
 // import SlickSlider from "../../components/Slider/SlickSlider";
+import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -85,12 +86,12 @@ class Home extends Component {
         // const upcoming = this.state.upcomingMovies;
         // const popular = this.state.popularMovies;
         // const toprated = this.state.topRatedMovies;
-        // console.log(this.state)
+        console.log(this.state)
         return (
             <div className="wrapper" style={{marginTop:"56px"}}>
                 <main className="container">
+                    <SearchBoxWithSuggestions/>
                     <Carousel movies={this.state.nowPlayingMovies} />    
-
                     <MovieList
                         movieList={this.state.latestMovies} 
                         getMovieById={this.getMovieById} 

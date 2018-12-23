@@ -3,6 +3,7 @@ import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList
 import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SlickSlider from "../../components/Slider/SlickSliderMovieInfo";
+import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
 import './MovieInfo.css';
 import Rater from 'react-rater';
@@ -25,6 +26,17 @@ class MovieInfo extends Component {
         this.getMovieRecommendations(movie_id);
         this.getTrailers(movie_id);
     }
+
+    componentDidUpdate(prevProps) {
+        if((this.props.location !== prevProps.location)) {
+            const { movie_id } = this.props.match.params;
+            this.getMovieById(movie_id);
+            this.getSimilarMovies(movie_id);
+            this.getMovieCredits(movie_id);
+            this.getMovieRecommendations(movie_id);
+            this.getTrailers(movie_id);
+        }
+    } 
 
     getMovieById = async (ID) => {
         const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
@@ -87,6 +99,8 @@ class MovieInfo extends Component {
         return (
             <div className="box" style={{ marginTop: "56px" }}>
                 <div className="container">
+                    <SearchBoxWithSuggestions/>
+
                     <div className="row">
                         <div className="box-left">
                             <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
@@ -109,7 +123,7 @@ class MovieInfo extends Component {
 
                                 <div className="btn-div">
                                     <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
-                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/search')}>Back To Search</button>
+                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
                                 </div>
                             </div>
                         </div>
