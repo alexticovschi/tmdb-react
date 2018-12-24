@@ -1,0 +1,147 @@
+main {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    min-height: 53vh;
+    margin-bottom: 40px;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.main-content {
+    margin: 10px;
+}
+
+h3 {
+    font-family: 'Libre Baskerville', serif;
+    margin: 0;
+}
+
+.select {
+    text-align: left;
+    max-width: 40%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 405px) {
+    .card {
+        width: 94%;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 470px) {
+    .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .card {
+        flex: 0 1 calc(18.8%);
+    }
+}
+
+@media screen and (max-width: 1125px) {
+    .card {
+        flex: 0 1 calc(31%);
+    }
+}
+
+@media screen and (max-width: 855px) {
+    .card {
+        flex: 0 1 calc(49% - 1rem);
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .select {
+        max-width: 88%;
+    }
+}
+
+.card {
+    margin: 15px auto;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.6s;
+}
+
+.card:hover {
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    filter: brightness(130%);
+}
+
+.card img {
+    border-radius: 4px;
+    height: 100%;
+}
+
+.loadmore {
+    display: flex;
+    flex-direction: column;
+    width: 63%;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 20px !important;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.loadmore {
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+
+    background-color: white;
+    color: black;
+    border: 1px solid #000;
+}
+
+.loadmore:hover {
+    background-color: #000;
+    color: white;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.loadmore:visited {
+    outline: none;
+}
+
+.loadmore:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.scroll-up-button:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.separator {
+    background-image: radial-gradient(circle, rgba(87, 83, 83, 0.191) 0%, rgba(19, 10, 10, 0) 90%);
+    border: none;
+    height: 2px;
+}
+
