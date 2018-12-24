@@ -11,6 +11,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "react-scroll-up-button": "^1.6.4",
+    "react-select": "^2.1.2",
     "react-show-more": "^2.0.0",
     "react-slick": "^0.23.2"
   },
@@ -28,5 +29,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {}
 }

@@ -13,6 +13,7 @@ import Home from '../Home/Home';
 import SearchMovies from '../SearchMovies/SearchMovies';
 import Footer from '../../components/Footer/Footer';
 import Loader from "../../components/Loader/Loader";
+import MovieGenres from "../MovieGenres/MovieGenres";
 
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
@@ -26,10 +27,11 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar/>
-      
           <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/search" component={SearchMovies} />
+              <Route exact path="/movies" component={SearchMovies} />
+              <Route exact path="/genres" component={MovieGenres} />
+              <Route exact path="/genres/:genre_id" component={MovieGenres} />
               <Route exact path="/tv-shows" component={TVShows} />
               <Route exact path="/tv-shows/popular" component={PopularTvShows} />
               <Route exact path="/tv-shows/now-on-the-air" component={NowOnTheAirTVShows} />
