@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import MovieList from "../../components/MovieList/MovieList";
+import MoviesNavigationButtons from '../../components/MoviesNavigationButtons/MoviesNavigationButtons';
 
 import './SearchMovies.css';
+
+import Select from 'react-select';
+
+const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
 
 class SearchMovies extends Component {
     state = {
@@ -16,7 +21,6 @@ class SearchMovies extends Component {
     }
 
     componentWillUnmount() {
-        //window.onload = this.getRecipe();
         window.removeEventListener(
         "beforeunload",
         this.saveStateToLocalStorage.bind(this)
@@ -55,21 +59,11 @@ class SearchMovies extends Component {
     }
 
     onSearchChange = event => {
-        event.preventDefault();
-
-        this.setState({ searchField: event.target.value });
-        console.log("[searchField]:", this.state.searchField);
-    };
-
-    onSearchChange = event => {
-        event.preventDefault();
-
         this.setState({ keywords: event.target.value });
-        console.log("[searchField]:", this.state.keywords);
+        console.log(this.state.keywords)
     };
 
     performSearch = async () => {
-        const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
         const resp = await fetch(
         `https://api.themoviedb.org/3/search/movie?query=${
             this.state.keywords
@@ -88,8 +82,6 @@ class SearchMovies extends Component {
     };
 
     getMovieById = async ID => {
-        const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
-        // https://api.themoviedb.org/3/movie/tt4154756?api_key=9baa3cbfd9b62ea4f97966abadf41653
         const resp = await fetch(
         `https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`
         );
@@ -110,7 +102,6 @@ class SearchMovies extends Component {
     loadMore = async () => {
         if (!this.state.total_pages > 1) return false;
 
-        const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
         console.log("this.state.page:", this.state.page);
 
         // this.onLoading();
@@ -134,15 +125,17 @@ class SearchMovies extends Component {
     }
 
     render() {
+
         return (
             <div>
                 <main style={{ marginTop: "57px", minHeight: "74vh" }}>
-                    <header className="header">
-                        <SearchBox
+                    <MoviesNavigationButtons/>
+                    
+                    <SearchBox
                         onSearchChange={this.onSearchChange}
                         getMovies={this.performSearch}
-                        />
-                    </header>
+                    />
+                    {/* <Select options={genres} values={genres}/> */}
 
                     <MovieList
                         movieList={this.state.movies}
