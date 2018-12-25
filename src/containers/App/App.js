@@ -11,6 +11,9 @@ import TopRatedTvShows from '../TopRatedTvShows/TopRatedTvShows';
 import LatestTvShows from '../LatestTvShows/LatestTvShows';
 import Home from '../Home/Home';
 import SearchMovies from '../SearchMovies/SearchMovies';
+import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
+import PopularMovies from '../PopularMovies/PopularMovies';
+import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
 import Footer from '../../components/Footer/Footer';
 import Loader from "../../components/Loader/Loader";
 import MovieGenres from "../MovieGenres/MovieGenres";
@@ -30,6 +33,9 @@ class App extends Component {
           <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/movies" component={SearchMovies} />
+              <Route exact path="/movies/now-playing" component={NowPlayingMovies} />
+              <Route exact path="/movies/popular" component={PopularMovies} />
+              <Route exact path="/movies/top-rated" component={TopRatedMovies} />
               <Route exact path="/genres" component={MovieGenres} />
               <Route exact path="/genres/:genre_id" component={MovieGenres} />
               <Route exact path="/tv-shows" component={TVShows} />
