@@ -95,20 +95,22 @@ class MovieInfo extends Component {
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
 
-        // console.log(this.state.credits);
+        console.log(this.state.credits);
         return (
             <div className="box" style={{ marginTop: "56px" }}>
                 <div className="container">
                     <SearchBoxWithSuggestions/>
 
                     <div className="row">
+
                         <div className="box-left">
                             <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
                         </div>
+
                         <div className="box-right">
                             <div className="inner-box-right">
 
-                                <h1 className="info-title"><span>{movie.original_title}</span></h1> 
+                                <h1 className="info-title">{movie.original_title}</h1> 
 
                                 <hr className="separator"/>
                                 
@@ -130,67 +132,70 @@ class MovieInfo extends Component {
 
                         <div>            
                             <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
+                            {/* <h1>{movie.original_title}</h1>  */}
                         </div>
-                    </div>    
-                </div> 
 
-                {this.state.trailers.length > 0 ?
-                    <div className="container">
-                        <div className="resp-container" style={{marginTop:"10px", marginBottom:"10px"}}>
-                            {this.state.trailers.slice(0,1).map(trailer => (
-                                <iframe 
-                                    key={trailer.key}
-                                    className="resp-iframe"
-                                    style={{borderRadius:"6px", margin:"10px auto"}} 
-                                    title="1" 
-                                    allow="encrypted-media" 
-                                    allowFullScreen
-                                    src={`https://www.youtube.com/embed/${trailer.key}`}
-                                />
-                            ))}
+                        {this.state.trailers.length > 0 ?
+                            <div className="resp-container">
+                                    {this.state.trailers.slice(0,1).map(trailer => (
+                                        <iframe 
+                                            key={trailer.key}
+                                            className="resp-iframe"
+                                            style={{borderRadius:"6px", margin:"10px auto"}} 
+                                            title="1" 
+                                            allow="encrypted-media" 
+                                            allowFullScreen
+                                            src={`https://www.youtube.com/embed/${trailer.key}`}
+                                    />
+                                ))}
+                            </div>
+                        : null} 
+
+                        <div>
+                            <div>
+                                <h1 className="title" style={{textAlign: "center", paddingTop:"20px"}}><strong>Cast</strong></h1>
+                                <hr className="separator"/>
+                            </div>
+
+                            <main className="main-content">
+                                
+                                {this.state.credits &&
+                                    this.state.credits.map(actor => <ActorImageCard key={actor.id} actor={actor}/>
+                                )}
+                            </main>
                         </div>
-                    </div>
-                : null}
 
-                <div className="container actors" style={{borderTop:"1px solid #fff", paddingTop: "20px"}}>
-                    <h1><strong>Cast</strong></h1>
-                    <hr className="separator"/>
+                        <div>
+                        {this.state.movieRecommedations.length > 0 ?
+                            <div className="container">
+                                <hr className="separator"/>
+                                
+                                <div className="slider_slick_box">
+                                    <h1 className="title">Recommendations</h1>
 
-                    <main className="main-content">
-                        {this.state.credits &&
-                            this.state.credits.map(actor => <ActorImageCard key={actor.id} actor={actor}/>
-                        )}
-                    </main>
-                </div>
+                                    <SlickSlider items={movieRecommedations}/>
+                                </div>
 
-                {this.state.movieRecommedations.length > 0 ?
-                    <div className="container">
-                        <hr className="slider_slick_container__separator"/>
-                        <div className="slider_slick_box" style={{paddingBottom:"5px"}}>
-                            <h1 style={{textAlign: "center"}}>Recommendations</h1>
+                            </div>
+                        : null}
                             <hr className="separator"/>
 
-                            <SlickSlider items={movieRecommedations}/>
                         </div>
-
-                        <hr className="separator"/>
-                    </div>
-                : null}
             
-
-                <div className="container">
-                    {this.state.similar_movies.length > 0 ?
-                        <div className="similar_movies">
-                            <h1 style={{textAlign:"center"}}><strong>Similar Movies</strong></h1>
+                        {this.state.similar_movies.length > 0 ?
+                            <div className="similar_movies">
                             <hr className="separator"/>
+                                <h1  className="title" style={{textAlign:"center"}}><strong>Similar Movies</strong></h1>
 
-                            <SimilarMovieList
-                                movieList={this.state.similar_movies}
-                                getMovieById={this.getMovieById} 
-                            />                           
-                        </div>
-                    : null}
-                </div>
+                                <SimilarMovieList
+                                    movieList={this.state.similar_movies}
+                                    getMovieById={this.getMovieById} 
+                                />                           
+                            </div>
+                        : null}
+
+                    </div>  
+                </div> 
 
                 <Loader/>
             </div>

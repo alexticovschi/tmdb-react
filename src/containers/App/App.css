@@ -8,3 +8,38 @@ body {
   margin: 0;
 }
 
+
+@media screen and (min-width: 320px) {
+  .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .card {
+      flex: 0 1 calc(18.8%);
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .card {
+      flex: 0 1 calc(21% - 1rem);
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .card {
+      flex: 0 1 calc(30% - 0.5rem);
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .select {
+      max-width: 88%;
+  }
+}

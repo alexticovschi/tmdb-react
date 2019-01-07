@@ -6,14 +6,18 @@ const ActorImageCard = ({actor}) => {
     const base_url = 'https://image.tmdb.org/t/p/w342';
 
     return (
-        <Link to={`/cast/actor-bio/${actor.id}`} className="actor_card">
-            <img 
-                className="img-profile" 
-                src={actor.profile_path === null ? 
-                'https://journeypurebowlinggreen.com/wp-content/uploads/2018/05/placeholder-person.jpg' 
-            : base_url + actor.profile_path} alt={"img card"} />
+        <Link to={`/cast/actor-bio/${actor.id}`} className="actor-card">
+            <div className="img-wrapper">
+                <img 
+                    className="actor-img" 
+                    src={actor.profile_path === null ? 
+                    '/images/person_placeholder.jpeg' 
+                : base_url + actor.profile_path} alt={"img card"} />
+                </div>
             <div className="actor_name">{actor.name}</div>
-        </Link>         
+
+            {/* <div className="actor_character">{actor.character}</div> */}
+        </Link>   
     );
 };
 
