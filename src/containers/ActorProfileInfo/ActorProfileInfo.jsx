@@ -65,7 +65,7 @@ class ActorProfileInfo extends Component {
     return (
       <div>
         <div className="container" style={{ marginTop: "56px" }}>
-          <div className="row">
+          <div className="row-actor-profile-info">
             <div className="side">
               <img
                 className="actor_profile_img"
@@ -84,9 +84,9 @@ class ActorProfileInfo extends Component {
                 <hr className="separator"/>
 
                 <div className="bio_content">
-                  <h2 className="bio_title">Biography</h2>
-
                   <div className="actor-bio-text">
+                    <h4 style={{marginTop: "10px", marginBottom: "6px"}}>Biography</h4>
+
                     <ShowMore
                       lines={3}
                       more='Show more'
@@ -118,19 +118,21 @@ class ActorProfileInfo extends Component {
               </div>
                 </div>
               </div>
-
-              <button
-                className="bio_btn"
-                onClick={() => this.props.history.goBack()}
-              >
-                Back To Main
-              </button>
-              <Link 
-                to={`/cast/${actor.id}/images/profiles`}
-                className="bio_btn"
-              >
-                Images
-              </Link>
+                
+              <div className="actor-profile-info-btns">
+                <button
+                  className="bio_btn"
+                  onClick={() => this.props.history.goBack()}
+                >
+                  Back To Main
+                </button>
+                <Link 
+                  to={`/cast/${actor.id}/images/profiles`}
+                  className="bio_btn"
+                >
+                  Images
+                </Link>
+              </div>
             </div>
           </div>
           
@@ -145,7 +147,6 @@ class ActorProfileInfo extends Component {
                         image={{
                             src: `${base_url + img.file_path}`,
                             alt: 'actor profile image small',
-                            className: 'actor-img'                    
                         }}
                         zoomImage={{
                             src: `${base_url2 + img.file_path}`,
@@ -168,12 +169,12 @@ class ActorProfileInfo extends Component {
             </div>
           : null}
 
-          <div className="container">
+          <div className="container filmography-profile-info">
             <hr className="separator"/>
-
+                          
             {filmography.length && filmography.length > 0 ? (
-              <div className="similar_movies">
-                <h1 style={{textAlign:"center"}}>{actor.name} - <span className="bio_title">Filmography</span></h1>
+              <div className="main-content similar_movies">
+                <h1 className="title">Filmography</h1>
                 <ActorFilmographyList
                   movieList={filmography}
                 />

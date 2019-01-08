@@ -12,22 +12,24 @@
     margin: 0 auto;
   }
 
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 100vh;
+  .row.actor-profile-info {
+    margin-bottom: 40px;
   }
 
   .side {
-    flex: 32%;
+    flex: 30%;
     background-color: #ffffff;
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   .main {
-    flex: 68%;
+    flex: 70%;
     background-color: white;
     padding: 20px;
+  }
+
+  .masonry {
+    margin-top: 150px;
   }
 
   .inner_main {
@@ -36,10 +38,18 @@
 
   .actor_profile_img {
     max-width: 100% !important;
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 20px;
+  }
+
+  .container.filmography-profile-info {
+    margin-top: 100px;
+    /* margin-bottom: -40px !important; */
+  }
+
+  .filmography-profile-info .title {
+    padding: 20px 0;
   }
 
   .bio_content>p {
@@ -47,23 +57,16 @@
     font-family: sans-serif;
   }
 
-  .bio_title,
-  h4 {
-    font-family: 'Times New Roman', Times, serif;
-
-    color: rgb(109, 104, 104);
-  }
-
   h1 {
     font-family: 'Times New Roman', Times, serif;
   }
 
   h1.actor_nm {
-    margin-top: 60px;
+    margin-top: 36px;
     font-size: 2.4rem;
   }
 
-  h4 {
+  .bio_title, h4 {
     font-family: 'Times New Roman', Times, serif;
 
     color: rgb(109, 104, 104);
@@ -93,6 +96,11 @@
 
   .actor-bio-text {
     line-height: 1.4rem;
+    margin-top: -20px;
+  }
+
+  .actor-profile-info-btns {
+    margin-top: -14px;
   }
 
   .bio_btn {
@@ -114,9 +122,6 @@
     bottom: 20px;
     top: 10px;
     left: 20px;
-  }
-
-  .bio_btn {
     background-color: white;
     color: black;
     border: 1px solid #000;
@@ -128,16 +133,11 @@
     outline: none;
   }
 
-
-
-  @media screen and (min-width: 700px) {
-    .bio_content {
-      margin-top: 50px;
+  @media screen and (max-width: 500px) {
+    .container.filmography-profile-info {
+      margin-bottom: -40px;
     }
-  }
 
-  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 700px) {
     .row {
       flex-direction: column;
     }
@@ -145,11 +145,60 @@
     .inner_main {
       padding: 0px;
     }
-  }
 
-  @media (max-width:700px) {
+    .container.filmography-profile-info {
+      margin-top: 40px;
+    }
+  
+    .actor_profile_img {
+      margin: -110px 0 0 0;
+      padding:0;
+      clip-path: inset(110px 0px 230px 0px);
+    }
+
+    .actor-biography-anchor {
+      font-size: 1rem !important;
+    }
+
+    h1.actor_nm {
+      margin-top: -140px;
+      font-size: 1.7rem;
+      /* position: absolute;
+      color: #ffffff; */
+    }
+
+    .actor-biography-anchor {
+      font-size: 14px;
+    }
+
+    .main {
+      margin-top: -100px;
+      height: 100%;
+    }
+  
     .side {
       margin-top: -100px !important;
+    }
+
+    .bio_content h4 {
+      font-size: 18px;
+    }
+    .bio_content h4 span {
+      font-size: 17px;
+    }
+
+    .bio_title {
+      font-size: 23px;
+    }
+
+    .bio_btn {
+      left: 0px;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .bio_content {
+      margin-top: 50px;
     }
   }
 
@@ -173,6 +222,22 @@
 
   .item:hover .text-content {
     opacity: 1;
+  }
+
+
+  @media only screen and (max-width: 440px) and (min-width: 319px) {
+    .text-content {
+      height: 30px;
+      left: 0;
+      bottom: 0;
+      margin-bottom: 4px;
+      opacity: 0.8;
+    }
+  
+    .text-content .title {
+      padding-top: 8px;
+      font-size: 14px;
+    }
   }
 
 
@@ -210,8 +275,18 @@
   }
 
   /* Masonry on small screens */
-  @media only screen and (max-width: 767px) and (min-width: 540px) {
+  @media only screen and (max-width: 767px) and (min-width: 440px) {
     .masonry {
       column-count: 2;
     }
+  }
+
+  @media only screen and (max-width: 440px) and (min-width: 319px) {
+    .masonry {
+      column-count: 2 !important;
+    }
+    .masonry {
+      margin: 0.2em auto;
+      column-gap: .4em;
+    } 
   }
