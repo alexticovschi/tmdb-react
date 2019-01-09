@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
 import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
-import SlickSlider from "../../components/Slider/SlickSliderMovieInfo";
+import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
 import './MovieInfo.css';
@@ -158,33 +158,32 @@ class MovieInfo extends Component {
                             </div>
 
                             <main className="main-content">
-                                
                                 {this.state.credits &&
-                                    this.state.credits.map(actor => <ActorImageCard key={actor.id} actor={actor}/>
+                                    this.state.credits.map(actor => {
+                                        if(actor.profile_path !== null) {
+                                            return <ActorImageCard key={actor.id} actor={actor}/>
+                                        }
+                                        return null;
+                                    }
                                 )}
                             </main>
                         </div>
 
                         <div>
-                        {this.state.movieRecommedations.length > 0 ?
-                            <div className="container">
-                                <hr className="separator"/>
-                                
-                                <div className="slider_slick_box">
+                            <hr className="separator"/>
+                            {this.state.movieRecommedations.length > 0 ?
+                                <div className="container slider">                                    
                                     <h1 className="title">Recommendations</h1>
 
-                                    <SlickSlider items={movieRecommedations}/>
+                                    <SwiperSlider items={movieRecommedations} />
+
                                 </div>
-
-                            </div>
-                        : null}
-                            <hr className="separator"/>
-
+                            : null}
                         </div>
             
                         {this.state.similar_movies.length > 0 ?
                             <div className="similar_movies">
-                            <hr className="separator"/>
+                                <hr className="separator"/>
                                 <h1  className="title" style={{textAlign:"center"}}><strong>Similar Movies</strong></h1>
 
                                 <SimilarMovieList

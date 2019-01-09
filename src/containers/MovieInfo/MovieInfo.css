@@ -28,6 +28,7 @@
 .row {  
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     background-color: #fff; 
     padding-bottom: 20px;
 }
@@ -35,6 +36,7 @@
 
 h1.title {
     text-align: center;
+    margin: 0 auto;
 } 
 
 .img-info {
@@ -227,12 +229,17 @@ p {
         padding-right: 0px;
     } 
 }
+@media (max-width:500px) {
+    .row {
+        flex-direction: column;
+    }
+
+} 
 
 @media (max-width:475px) {
     .resp-iframe {
         height: 220px;
     }
-
 } 
 
 /* **************************** */

@@ -1,0 +1,19 @@
+.container.slider {
+    padding: 140px 0px;
+    margin-bottom: 120px;
+}
+
+.slider-container {
+    margin: 20px 0px;
+}
+
+
+@media only screen and (max-width: 665px) { 
+    .container.slider {
+        padding-top: 46px;
+        margin-bottom: 0px;
+    }
+    .slider-container {
+        margin-bottom: 0px;
+    }
+}

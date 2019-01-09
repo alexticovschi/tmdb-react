@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
-import SlickSliderTV from "../../components/Slider/SlickSliderTVShows.js";
+import SwiperSlider from "../../components/SwiperSlider/SwiperSliderTV";
 
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
@@ -115,7 +115,7 @@ class TVShowInfo extends Component {
                             <h1 style={{textAlign: "center"}}>Recommendations</h1>
                             <hr className="separator"/>
 
-                            <SlickSliderTV items={tvShowRecommedations}/>
+                            <SwiperSlider items={tvShowRecommedations}/>
                         </div>
                     </div>
                 : null}
