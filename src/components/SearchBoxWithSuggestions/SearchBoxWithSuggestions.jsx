@@ -45,12 +45,15 @@ class SearchBoxWithSuggestions extends Component {
         return (
             <form onSubmit={this.onSubmit} id="form">
                 <input 
-                    type="search" 
+                    type="text" 
                     onKeyUp={this.performSearch} 
                     onChange={this.onSearchChange} 
                     id="searchInput" 
-                    className="searchBar" 
-                    placeholder="Search a movie..." required/>
+                    className="searchBar line" 
+                    placeholder="Search a movie..." 
+                    required
+                />
+                <button class="close-icon" type="reset"></button>
                 <img src={search} role="img" className="searchIcon"/>
 
                 <SearchResults results={this.state.results} />
