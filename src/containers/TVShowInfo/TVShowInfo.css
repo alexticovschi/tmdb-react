@@ -5,8 +5,16 @@ body {
 
 .box {
     background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%);
-
 }
+
+section.similar-tvshows {
+    padding-top: 50px;
+    background-color: rgb(246, 246, 246);
+}
+/* 
+.btn.btn-movie-info.tvshow {
+    left: -368px !important;
+} */
 
 h1 {
     color: rgb(70, 70, 70);
@@ -20,4 +28,10 @@ h1 {
 .react-rater-star {
     font-size: 21px;
     color: rgb(116, 113, 113);
+}
+
+@media (max-width:475px) {
+    .btn.btn-movie-info.tvshow {
+        left: -122px !important;
+    }
 }

@@ -27,7 +27,7 @@ class TVShows extends Component {
 
         return (
             <div>
-                <div className="container" style={{marginTop:"68px"}}> 
+                <section className="container tvshows"> 
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
 
@@ -39,7 +39,7 @@ class TVShows extends Component {
                             getTVShowById={this.getTVShowById}
                         />
                     </div>
-                </div>
+                </section>
                 
                 <Loader/>
             </div>

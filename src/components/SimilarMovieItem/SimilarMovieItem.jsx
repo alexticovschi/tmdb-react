@@ -7,7 +7,7 @@ const MovieItem = ({title, poster, id}) => {
     return (
         <Link 
             to={`/movie-info/${_id}`} 
-            onClick={() => this.props.history.push('/movie_info/')} 
+            onClick={() => this.props.history.push(`/movie_info/${_id}`)} 
             className="card">
             
             <img src={poster} alt="film poster"/>

@@ -127,8 +127,8 @@ class SearchMovies extends Component {
     render() {
 
         return (
-            <div>
-                <main style={{ marginTop: "57px", minHeight: "74vh" }}>
+            <section className="search-movies">
+                <main>
                     <MoviesNavigationButtons/>
                     
                     <SearchBox
@@ -149,7 +149,7 @@ class SearchMovies extends Component {
                         </button>
                     ) : null}
                 </main>
-            </div>
+            </section>
         );
     }
 }

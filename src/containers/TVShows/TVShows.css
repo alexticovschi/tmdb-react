@@ -10,3 +10,11 @@
     display: flex !important;
     flex-wrap: wrap !important;
 }
+
+.container.tvshows {
+    margin-top: 56px;
+}
+
+.container.now-on-the-air {
+    margin-top: -300px;
+}

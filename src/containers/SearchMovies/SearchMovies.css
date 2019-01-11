@@ -7,70 +7,17 @@ main {
     max-width: 1200px;
     margin-bottom: 40px;
 
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
 }
 
 .main-content {
     margin: 10px;
+    max-width: 100% !important;
 }
 
 h3 {
     font-family: 'Libre Baskerville', serif;
     margin: 0;
-}
-
-@media screen and (min-width: 405px) {
-    .card {
-        width: 94%;
-    }
-
-    .iframe-card {
-        width: 96%;
-    }
-
-    img {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 470px) {
-    .main-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .card {
-        flex: 0 1 calc(18.8%);
-    }
-}
-
-@media screen and (max-width: 1125px) {
-    .card {
-        flex: 0 1 calc(31%);
-    }
-}
-
-@media screen and (max-width: 855px) {
-    .card {
-        flex: 0 1 calc(49% - 1rem);
-    }
-
-    .iframe-card {
-        flex: 0 1 calc(49% - 1rem);
-    }
-}
-
-@media screen and (max-width: 470px) {
-    .card-title {
-        padding-bottom: 20px;
-        margin-top: 16px;
-        font-size: 1.5rem !important;
-        margin-bottom: 50px;
-        border-bottom: 2px solid grey;
-    }
 }
 
 .card,
@@ -90,6 +37,11 @@ h3 {
 .card img {
     border-radius: 4px;
     height: 100%;
+}
+
+.search-movies {
+    margin-top: 60px;
+    min-height: 67vh;
 }
 
 .loadmore {
@@ -140,11 +92,6 @@ h3 {
     box-shadow: none !important;
 }
 
-.scroll-up-button:focus {
-    outline: 0;
-    box-shadow: none !important;
-}
-
 .separator {
     background-image: radial-gradient(circle, rgba(87, 83, 83, 0.191) 0%, rgba(19, 10, 10, 0) 90%);
     border: none;
@@ -152,10 +99,9 @@ h3 {
 }
 
 
-
 @media only screen and (max-width: 965px) {
     .loadmore {
-        width: 93%;
+        width: 99% !important;
     }
 }
 

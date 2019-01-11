@@ -25,7 +25,7 @@ class NowOnTheAirTVShows extends Component {
 
         return (
             <div>
-                <div className="container" style={{marginTop:"68px"}}> 
+                <div className="container tvshows"> 
                     <div className="similar_movies">
                         <TVShowNavigationButtons/>
                             

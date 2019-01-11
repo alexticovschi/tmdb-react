@@ -96,7 +96,7 @@ class MovieGenres extends Component {
                         {/* <select onChange={this.onChange}>
                             {optionItems}
                         </select> */}
-                        <h1 style={{ paddingTop: "24px" }}>Filter Movies by Genre</h1>
+                        <h1 className="title" style={{ padding: "24px 0px" }}>Filter Movies by Genre</h1>
                         <Select 
                             className="select"
                             value={selectedOption}

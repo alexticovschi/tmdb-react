@@ -12,8 +12,14 @@
     .container.slider {
         padding-top: 46px;
         margin-bottom: 0px;
+        flex-direction: column;
     }
     .slider-container {
         margin-bottom: 0px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        height: 30px;
     }
 }

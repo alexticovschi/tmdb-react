@@ -8,6 +8,27 @@ body {
   margin: 0;
 }
 
+.container {
+  background-color: rgb(255, 255, 255);
+}
+
+.scroll-up-button {
+  transition: .4s !important;
+}
+
+.scroll-up-button:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.scroll-up-button:hover {
+  background-color: #5ab98f !important;
+}
+
+.container.movie-type h1 {
+  margin-bottom: -5px;
+  /* font-size: 2rem !important; */
+}
 
 @media screen and (min-width: 320px) {
   .main-content {
@@ -17,6 +38,10 @@ body {
   }
   img {
     width: 100%;
+  }
+
+  .container.movie-type h1 {
+    font-size: 1.6rem;
   }
 }
 
@@ -38,8 +63,14 @@ body {
   }
 }
 
-@media screen and (max-width: 770px) {
-  .select {
-      max-width: 88%;
+@media screen and (max-width: 455px) {
+  .card {
+      flex: 0 1 calc(33% - 0.3rem);
   }
 }
+
+/* @media screen and (max-width: 770px) {
+  .select {
+      max-width: 99%;
+  }
+} */

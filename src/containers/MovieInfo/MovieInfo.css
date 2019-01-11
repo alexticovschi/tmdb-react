@@ -1,7 +1,19 @@
 .box {
-    /* background-color: #fff;; */
     width: 100%;
     height: 100%;
+}
+
+section.cast,
+section.similar-movies {
+    background-color: rgb(246, 246, 246);
+}
+
+section.similar-movies {
+    margin-top: -70px;
+}
+
+section.cast {
+    padding: 30px 0px;
 }
 
 .resp-container {
@@ -36,6 +48,7 @@
 
 h1.title {
     text-align: center;
+    font-size: 2rem;
     margin: 0 auto;
 } 
 
@@ -87,7 +100,7 @@ h1.info-title span {
     font-weight: 400;
 }
 
-.btn-info {
+.btn-movie-info {
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -114,10 +127,13 @@ h1.info-title span {
     outline: none;
 }
 
-
 .btn-div {
     align-items: center;
     align-content: space-between;
+}
+
+.btn-div .btn-movie-info {
+    left: -40px;
 }
 
 .b1 {
@@ -154,15 +170,11 @@ p {
     color: rgb(13, 73, 55);
 }
 
-.similar_movies {
-    padding-top: 0px;
-    margin-top: -90px;
-    background-color: rgb(255, 255, 255) !important;
-}
 
-.similar_movies h1 {
+.similar-movies h1 {
     color:rgb(70, 70, 70);
 }
+
 
 @media only screen and (max-width: 1250px) {
 
@@ -177,16 +189,6 @@ p {
 }
 
 @media only screen and (max-width: 765px) {
-    .flex-container {
-        /* flex-flow: column wrap; */
-        margin: 0px;
-    }
-
-    .flex-container>div {
-        text-align: center;
-        margin: 1px 0px;
-    }
-
     p {
         margin-left: 0px;
     }

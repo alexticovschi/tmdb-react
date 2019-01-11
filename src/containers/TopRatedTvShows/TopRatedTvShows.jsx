@@ -25,21 +25,19 @@ class TopRatedTvShows extends Component {
 
         return (
             <div>
-                <div className="container" style={{marginTop:"68px"}}> 
-                    <div className="similar_movies">
-                        <TVShowNavigationButtons/>
+                <div className="container tvshows"> 
+                    <TVShowNavigationButtons/>
                         
-                        <hr className="separator"/>
+                    <hr className="separator"/>
 
-                        <h1 style={{textAlign:"center"}}>Top Rated TV Shows</h1>
-                        <TVShowsList
-                            tvShowList={topRatedTVShows}
-                            getTVShowById={this.getTVShowById}
-                        />
-                    </div>
+                    <h1 style={{textAlign:"center"}}>Top Rated TV Shows</h1>
+                    <TVShowsList
+                        tvShowList={topRatedTVShows}
+                        getTVShowById={this.getTVShowById}
+                    />
                 </div>
-                
-                <Loader/>
+
+                <Loader/> 
             </div>
         )
     }

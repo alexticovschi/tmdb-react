@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Carousel from "../../components/Carousel/Carousel";
 import MovieList from '../../components/MovieList/MovieList';
-// import SlickSlider from "../../components/Slider/SlickSlider";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
 
@@ -83,12 +82,9 @@ class Home extends Component {
       }
 
     render() {
-        // const upcoming = this.state.upcomingMovies;
-        // const popular = this.state.popularMovies;
-        // const toprated = this.state.topRatedMovies;
         console.log(this.state)
         return (
-            <div className="wrapper" style={{marginTop:"56px"}}>
+            <div className="container" style={{marginTop:"56px"}}>
                 <main className="container">
                     <SearchBoxWithSuggestions/>
                     <Carousel movies={this.state.nowPlayingMovies} />    
@@ -96,23 +92,6 @@ class Home extends Component {
                         movieList={this.state.latestMovies} 
                         getMovieById={this.getMovieById} 
                     />
-
-                    {/* <div className="slider_slick_box">
-                        <div className="slider_slick_box__title">Upcoming</div>
-                        <SlickSlider items={upcoming}/>
-                    </div>
-
-                    <hr className="slider_slick_container__separator"/>
-                    <div className="slider_slick_box">
-                        <div className="slider_slick_box__title">Popular</div>
-                        <SlickSlider items={popular}/>
-                    </div>
-
-                    <hr className="slider_slick_container__separator"/>
-                    <div className="slider_slick_box">
-                        <div className="slider_slick_box__title">Top Rated</div>
-                        <SlickSlider items={toprated}/>
-                    </div> */}
                 </main>
                 
             </div>

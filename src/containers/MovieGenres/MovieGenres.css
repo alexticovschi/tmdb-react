@@ -22,50 +22,8 @@ h3 {
 
 .select {
     text-align: left;
-    max-width: 40%;
+    width: 40%;
     margin: 0 auto;
-}
-
-@media screen and (min-width: 405px) {
-    .card {
-        width: 94%;
-    }
-
-    img {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 470px) {
-    .main-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .card {
-        flex: 0 1 calc(18.8%);
-    }
-}
-
-@media screen and (max-width: 1125px) {
-    .card {
-        flex: 0 1 calc(31%);
-    }
-}
-
-@media screen and (max-width: 855px) {
-    .card {
-        flex: 0 1 calc(49% - 1rem);
-    }
-}
-
-@media screen and (max-width: 770px) {
-    .select {
-        max-width: 88%;
-    }
 }
 
 .card {
@@ -145,3 +103,8 @@ h3 {
     height: 2px;
 }
 
+@media (max-width:475px) {
+    .select {
+        width: 84%;
+    }
+}

@@ -84,8 +84,7 @@ class TVShowInfo extends Component {
                                 {tvShow.homepage ? <p><strong>Website: </strong>  <a href={tvShow.homepage} target="_blank" rel="noopener noreferrer">{tvShow.original_name} Official Website</a></p> : null}
 
                                 <div className="btn-div">
-                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/tv-shows')}>Back To Main</button>
-                                    <button className="btn btn-info b2" onClick={() => this.props.history.goBack()}>Back To Previous Page</button>
+                                    <button className="btn btn-movie-info tvshow b2" onClick={() => this.props.history.push('/tv-shows')}>Back To Main</button>
                                 </div>
                             </div>
                         </div>
@@ -93,47 +92,61 @@ class TVShowInfo extends Component {
                         <div>            
                             <img className="custom_bg_poster" src={base_url2 + tvShow.backdrop_path} alt=""/>
                         </div>
-                    </div>    
-                </div>
 
-                {this.state.tvShowCredits.length > 0 ?
-                    <div className="container actors" style={{borderTop:"1px solid #fff", paddingTop: "20px"}}>
-                        <h1><strong>Cast</strong></h1>
-                        <hr className="separator"/>
-                        <main className="main-content">
-                            {this.state.tvShowCredits &&
-                                this.state.tvShowCredits.map(actor => <ActorImageCard key={actor.id} actor={actor}/>
-                            )}
-                        </main>
-                    </div>
-                : null }
 
-                {this.state.tvShowRecommedations.length > 0 ?
-                    <div className="container">
-                        <hr className="slider_slick_container__separator"/>
-                        <div className="slider_slick_box" style={{paddingBottom:"5px"}}>
-                            <h1 style={{textAlign: "center"}}>Recommendations</h1>
-                            <hr className="separator"/>
+                        <div style={{width: "100%"}}>
+                            {this.state.tvShowCredits.length > 0 ?
+                                <section className="cast">
+                                    <div>
+                                        <h1 className="title"><strong>Cast</strong></h1>
+                                        <hr className="separator"/>
+                                    </div>
 
-                            <SwiperSlider items={tvShowRecommedations}/>
+                                    <div className="main-content">
+                                        {this.state.tvShowCredits.map(actor => {
+                                                if(actor.profile_path !== null) {
+                                                    return <ActorImageCard key={actor.id} actor={actor}/>
+                                                }
+                                                    return null;
+                                                }
+                                        )}
+                                    </div>
+                                </section>
+                            : null}
                         </div>
-                    </div>
-                : null}
 
-                <div className="container" style={{marginTop:"8px"}}>
-                    {this.state.similarTVShows.length > 0 ?
-                        <div>
-                            <div className="similar_movies">
-                                    <h1 style={{textAlign: "center"}}>Similar TV Shows</h1>
+                    </div>
+                    
+                    <div>
+                        {this.state.tvShowRecommedations.length > 0 ?
+                            <section className="recommendations">
+                                <div className="container slider">
+                                    <div>
+                                        <h1 className="title">Recommendations</h1>
+                                        <hr className="separator"/>
+
+                                        <SwiperSlider items={tvShowRecommedations}/>
+                                    </div>
+                                </div>
+                            </section>
+                        : null}
+                    </div>
+
+                    <div>
+                        <section className="similar-tvshows"> 
+                            {this.state.similarTVShows.length > 0 ?
+                                <div>
+                                    <h1 className="title">Similar TV Shows</h1>
                                     <hr className="separator"/>
 
                                     <TVShowsList
                                         tvShowList={this.state.similarTVShows}
                                         getTVShowById={this.getTVShowById}
                                     />
-                            </div>
-                        </div>
-                    : null}        
+                                </div>
+                            : null} 
+                        </section>       
+                    </div>
                 </div>
 
                 <Loader/>

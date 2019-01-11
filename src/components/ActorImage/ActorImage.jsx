@@ -7,12 +7,12 @@ const ActorImage = ({img_path}) => {
     const base_url2 = 'https://image.tmdb.org/t/p/original';
 
     return (
-        <div className="actor_img_card">
+        <div className="actor-img-card">
             <ImageZoom
                 image={{
                     src: `${base_url + img_path}`,
                     alt: 'actor profile image small',
-                    className: 'actor img',
+                    className: 'actor-imgs',
                     style: { maxWidth: '12em', padding: '4px' }
                 }}
                 zoomImage={{

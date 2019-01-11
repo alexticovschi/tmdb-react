@@ -58,7 +58,7 @@ export default class ActorImages extends Component {
                         className="bio_btn actor_img_btn"
                         onClick={() => this.props.history.goBack()}
                     >
-                        Back To Main
+                        Back To Profile
                     </button>
                 </div>
 

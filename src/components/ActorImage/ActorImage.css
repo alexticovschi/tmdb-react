@@ -1,18 +1,15 @@
-.actor_img {
-    width: 230px !important;;
-    height: 340px !important;;
-
-    border-radius: 4px;
+.actor-imgs {
+    width: 160px !important;;
+    height: 220px !important;;
+    border-radius: 9px;
 }
 
-.actor_img_card {
+.actor-img-card {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    /* background-color: white; */
-    /* box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 
@@ -20,6 +17,6 @@
     .img-profile {
         width: 100% !important;
         height: 100% !important;
-        /* margin-top: 24px; */
+        margin-top: 24px;
     }
 }

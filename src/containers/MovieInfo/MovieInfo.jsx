@@ -102,7 +102,6 @@ class MovieInfo extends Component {
                     <SearchBoxWithSuggestions/>
 
                     <div className="row">
-
                         <div className="box-left">
                             <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
                         </div>
@@ -124,8 +123,8 @@ class MovieInfo extends Component {
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
                                 <div className="btn-div">
-                                    <a className="btn btn-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
-                                    <button className="btn btn-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
+                                    <a className="btn btn-movie-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
+                                    <button className="btn btn-movie-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
                                 </div>
                             </div>
                         </div>
@@ -151,48 +150,55 @@ class MovieInfo extends Component {
                             </div>
                         : null} 
 
-                        <div>
-                            <div>
-                                <h1 className="title" style={{textAlign: "center", paddingTop:"20px"}}><strong>Cast</strong></h1>
-                                <hr className="separator"/>
-                            </div>
+                        <div style={{width: "100%"}}>
+                            {this.state.credits ?
+                                <section className="cast">
+                                    <div>
+                                        <h1 className="title">Cast</h1>
+                                        <hr className="separator"/>
+                                    </div>
 
-                            <main className="main-content">
-                                {this.state.credits &&
-                                    this.state.credits.map(actor => {
-                                        if(actor.profile_path !== null) {
-                                            return <ActorImageCard key={actor.id} actor={actor}/>
-                                        }
-                                        return null;
-                                    }
-                                )}
-                            </main>
+                                    <div className="main-content">
+                                        {this.state.credits &&
+                                            this.state.credits.map(actor => {
+                                                if(actor.profile_path !== null) {
+                                                    return <ActorImageCard key={actor.id} actor={actor}/>
+                                                }
+                                                return null;
+                                            }
+                                        )}
+                                    </div>
+                                </section>
+                            : null}
                         </div>
+                    </div>
 
-                        <div>
-                            <hr className="separator"/>
+                    <div>
+                        <section className="recommendations">
                             {this.state.movieRecommedations.length > 0 ?
                                 <div className="container slider">                                    
                                     <h1 className="title">Recommendations</h1>
+                                    <hr className="separator"/>
 
                                     <SwiperSlider items={movieRecommedations} />
 
                                 </div>
                             : null}
-                        </div>
+                        </section>
             
-                        {this.state.similar_movies.length > 0 ?
-                            <div className="similar_movies">
-                                <hr className="separator"/>
-                                <h1  className="title" style={{textAlign:"center"}}><strong>Similar Movies</strong></h1>
+                        <section className="similar-movies">  
+                            {this.state.similar_movies.length > 0 ?
+                                <div>
+                                    <h1 className="title" style={{textAlign:"center", paddingTop: "50px"}}><strong>Similar Movies</strong></h1>
+                                    <hr className="separator"/>
 
-                                <SimilarMovieList
-                                    movieList={this.state.similar_movies}
-                                    getMovieById={this.getMovieById} 
-                                />                           
-                            </div>
-                        : null}
-
+                                    <SimilarMovieList
+                                        movieList={this.state.similar_movies}
+                                        getMovieById={this.getMovieById} 
+                                    />                           
+                                </div>
+                            : null}
+                         </section>    
                     </div>  
                 </div> 
 

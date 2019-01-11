@@ -25,20 +25,18 @@ class NowPlayingMovies extends Component {
 
         return (
             <div>
-                <div className="container" style={{marginTop:"68px"}}> 
-                    <div className="similar_movies">
-                        <SearchBoxWithSuggestions/>
+                <div className="container movie-type"> 
+                    <SearchBoxWithSuggestions/>
 
-                        <MoviesNavigationButtons/>
+                    <MoviesNavigationButtons/>
 
-                        <hr className="separator"/>
+                    <hr className="separator"/>
 
-                        <h1 style={{textAlign:"center"}}>In Theatres</h1>
-                        <MovieList
-                            movieList={nowPlayingMovies}
-                            getMovieById={this.getMovieById}
-                        />
-                    </div>
+                    <h1 class style={{textAlign:"center"}}>In Theatres</h1>
+                    <MovieList
+                        movieList={nowPlayingMovies}
+                        getMovieById={this.getMovieById}
+                    />
                 </div>
                 
                 <Loader/>

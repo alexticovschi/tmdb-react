@@ -25,19 +25,17 @@ class PopularMovies extends Component {
 
         return (
             <div>
-                <div className="container" style={{marginTop:"68px"}}> 
-                    <div className="similar_movies">
-                        <SearchBoxWithSuggestions/>
+                <div className="container movie-type"> 
+                    <SearchBoxWithSuggestions/>
 
-                        <MoviesNavigationButtons/>
+                    <MoviesNavigationButtons/>
                             
-                        <hr className="separator"/>
+                    <hr className="separator"/>
 
-                        <h1 style={{textAlign:"center"}}>Popular</h1>
-                        <MovieList
-                            movieList={popularMovies}
-                        />
-                    </div>
+                    <h1 style={{textAlign:"center"}}>Popular</h1>
+                    <MovieList
+                         movieList={popularMovies}
+                    />
                 </div>
                 
                 <Loader/>
