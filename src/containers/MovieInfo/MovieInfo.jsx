@@ -146,7 +146,7 @@ class MovieInfo extends Component {
                                 {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
-                                <div className="btn-div">
+                                <div className="btn-div__movie-info">
                                     <button onClick={this.openModal} className="btn btn-movie-info b1"><i className="fas fa-play"></i> View Trailer</button>
                                     <a className="btn btn-movie-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
                                     <button className="btn btn-movie-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
