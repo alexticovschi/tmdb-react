@@ -24,6 +24,9 @@ body {
 .scroll-up-button:hover {
   background-color: #5ab98f !important;
 }
+.container.movie-type {
+  margin-top: 56px;
+}
 
 .container.movie-type h1 {
   margin-bottom: -5px;
