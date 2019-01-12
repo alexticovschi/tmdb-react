@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import SearchBox from "../../components/SearchBox/SearchBox";
 import MovieList from "../../components/MovieList/MovieList";
 import MoviesNavigationButtons from '../../components/MoviesNavigationButtons/MoviesNavigationButtons';
 
-import './SearchMovies.css';
+import './Movies.css';
 
 import Select from 'react-select';
 
 const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
 
-class SearchMovies extends Component {
+class Movies extends Component {
     state = {
         keywords: "",
         movies: [],
@@ -58,40 +57,7 @@ class SearchMovies extends Component {
         }
     }
 
-    onSearchChange = event => {
-        this.setState({ keywords: event.target.value });
-        console.log(this.state.keywords)
-    };
-
-    performSearch = async () => {
-        const resp = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${
-            this.state.keywords
-        }&api_key=${APIKEY}`
-        );
-
-        const movies = await resp.json();
-        this.setState({ total_pages: movies.total_pages });
-        console.log("total_pages:", this.state.total_pages);
-
-        this.setState({
-        page: 2,
-        movies: movies.results
-        });
-        console.log({ movies });
-    };
-
-    getMovieById = async ID => {
-        const resp = await fetch(
-        `https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`
-        );
-
-        const movie = await resp.json();
-
-        this.setState({ movie });
-        console.log("[MOVIE]:", this.state.movie);
-        console.log({ movie });
-    };
+    
 
     // getTrendingMovies = async (ID) => {
     //   const resp = await fetch('https://api.themoviedb.org/3/trending/all/day?api_key=9baa3cbfd9b62ea4f97966abadf41653');
@@ -130,12 +96,6 @@ class SearchMovies extends Component {
             <section className="search-movies">
                 <main>
                     <MoviesNavigationButtons/>
-                    
-                    <SearchBox
-                        onSearchChange={this.onSearchChange}
-                        getMovies={this.performSearch}
-                    />
-                    {/* <Select options={genres} values={genres}/> */}
 
                     <MovieList
                         movieList={this.state.movies}
@@ -154,4 +114,4 @@ class SearchMovies extends Component {
     }
 }
 
-export default SearchMovies;
+export default Movies;
