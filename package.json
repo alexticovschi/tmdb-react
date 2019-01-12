@@ -7,6 +7,7 @@
     "react-dom": "^16.6.0",
     "react-id-swiper": "^1.6.8",
     "react-medium-image-zoom": "^3.0.15",
+    "react-modal": "^3.8.1",
     "react-rater": "^5.0.5",
     "react-responsive-carousel": "^3.1.43",
     "react-router-dom": "^4.3.1",

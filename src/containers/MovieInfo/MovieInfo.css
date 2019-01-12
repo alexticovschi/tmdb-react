@@ -3,6 +3,10 @@
     height: 100%;
 }
 
+:focus {
+    outline: 0;
+}
+
 section.cast,
 section.similar-movies {
     background-color: rgb(246, 246, 246);
@@ -28,8 +32,14 @@ section.cast {
     top: 0;
     left: 0;
     width: 100% !important;
-    height: 490px;
+    height: 100%;
     border: 0;
+}
+
+.ReactModal__Content {
+    background-color: #000 !important;
+    width: 60% !important;
+    overflow-y: hidden !important;
 }
 
 .container.actors h1 {
@@ -58,7 +68,7 @@ h1.title {
 }
 
 .box-left {
-    flex: 24%;
+    flex: 30%;
     background-color: #fff;
     margin-top: 4px;
     margin-bottom: 0px;
@@ -66,7 +76,7 @@ h1.title {
 }
   
 .box-right {
-    flex: 76%;
+    flex: 70%;
     background-color: white;
     padding: 20px;
 }
@@ -174,7 +184,27 @@ p {
 .similar-movies h1 {
     color:rgb(70, 70, 70);
 }
+/* 
+@media (max-width:640px) and (min-width:360px),
+       (max-width:731px) and (min-width:411px),
+       (max-width:823px) and (min-width:411px),
+       (max-width:568px) and (min-width:320px),
+       (max-width:667px) and (min-width:375px),
+       (max-width:736px) and (min-width:414px),
+       (max-width:812px) and (min-width:375px) {
+            .ReactModal__Content.ReactModal__Content--after-open {
+                width: 90% !important;
+                height: 90% !important;
+            }
+} */
 
+
+@media only screen and (max-width:1024px) {
+    .ReactModal__Content.ReactModal__Content--after-open {
+        width: 100% !important;
+        height: 50% !important;
+    }
+}
 
 @media only screen and (max-width: 1250px) {
 
@@ -199,6 +229,8 @@ p {
 }
 
 
+
+
 @media only screen and (max-width: 665px) {
     h1.title {
         font-size: 22px;
@@ -216,13 +248,13 @@ p {
     }
 
     .inner-box-right {
-        margin-left: -20px;
-
+        margin-left: -12px;
     }
 
     .inner-box-right p{
         font-size: 14px;
     }
+
     p {
         text-align: left;
         line-height: 26px;
@@ -236,13 +268,37 @@ p {
         flex-direction: column;
     }
 
-} 
+    h1.info-title {
+        margin-top: 6px;
+    }
 
-@media (max-width:475px) {
+    .ReactModal__Content.ReactModal__Content--after-open {
+        width: 100% !important;
+        height: 50% !important;
+    }
+
     .resp-iframe {
-        height: 220px;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100%;
+        border: 0;
+    }
+
+    .btn-movie-info {
+        padding: 12px 6px;
+        font-size: 13px;
+        margin: 4px 3px;
+        bottom: 20px;
+        top: 10px;
+    }
+
+    .btn-div {
+        margin-left: -20px !important;
     }
 } 
+
+
 
 /* **************************** */
 .custom_bg_poster {

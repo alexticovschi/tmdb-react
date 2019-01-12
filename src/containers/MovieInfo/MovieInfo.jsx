@@ -8,6 +8,20 @@ import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/
 import './MovieInfo.css';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
+import Modal from 'react-modal';
+
+const customStyles = {
+    content : {
+      top         : '50%',
+      left        : '50%',
+      right       : 'auto',
+      bottom      : 'auto',
+      marginRight : '-50%',
+      transform   : 'translate(-50%, -50%)',
+      height     : '90%'
+    }
+};
+
 
 class MovieInfo extends Component {
     state = {
@@ -15,7 +29,9 @@ class MovieInfo extends Component {
         credits: [],
         similar_movies: [],
         movieRecommedations: [],
-        trailers: []
+        trailers: [],
+
+        modalIsOpen: false
     }
 
     componentDidMount() {
@@ -37,6 +53,16 @@ class MovieInfo extends Component {
             this.getTrailers(movie_id);
         }
     } 
+
+
+    openModal = () => {
+        this.setState({ modalIsOpen: true });
+    };
+    
+    closeModal = () => {
+        this.setState({ modalIsOpen: false });
+    };
+    
 
     getMovieById = async (ID) => {
         const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
@@ -95,7 +121,7 @@ class MovieInfo extends Component {
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
 
-        console.log(this.state.credits);
+        console.log(this.state.trailers.slice(0,1)[0]);
         return (
             <div className="box" style={{ marginTop: "56px" }}>
                 <div className="container">
@@ -110,19 +136,18 @@ class MovieInfo extends Component {
                             <div className="inner-box-right">
 
                                 <h1 className="info-title">{movie.original_title}</h1> 
-
-                                <hr className="separator"/>
                                 
                                 {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>
 
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
-                                <p><strong>Tagline: </strong>  {movie.tagline}</p> 
+                                {/* <p><strong>Tagline: </strong>  {movie.tagline}</p>  */}
                                 <p><strong>Overview: </strong>  {movie.overview}</p> 
                                 {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
                                 <div className="btn-div">
+                                    <button onClick={this.openModal} className="btn btn-movie-info b1"><i className="fas fa-play"></i> View Trailer</button>
                                     <a className="btn btn-movie-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
                                     <button className="btn btn-movie-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
                                 </div>
@@ -136,7 +161,12 @@ class MovieInfo extends Component {
 
                         {this.state.trailers.length > 0 ?
                             <div className="resp-container">
-                                    {this.state.trailers.slice(0,1).map(trailer => (
+                                {this.state.trailers.slice(0,1).map(trailer => (
+                                    <Modal 
+                                        isOpen={this.state.modalIsOpen} 
+                                        onRequestClose={this.closeModal}
+                                        style={customStyles}>
+                                        {/* <button className="modal-btn btn-movie-info b2" onClick={this.closeModal}>X</button> */}
                                         <iframe 
                                             key={trailer.key}
                                             className="resp-iframe"
@@ -145,7 +175,8 @@ class MovieInfo extends Component {
                                             allow="encrypted-media" 
                                             allowFullScreen
                                             src={`https://www.youtube.com/embed/${trailer.key}`}
-                                    />
+                                        />
+                                    </Modal>
                                 ))}
                             </div>
                         : null} 
