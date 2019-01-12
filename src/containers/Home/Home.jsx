@@ -7,6 +7,7 @@ import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './Home.css';
 
+
 class Home extends Component {
     state = {
         movie: [],
@@ -87,6 +88,7 @@ class Home extends Component {
             <div className="container" style={{marginTop:"56px"}}>
                 <main className="container">
                     <SearchBoxWithSuggestions/>
+
                     <Carousel movies={this.state.nowPlayingMovies} />    
                     <MovieList
                         movieList={this.state.latestMovies} 

@@ -10,7 +10,7 @@ import NowOnTheAirTVShows from '../NowOnTheAirTVShows/NowOnTheAirTVShows';
 import TopRatedTvShows from '../TopRatedTvShows/TopRatedTvShows';
 import LatestTvShows from '../LatestTvShows/LatestTvShows';
 import Home from '../Home/Home';
-import SearchMovies from '../SearchMovies/SearchMovies';
+import Movies from '../Movies/Movies';
 import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
 import PopularMovies from '../PopularMovies/PopularMovies';
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
@@ -21,8 +21,11 @@ import MovieGenres from "../MovieGenres/MovieGenres";
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button"; 
-
 import './App.css';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 class App extends Component {
 
@@ -32,7 +35,7 @@ class App extends Component {
         <Navbar/>
           <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/movies" component={SearchMovies} />
+              <Route exact path="/movies" component={Movies} />
               <Route exact path="/movies/now-playing" component={NowPlayingMovies} />
               <Route exact path="/movies/popular" component={PopularMovies} />
               <Route exact path="/movies/top-rated" component={TopRatedMovies} />

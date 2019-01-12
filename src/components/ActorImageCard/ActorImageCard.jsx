@@ -6,7 +6,15 @@ const ActorImageCard = ({actor}) => {
     const base_url = 'https://image.tmdb.org/t/p/w342';
 
     return (
-        <Link to={`/cast/actor-profile-info/${actor.id}`} className="actor-card">
+        <Link 
+            to={`/cast/actor-profile-info/${actor.id}`} 
+            className="actor-card"
+            data-aos="fade-in"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-anchor-placement="bottom"
+        >
             <div className="img-wrapper">
                 <img 
                     className="actor-img" 

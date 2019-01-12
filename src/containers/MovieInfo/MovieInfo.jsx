@@ -128,7 +128,14 @@ class MovieInfo extends Component {
                     <SearchBoxWithSuggestions/>
 
                     <div className="row">
-                        <div className="box-left">
+                        <div 
+                            className="box-left" 
+                            data-aos="fade-in"
+                            data-aos-delay="50"
+                            data-aos-duration="600"
+                            data-aos-easing="ease-in-out"
+                            data-aos-anchor-placement="bottom"
+                        >
                             <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
                         </div>
 
@@ -147,9 +154,30 @@ class MovieInfo extends Component {
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
                                 <div className="btn-div__movie-info">
-                                    <button onClick={this.openModal} className="btn btn-movie-info b1"><i className="fas fa-play"></i> View Trailer</button>
-                                    <a className="btn btn-movie-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
-                                    <button className="btn btn-movie-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
+                                    <div 
+                                        data-aos="flip-right"
+                                        data-aos-delay="550"
+                                        data-aos-duration="600"
+                                        data-aos-easing="ease-in-out"
+                                        data-aos-anchor-placement="bottom"
+                                        onClick={this.openModal} 
+                                        className="btn btn-movie-info b1">
+                                        <i className="fas fa-play"></i> View Trailer
+                                    </div>
+                                    <a 
+                                        data-aos="flip-right"
+                                        data-aos-delay="750"
+                                        data-aos-duration="600"
+                                        data-aos-easing="ease-in-out"
+                                        data-aos-anchor-placement="bottom"
+                                        className="btn btn-movie-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
+                                    <button
+                                        data-aos="flip-right"
+                                        data-aos-delay="950"
+                                        data-aos-duration="600"
+                                        data-aos-easing="ease-in-out"
+                                        data-aos-anchor-placement="bottom"
+                                        className="btn btn-movie-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
                                 </div>
                             </div>
                         </div>
