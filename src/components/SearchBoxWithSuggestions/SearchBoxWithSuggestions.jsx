@@ -16,11 +16,17 @@ class SearchBoxWithSuggestions extends Component {
         if (event.target.value === '') document.getElementById('results').className = 'noDisplay';
     };
 
+    clearSuggestions = () => {
+        document.getElementById('results').className = 'noDisplay';
+    }
+
     performSearch = async () => {
         document.getElementById('results').className = 'searchResults';
         let val = this.state.keywords;
 
-        if (val === '') document.getElementById('results').className = 'noDisplay';
+        if (val === '') {
+            this.clearSuggestions();
+        }
         
         const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
         await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${val}&page=1&include_adult=false`)
@@ -53,7 +59,7 @@ class SearchBoxWithSuggestions extends Component {
                     placeholder="Search a movie..." 
                     required
                 />
-                <button class="close-icon" type="reset"></button>
+                <button onClick={this.clearSuggestions} class="close-icon" type="reset" />
                 <img src={search} role="img" className="searchIcon"/>
 
                 <SearchResults results={this.state.results} />
