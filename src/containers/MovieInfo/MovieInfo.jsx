@@ -142,7 +142,7 @@ class MovieInfo extends Component {
                         <div className="box-right">
                             <div className="inner-box-right">
 
-                                <h1 className="info-title">{movie.original_title}</h1> 
+                                <h1 className="movie-info-title">{movie.original_title}</h1> 
                                 
                                 {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>

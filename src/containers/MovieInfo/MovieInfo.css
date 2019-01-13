@@ -58,7 +58,7 @@ section.cast {
 
 h1.title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 0 auto;
 } 
 
@@ -85,11 +85,11 @@ h1.title {
     padding-left: 5px;
 }
 
-.info-title {
+.movie-info-title {
     text-align: left;
-    font-size: 1.9rem;
-    margin-top: -20px;
-    padding: 6px 4px;
+    font-size: 2.4rem;
+    margin-top: 0px;
+    padding: 6px 0px;
     /* width: 96%; */
     border-radius: 3px;
     /* background-color: rgb(0, 0, 0); */
@@ -101,7 +101,7 @@ h1.title {
 h1 strong {
     text-align: center;
 }
-h1.info-title span {
+h1.movie-info-title span {
     padding-left: 6px;
 }
 
@@ -177,7 +177,8 @@ p {
     padding: 0px;
     left: 0;
     border-radius: 3px;
-    color: rgb(13, 73, 55);
+    /* color: rgb(13, 73, 55); */
+    color: rgb(75, 75, 75);
 }
 
 
@@ -248,7 +249,7 @@ p {
     }
 
     .inner-box-right {
-        margin-left: -12px;
+        margin-left: -10px;
     }
 
     .inner-box-right p{
@@ -268,8 +269,9 @@ p {
         flex-direction: column;
     }
 
-    h1.info-title {
+    h1.movie-info-title {
         margin-top: 6px;
+        margin-left: -px;
     }
 
     .ReactModal__Content.ReactModal__Content--after-open {
@@ -294,7 +296,7 @@ p {
     }
 
     .btn-div__movie-info {
-        margin-left: -20px !important;
+        margin-left: -22px !important;
     }
 } 
 
