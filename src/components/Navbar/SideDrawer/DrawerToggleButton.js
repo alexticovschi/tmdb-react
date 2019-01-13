@@ -26,9 +26,8 @@ class DrawerToggleButton extends Component {
 
     render() {
         return (
-            <div onClick={this.props.click}>
+            <div onClick={this.props.click} className="toggle-button">
                 <HamburgerElastic
-                    className="toggle-button"
                     onClick={this.isDrawerOpen()}
                     isActive={this.state.isActive} 
                     toggleButton={this.toggleButton} 

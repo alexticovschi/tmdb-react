@@ -23,10 +23,16 @@
 
 .toggle-button {
   outline: none !important;
-  margin-top: 5px !important;
-  margin-right: 18px !important;
+  margin-top: 6px !important;
+  margin-right: -28px !important;
 }
 
-.toggle-button {
-  width: 16px !important;
+span.sc-htpNat.sc-gqjmRU.hBLQuC,
+span.sc-htpNat.sc-gqjmRU.hBLQuC::before,
+span.sc-htpNat.sc-gqjmRU.hBLQuC::after,
+span.sc-htpNat.sc-gqjmRU.jvJXDA,
+span.sc-htpNat.sc-gqjmRU.jvJXDA::before,
+span.sc-htpNat.sc-gqjmRU.jvJXDA::after {
+    width: 30px !important;
+    height: 2px;
 }

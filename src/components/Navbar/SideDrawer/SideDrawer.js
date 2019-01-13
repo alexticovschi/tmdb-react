@@ -13,18 +13,23 @@ const SideDrawer = props => {
       <ul>
         <li>
           <a href="/">Home</a>
+          <hr className="sidedrawer-separator"/>
         </li>
         <li>
           <a href="/movies/now-playing">Movies</a>
+          <hr className="sidedrawer-separator"/>
         </li>
         <li>
           <a href="/tv-shows">TV Shows</a>
+          <hr className="sidedrawer-separator"/>
         </li>
         <li>
           <a href="/genres">Genres</a>
+          <hr className="sidedrawer-separator"/>
         </li>
         <li>
           <a href="/login">Login</a>
+          <hr className="sidedrawer-separator"/>
         </li>
       </ul>
     </nav>
