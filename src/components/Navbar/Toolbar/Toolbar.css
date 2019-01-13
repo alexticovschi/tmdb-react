@@ -58,6 +58,10 @@
     .toolbar_navigation-items {
       display: none;
     }
+    .toolbar__logo a img {
+      width: 100px;
+      margin-left: -7px !important;
+    }
   }
   
   @media (min-width: 769px) {

@@ -26,10 +26,10 @@
   }
   
   .side-drawer li {
-    margin: 0.6rem 0;
+    margin: 0.8rem 5.7rem;
     margin-right: 2.5rem;
   }
-  
+
   .side-drawer a {
     color: rgb(34, 15, 15);
     text-decoration: none;
@@ -38,7 +38,7 @@
   
   .side-drawer a:hover,
   .side-drawer a:active {
-    color: #fa923f;
+    color: #74dfaf;
   }
   
   @media (min-width: 769px) {

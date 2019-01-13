@@ -1,4 +1,4 @@
-.toggle-button {
+/* .toggle-button {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,15 +9,24 @@
     padding: 0;
     box-sizing: border-box;
     cursor: pointer;
-  }
+}
   
-  .toggle-button:focus {
+.toggle-button:focus {
     outline: none;
-  }
+}
   
-  .toggle-button__line {
+.toggle-button__line {
     width: 30px;
     height: 2px;
     background: #fff;
-  }
-  
+} */
+
+.toggle-button {
+  outline: none !important;
+  margin-top: 5px !important;
+  margin-right: 18px !important;
+}
+
+.toggle-button {
+  width: 16px !important;
+}
