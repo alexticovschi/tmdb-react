@@ -32,7 +32,7 @@ const Toolbar = props => (
         </ul>
       </div>
       <div className="toolbar__toggle-button">
-        <DrawerToggleButton click={props.drawerClickHandler} />
+        <DrawerToggleButton isOpen={props.isOpen} click={props.drawerClickHandler} />
       </div>
     </nav>
   </header>

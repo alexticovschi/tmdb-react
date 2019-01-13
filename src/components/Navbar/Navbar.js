@@ -31,7 +31,7 @@ class Navbar extends Component {
     
         return (
           <div>
-            <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+            <Toolbar isOpen={this.state.sideDrawerOpen} drawerClickHandler={this.drawerToggleClickHandler} />
             <SideDrawer show={this.state.sideDrawerOpen} />
             {backdrop}
           </div>
