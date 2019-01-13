@@ -18,10 +18,10 @@
     padding: 0 1rem;
   }
   
-  .toolbar__logo a {
-    color: #00d373;
+  .toolbar__logo a img {
     text-decoration: none;
-    font-size: 1.2rem;
+    /* font-size: 1rem; */
+    width: 112px;
   }
   
   .spacer {
@@ -36,7 +36,8 @@
   }
   
   .toolbar__logo {
-    margin-left: 1rem;
+    margin-top: 7px;
+    margin-left: 0rem;
   }
   
   .toolbar_navigation-items li {
@@ -45,11 +46,12 @@
   .toolbar_navigation-items a {
     color: #fff;
     text-decoration: none;
+    transition: .4s;
   }
   
   .toolbar_navigation-items a:hover,
   .toolbar_navigation-items a:active {
-    color: #b4e4ce;
+    color: #74dfaf;
   }
   
   @media (max-width: 768px) {
