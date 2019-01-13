@@ -14,7 +14,7 @@ class Loader extends Component {
         document.querySelector('.loader-container').remove();
       }, 100);
 
-    }, 1000);
+    }, 600);
   }
 
   render() {
