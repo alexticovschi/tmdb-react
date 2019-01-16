@@ -10,6 +10,7 @@
 section.cast,
 section.similar-movies {
     background-color: rgb(246, 246, 246);
+    display: inline-block;
 }
 
 section.similar-movies {
