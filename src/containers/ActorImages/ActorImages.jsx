@@ -42,9 +42,9 @@ export default class ActorImages extends Component {
 
         // console.log(actorImages);
         return (
-            <div className="actor-images-wrapper">
+            <section className="actor-images-wrapper">
                 <div className="container actors" style={{marginTop:"70px"}}>
-                    <h1 className="actor_images_name"><strong>{name}</strong></h1>
+                    <h1 className="actor-images-name"><strong>{name}</strong></h1>
                     
                     <hr className="separator"/>
 
@@ -55,7 +55,7 @@ export default class ActorImages extends Component {
                     </main>
 
                     <button
-                        className="bio_btn actor_img_btn"
+                        className="bio-btn actor-profile-btn"
                         onClick={() => this.props.history.goBack()}
                     >
                         Back To Profile
@@ -63,7 +63,7 @@ export default class ActorImages extends Component {
                 </div>
 
                 <Loader/>
-            </div>
+            </section>
         )
     }
 }

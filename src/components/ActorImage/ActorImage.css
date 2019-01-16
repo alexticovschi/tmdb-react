@@ -1,22 +1,26 @@
-.actor-imgs {
-    width: 160px !important;;
-    height: 220px !important;;
-    border-radius: 9px;
+.site {
+    min-height: 50vh;
 }
 
-.actor-img-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    margin-bottom: 10px;
+.actor-img.profile {
+    width: 160px !important;
+    height: 232px !important;
+    border-radius: 3px;
 }
 
+.actor-img.profile {
+    margin-bottom: 14px;
+}
+
+.actor-img.profile:hover {
+    opacity: 1;
+    transform:none;
+}
 
 @media (max-width:475px) {
-    .img-profile {
-        width: 100% !important;
-        height: 100% !important;
-        margin-top: 24px;
+    .actor-img.profile {
+        width: 110px !important;
+        height: 166px !important;
+        border-radius: 3px;
     }
 }
