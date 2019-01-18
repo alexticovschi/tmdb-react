@@ -17,10 +17,16 @@ body {
 .actor-images-name {
     padding-top: 30px;
     margin-top: 36px;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
 }
 
 .actor-profile-btn {
     margin-bottom: 26px;
     margin-left: 16px;
 }
+
+@media screen and (max-width: 465px) {
+    .actor-images-name {
+        font-size: 1.7rem;
+    }
+  }

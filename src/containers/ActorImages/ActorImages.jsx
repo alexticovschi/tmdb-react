@@ -44,7 +44,7 @@ export default class ActorImages extends Component {
         return (
             <section className="actor-images-wrapper">
                 <div className="container actors" style={{marginTop:"70px"}}>
-                    <h1 className="actor-images-name"><strong>{name}</strong></h1>
+                    <h1 className="actor-images-name">{name}</h1>
                     
                     <hr className="separator"/>
 
@@ -54,12 +54,12 @@ export default class ActorImages extends Component {
                         ))}
                     </main>
 
-                    <button
+                    {/* <button
                         className="bio-btn actor-profile-btn"
                         onClick={() => this.props.history.goBack()}
                     >
                         Back To Profile
-                    </button>
+                    </button> */}
                 </div>
 
                 <Loader/>
