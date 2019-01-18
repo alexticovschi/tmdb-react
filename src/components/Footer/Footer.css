@@ -1,6 +1,66 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'; 
+
 footer {
     /* background: linear-gradient(135deg, #00d573 0%, rgba(28,38,43,1) 71%); */
     background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%);
     padding: 10px;
-    height: 200px;
-  }
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.social-media {
+    padding-left: 240px;
+    display: inline-block; 
+    overflow: hidden !important;
+}
+
+.fa {
+    padding: 8px;
+    font-size: 26px;
+    width: 81px;
+    text-align: center;
+    text-decoration: none;
+    margin: 15px 22px;
+    border-radius: 6%;
+    color: #01d277;
+    border: 3px solid #01d277;
+    background: rgb(17, 128, 104);
+    transition: all .4s ease;
+}
+
+.fa:hover {
+    opacity: 1;
+    transform:scale(1.1);
+}
+
+.footer-logo {
+    height: 130px;
+}
+
+@media (max-width:1200px) {
+    .social-media {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width:675px) {
+    footer {
+        overflow-x: hidden;
+    }
+    .fa {
+        padding: 10px;
+        font-size: 18px;
+        width: 52px;
+        text-align: center;
+        text-decoration: none;
+        margin: 28px 20px;
+    }
+
+    .footer-logo {
+        display: none;
+    }
+}
