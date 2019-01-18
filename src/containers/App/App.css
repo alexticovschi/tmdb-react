@@ -46,6 +46,7 @@ body {
 
   .container.movie-type h1 {
     font-size: 1.6rem;
+    color: rgb(51, 51, 51);
   }
 }
 

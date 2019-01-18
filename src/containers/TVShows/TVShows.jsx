@@ -28,8 +28,7 @@ class TVShows extends Component {
 
         return (
             <div>
-                <section className="container tvshows"> 
-                    <div className="similar_movies">
+                <div className="container tvshows"> 
                         <SearchBoxWithSuggestionsTV/>
 
                         <TVShowNavigationButtons/>
@@ -41,8 +40,7 @@ class TVShows extends Component {
                             tvShowList={airingTodayTVShows}
                             getTVShowById={this.getTVShowById}
                         />
-                    </div>
-                </section>
+                </div>
                 
                 <Loader/>
             </div>

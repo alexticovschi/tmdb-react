@@ -70,7 +70,7 @@ class TVShowInfo extends Component {
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
-                                <h1 className="info-title"><span>{tvShow.original_name}</span></h1> 
+                                <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1> 
                             
                                 <hr className="separator"/>
                             

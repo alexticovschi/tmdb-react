@@ -11,13 +11,10 @@ section.similar-tvshows {
     padding-top: 50px;
     background-color: rgb(246, 246, 246);
 }
-/* 
-.btn.btn-movie-info.tvshow {
-    left: -368px !important;
-} */
 
-h1 {
-    color: rgb(70, 70, 70);
+h1.tvshow-info-title {
+    color: rgb(51, 51, 51);
+    font-size: 2.4rem;
 }
 
 .react-rater-star.is-active,
@@ -33,5 +30,8 @@ h1 {
 @media (max-width:475px) {
     .btn.btn-movie-info.tvshow {
         left: -122px !important;
+    }
+    h1.tvshow-info-title {
+        font-size: 1.9rem;
     }
 }
