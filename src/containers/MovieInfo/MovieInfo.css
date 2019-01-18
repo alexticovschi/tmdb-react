@@ -11,6 +11,7 @@ section.cast,
 section.similar-movies {
     background-color: rgb(246, 246, 246);
     display: inline-block;
+    width: 100%;
 }
 
 section.similar-movies {
