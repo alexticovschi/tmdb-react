@@ -154,16 +154,18 @@ class MovieInfo extends Component {
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
                                 <div className="btn-div__movie-info">
-                                    <div 
-                                        data-aos="flip-right"
-                                        data-aos-delay="550"
-                                        data-aos-duration="600"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-anchor-placement="bottom"
-                                        onClick={this.openModal} 
-                                        className="btn btn-movie-info b1">
-                                        <i className="fas fa-play"></i> View Trailer
-                                    </div>
+                                    {this.state.trailers.length > 0 ?
+                                        <div 
+                                            data-aos="flip-right"
+                                            data-aos-delay="550"
+                                            data-aos-duration="600"
+                                            data-aos-easing="ease-in-out"
+                                            data-aos-anchor-placement="bottom"
+                                            onClick={this.openModal} 
+                                            className="btn btn-movie-info b1">
+                                            <i className="fas fa-play"></i> View Trailer
+                                        </div>
+                                    : null}
                                     <a 
                                         data-aos="flip-right"
                                         data-aos-delay="750"
