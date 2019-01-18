@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import Loader from '../../components/Loader/Loader';
 import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TVShowNavigationButtons';
+import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 
 class NowOnTheAirTVShows extends Component {
 
@@ -27,6 +28,8 @@ class NowOnTheAirTVShows extends Component {
             <div>
                 <div className="container tvshows"> 
                     <div className="similar_movies">
+                        <SearchBoxWithSuggestionsTV/>
+
                         <TVShowNavigationButtons/>
                             
                         <hr className="separator"/>
