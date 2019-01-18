@@ -14,6 +14,7 @@ body {
 
 .scroll-up-button {
   transition: .4s !important;
+  border-radius: 4px;
 }
 
 .scroll-up-button:focus {
@@ -22,7 +23,7 @@ body {
 }
 
 .scroll-up-button:hover {
-  background-color: #5ab98f !important;
+  background-color: #01d277 !important;
 }
 .container.movie-type {
   margin-top: 56px;
@@ -70,10 +71,9 @@ body {
   .card {
       flex: 0 1 calc(33% - 0.3rem);
   }
-}
 
-/* @media screen and (max-width: 770px) {
-  .select {
-      max-width: 99%;
+  .scroll-up-button {
+    width: 44px !important;
+    height: 40px !important;
   }
-} */
+}

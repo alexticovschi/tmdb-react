@@ -1,6 +1,7 @@
 .side-drawer {
     height: 100%;
-    background-color: #fff;
+    background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 100%);
+
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -32,16 +33,16 @@
 }
 
 .side-drawer a {
-    color: rgb(34, 15, 15);
+    color:#ffffff;
     text-decoration: none;
     font-size: 1.1rem;
 }
   
-.side-drawer a:hover,
+/* .side-drawer a:hover,
 .side-drawer a:active {
-    color: #74dfaf;
+    color: #ffffff;
 }
-  
+   */
 @media (min-width: 769px) {
     .side-drawer {
         display: none;
@@ -49,7 +50,7 @@
 }
   
 .sidedrawer-separator {
-    background-image: radial-gradient(circle, rgba(87, 83, 83, 0.191) 0%, rgba(19, 10, 10, 0) 90%);
+    /* background: radial-gradient(circle, rgba(87, 83, 83, 0.191) 0%, rgba(19, 10, 10, 0) 90%); */
     border: none;
     height: 2px;
     margin-left: -45px !important;
