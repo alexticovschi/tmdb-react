@@ -23,7 +23,7 @@ class SearchResults extends Component {
                             <p></p>
                             <span className="title">{movie.title} </span>
                             <span>({movie.release_date.slice(0,4)})</span>
-                            <p style={{fontSize:"12px", fontWeight:"300"}}>{movie.overview.slice(0,147)+'...'} </p>
+                            <p className="overview" style={{fontSize:"12px", fontWeight:"300"}}>{movie.overview.slice(0,147)+'...'} </p>
                         </div>
                     </Link>
                 </li>
