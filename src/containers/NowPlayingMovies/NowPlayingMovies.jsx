@@ -28,11 +28,14 @@ class NowPlayingMovies extends Component {
                 <div className="container movie-type"> 
                     <SearchBoxWithSuggestions/>
 
+                    <div className="group" style={{marginTop: "20px"}}>
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">In Theatres</h1> 
+                        <div className="group-item line"></div>
+                    </div>
+
                     <MoviesNavigationButtons/>
 
-                    <hr className="separator"/>
-
-                    <h1 class style={{textAlign:"center"}}>In Theatres</h1>
                     <MovieList
                         movieList={nowPlayingMovies}
                         getMovieById={this.getMovieById}

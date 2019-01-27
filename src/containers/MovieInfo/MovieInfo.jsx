@@ -141,8 +141,11 @@ class MovieInfo extends Component {
 
                         <div className="box-right">
                             <div className="inner-box-right">
-
-                                <h1 className="movie-info-title">{movie.original_title}</h1> 
+                                <div className="group">
+                                    <div className="group-item line-left"></div>
+                                    <h1 className="movie-info-title group-item text">{movie.original_title}</h1> 
+                                    <div className="group-item line-right"></div>
+                                </div>
                                 
                                 {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>
@@ -214,9 +217,10 @@ class MovieInfo extends Component {
                         <div style={{width: "100%"}}>
                             {this.state.credits ?
                                 <section className="cast">
-                                    <div>
-                                        <h1 className="title">Cast</h1>
-                                        <hr className="separator"/>
+                                    <div className="group">
+                                        <div className="group-item line"></div>
+                                        <h1 className="title group-item text">Cast</h1>
+                                        <div className="group-item line"></div>
                                     </div>
 
                                     <div className="main-content">
@@ -238,9 +242,14 @@ class MovieInfo extends Component {
                         <section className="recommendations">
                             {this.state.movieRecommedations.length > 0 ?
                                 <div className="container slider">                                    
-                                    <h1 className="title">Recommendations</h1>
-                                    <hr className="separator"/>
-
+                                    {/* <h1 className="title">Recommendations</h1> */}
+                                    <div className="group">
+                                        <div className="group-item line"></div>
+                                        <h1 className="title group-item text">Recommendations</h1>
+                                        <div className="group-item line"></div>
+                                    </div>
+                                    {/* <hr className="separator"/>
+ */}
                                     <SwiperSlider items={movieRecommedations} />
 
                                 </div>
@@ -250,8 +259,12 @@ class MovieInfo extends Component {
                         <section className="similar-movies">  
                             {this.state.similar_movies.length > 0 ?
                                 <div>
-                                    <h1 className="title" style={{textAlign:"center", paddingTop: "50px"}}><strong>Similar Movies</strong></h1>
-                                    <hr className="separator"/>
+                                    <div className="group">
+                                        <div className="group-item line"></div>
+                                        <h1 className="title group-item text">Similar Movies</h1>
+                                        <div className="group-item line"></div>
+                                    </div>
+                                    {/* <hr className="separator"/> */}
 
                                     <SimilarMovieList
                                         movieList={this.state.similar_movies}

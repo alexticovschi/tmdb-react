@@ -85,11 +85,18 @@ class Home extends Component {
     render() {
         console.log(this.state)
         return (
-            <div className="container" style={{marginTop:"56px"}}>
+            <div className="container home" style={{marginTop:"56px"}}>
                 <main className="container">
                     <SearchBoxWithSuggestions/>
 
-                    <Carousel movies={this.state.nowPlayingMovies} />    
+                    <Carousel movies={this.state.nowPlayingMovies} /> 
+                    
+                    <div className="group" style={{marginTop:"30px"}}>
+                        <div className="item line"></div>
+                        <h1 className="title item text">Latest Movies</h1> 
+                        <div className="item line"></div>
+                    </div>   
+
                     <MovieList
                         movieList={this.state.latestMovies} 
                         getMovieById={this.getMovieById} 

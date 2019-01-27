@@ -29,11 +29,14 @@ class TopRatedTvShows extends Component {
                 <div className="container tvshows"> 
                     <SearchBoxWithSuggestionsTV/>
 
-                    <TVShowNavigationButtons/>
-                        
-                    <hr className="separator"/>
+                    <div className="group" style={{marginTop: "20px"}}>
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">Top Rated</h1> 
+                        <div className="group-item line"></div>
+                    </div>
 
-                    <h1 style={{textAlign:"center"}}>Top Rated TV Shows</h1>
+                    <TVShowNavigationButtons/>
+
                     <TVShowsList
                         tvShowList={topRatedTVShows}
                         getTVShowById={this.getTVShowById}

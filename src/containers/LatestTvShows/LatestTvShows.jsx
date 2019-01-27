@@ -29,12 +29,15 @@ class LatestTvShows extends Component {
                 <div className="container tvshows">
                     <div className="similar_movies">
                         <SearchBoxWithSuggestionsTV/>
+                        
+                        <div className="group" style={{marginTop: "20px"}}>
+                            <div className="group-item line"></div>
+                            <h1 className="group-item text">Latest</h1> 
+                            <div className="group-item line"></div>
+                        </div>
 
                         <TVShowNavigationButtons/>
-                        
-                        <hr className="separator"/>
 
-                        <h1 style={{textAlign:"center"}}>Latest TV Shows</h1>
                         <TVShowsList
                             tvShowList={latestTVShows}
                             getTVShowById={this.getTVShowById}

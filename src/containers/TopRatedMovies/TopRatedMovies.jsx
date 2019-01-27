@@ -28,11 +28,14 @@ class TopRatedMovies extends Component {
                 <div className="container movie-type"> 
                     <SearchBoxWithSuggestions/>
 
-                    <MoviesNavigationButtons/>
-                            
-                    <hr className="separator"/>
+                    <div className="group" style={{marginTop: "20px"}}>
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">Top Rated</h1> 
+                        <div className="group-item line"></div>
+                    </div>
 
-                    <h1 style={{textAlign:"center"}}>Top Rated</h1>
+                    <MoviesNavigationButtons/>
+
                     <MovieList
                         movieList={topRatedMovies}
                     />

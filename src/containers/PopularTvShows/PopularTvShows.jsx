@@ -31,11 +31,14 @@ class PopularTvShows extends Component {
                     <div className="similar_movies">
                         <SearchBoxWithSuggestionsTV/>
 
-                        <TVShowNavigationButtons/>
-                        
-                        <hr className="separator"/>
+                        <div className="group" style={{marginTop: "20px"}}>
+                            <div className="group-item line"></div>
+                            <h1 className="group-item text">Popular</h1> 
+                            <div className="group-item line"></div>
+                        </div>
 
-                        <h1 style={{textAlign:"center"}}>Popular TV Shows</h1>
+                        <TVShowNavigationButtons/>
+
                         <TVShowsList
                             tvShowList={popularTvShows}
                             getTVShowById={this.getTVShowById}

@@ -7,19 +7,19 @@
     outline: 0;
 }
 
-section.cast,
-section.similar-movies {
+section.cast {
+    padding: 70px 0px;
     background-color: rgb(246, 246, 246);
     display: inline-block;
     width: 100%;
 }
 
 section.similar-movies {
-    margin-top: -70px;
-}
-
-section.cast {
-    padding: 30px 0px;
+    padding-top: 70px;
+    /* padding-bottom: 0px; */
+    background-color: rgb(246, 246, 246);
+    display: inline-block;
+    width: 100%;
 }
 
 .resp-container {
@@ -96,6 +96,7 @@ h1.title {
     border-radius: 3px;
     color: rgb(51, 51, 51);
 }
+
 
 h1 strong {
     text-align: center;

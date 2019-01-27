@@ -70,8 +70,12 @@ class TVShowInfo extends Component {
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
-                                <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1> 
-                                                        
+                                {/* <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1>  */}
+                                <div className="group">
+                                    <div className="item line-left"></div>
+                                    <h1 className="tvshow-info-title item text">{tvShow.original_name}</h1> 
+                                    <div className="item line-right"></div>
+                                </div>              
                                 {list !== null ? <p><strong>Genre:</strong> {genre}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={tvShow.vote_average / 2} /></div>
                                 <p><strong>Overview: </strong>  {tvShow.overview}</p> 
@@ -93,9 +97,10 @@ class TVShowInfo extends Component {
                         <div style={{width: "100%"}}>
                             {this.state.tvShowCredits.length > 0 ?
                                 <section className="cast">
-                                    <div>
-                                        <h1 className="title"><strong>Cast</strong></h1>
-                                        <hr className="separator"/>
+                                    <div className="group">
+                                        <div className="group-item line"></div>
+                                        <h1 className="title group-item text">Cast</h1>
+                                        <div className="group-item line"></div>
                                     </div>
 
                                     <div className="main-content">
@@ -118,8 +123,11 @@ class TVShowInfo extends Component {
                             <section className="recommendations">
                                 <div className="container slider">
                                     <div>
-                                        <h1 className="title">Recommendations</h1>
-                                        <hr className="separator"/>
+                                        <div className="group">
+                                            <div className="group-item line"></div>
+                                            <h1 className="title group-item text">Recommendations</h1>
+                                            <div className="group-item line"></div>
+                                        </div>
 
                                         <SwiperSlider items={tvShowRecommedations}/>
                                     </div>
@@ -132,8 +140,11 @@ class TVShowInfo extends Component {
                         <section className="similar-tvshows"> 
                             {this.state.similarTVShows.length > 0 ?
                                 <div>
-                                    <h1 className="title">Similar TV Shows</h1>
-                                    <hr className="separator"/>
+                                    <div className="group">
+                                        <div className="group-item line"></div>
+                                        <h1 className="title group-item text">Similar TV Shows</h1>
+                                        <div className="group-item line"></div>
+                                    </div>
 
                                     <TVShowsList
                                         tvShowList={this.state.similarTVShows}

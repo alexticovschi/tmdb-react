@@ -31,11 +31,14 @@ class TVShows extends Component {
                 <div className="container tvshows"> 
                         <SearchBoxWithSuggestionsTV/>
 
+                        <div className="group" style={{marginTop: "20px"}}>
+                            <div className="group-item line"></div>
+                            <h1 className="group-item text">Airing Today</h1> 
+                            <div className="group-item line"></div>
+                        </div>
+
                         <TVShowNavigationButtons/>
 
-                        <hr className="separator"/>
-
-                        <h1 style={{textAlign:"center"}}>Airing Today</h1>
                         <TVShowsList
                             tvShowList={airingTodayTVShows}
                             getTVShowById={this.getTVShowById}

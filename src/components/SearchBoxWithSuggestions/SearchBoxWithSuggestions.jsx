@@ -55,7 +55,7 @@ class SearchBoxWithSuggestions extends Component {
                     onKeyUp={this.performSearch} 
                     onChange={this.onSearchChange} 
                     id="searchInput" 
-                    className="searchBar line" 
+                    className="searchBar" 
                     placeholder="Search a movie..." 
                     required
                 />
