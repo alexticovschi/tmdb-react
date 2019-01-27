@@ -27,9 +27,13 @@ h1.tvshow-info-title {
     color: rgb(116, 113, 113);
 }
 
+.btn-movie-info.tvshow {
+    margin-left: -18px;
+}
+
 @media (max-width:475px) {
     .btn.btn-movie-info.tvshow {
-        left: -122px !important;
+        left: 18px !important;
     }
     h1.tvshow-info-title {
         font-size: 1.9rem;

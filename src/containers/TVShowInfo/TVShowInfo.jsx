@@ -71,9 +71,7 @@ class TVShowInfo extends Component {
                         <div className="box-right">
                             <div className="inner-box-right">
                                 <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1> 
-                            
-                                <hr className="separator"/>
-                            
+                                                        
                                 {list !== null ? <p><strong>Genre:</strong> {genre}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={tvShow.vote_average / 2} /></div>
                                 <p><strong>Overview: </strong>  {tvShow.overview}</p> 
@@ -83,9 +81,7 @@ class TVShowInfo extends Component {
                                 {tvShow.BoxOffice ? <p><strong>BoxOffice: </strong>  {tvShow.BoxOffice}</p> : null}
                                 {tvShow.homepage ? <p><strong>Website: </strong>  <a href={tvShow.homepage} target="_blank" rel="noopener noreferrer">{tvShow.original_name} Official Website</a></p> : null}
 
-                                <div className="btn-div">
-                                    <button className="btn btn-movie-info tvshow b2" onClick={() => this.props.history.push('/tv-shows')}>Back To Main</button>
-                                </div>
+                                <button className="btn btn-movie-info tvshow b2" onClick={() => this.props.history.push('/tv-shows')}><i class="fas fa-arrow-left"></i> Back To Main</button>
                             </div>
                         </div>
 
