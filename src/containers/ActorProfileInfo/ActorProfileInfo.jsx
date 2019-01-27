@@ -79,9 +79,12 @@ class ActorProfileInfo extends Component {
                     </div>
                     <div className="main">
                         <div className="inner-main">
-                            <h1 className="actor-nm">{actor.name}</h1>
-
-                            {/* <hr className="separator"/> */}
+                            <div className="group actor-name" style={{marginTop:"30px"}}>
+                                <div className="group-item line-left"></div>
+                                <h1 className="actor-name group-item text">{actor.name}</h1> 
+                                <div className="group-item line-right"></div>
+                            </div>
+                            {/* <h1 className="actor-nm">{actor.name}</h1> */}
 
                             <div className="bio-content">
                                 <div className="actor-bio-text">
@@ -121,16 +124,14 @@ class ActorProfileInfo extends Component {
                             
                         <div className="actor-profile-info-btns">
                             <button
-                            className="bio-btn"
-                            onClick={() => this.props.history.goBack()}
-                            >
-                            Back To Movie Info
+                                className="btn btn-movie-info b1"
+                                onClick={() => this.props.history.goBack()}>
+                                Back To Movie Info
                             </button>
                             <Link 
-                            to={`/cast/${actor.id}/images/profiles`}
-                            className="bio-btn"
-                            >
-                            Images
+                                to={`/cast/${actor.id}/images/profiles`}
+                                className="btn btn-movie-info b1">
+                                Images
                             </Link>
                         </div>
                     </div>
@@ -139,6 +140,12 @@ class ActorProfileInfo extends Component {
                 <div>
                     {this.state.actorTaggedImages.length > 0 ?
                     <section className="tagged-images">
+                        <div className="group tagged-images">
+                            <div className="group-item line"></div>
+                            <h1 className="title filmography group-item text">Tagged Images</h1> 
+                            <div className="group-item line"></div>
+                        </div>
+
                         <div className="masonry">
                             {this.state.actorTaggedImages.map((img, i) => (
                             <div className="item" key={i}>
@@ -171,13 +178,17 @@ class ActorProfileInfo extends Component {
 
                 <section className="container filmography-profile-info">            
                     {filmography.length && filmography.length > 0 ? (
-                    <div className="similar_movies">
-                        <h1 className="title filmography">Filmography</h1>
-                        <hr className="separator"/>
-                        <ActorFilmographyList
-                        movieList={filmography}
-                        />
-                    </div>
+                        <div>
+                            <div className="group">
+                                <div className="group-item line"></div>
+                                <h1 className="title group-item text">Filmography</h1> 
+                                <div className="group-item line"></div>
+                            </div>
+
+                            <div className="similar_movies">
+                                <ActorFilmographyList movieList={filmography} />
+                            </div>
+                        </div>
                     ) : null}
                 </section>
             </div>

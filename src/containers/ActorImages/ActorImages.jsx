@@ -44,9 +44,12 @@ export default class ActorImages extends Component {
         return (
             <section className="actor-images-wrapper">
                 <div className="container actors" style={{marginTop:"70px"}}>
-                    <h1 className="actor-images-name">{name}</h1>
                     
-                    <hr className="separator"/>
+                    <div className="group actor-images">
+                        <div className="group-item line"></div>
+                        <h1 className="actor-images-name group-item text">{name}</h1> 
+                        <div className="group-item line"></div>
+                    </div>
 
                     <main className="main-content actors">
                         {actorImages && actorImages.map((img,i) => (

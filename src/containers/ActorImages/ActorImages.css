@@ -25,8 +25,13 @@ body {
     margin-left: 16px;
 }
 
+.group.actor-images {
+    padding-top: 50px;
+    padding-bottom: 16px;
+}
+
 @media screen and (max-width: 465px) {
     .actor-images-name {
         font-size: 1.7rem;
     }
-  }
+}
