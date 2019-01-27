@@ -121,7 +121,6 @@ h1.movie-info-title span {
     display: inline-block;
     font-size: 14px;
     margin: 4px 2px;
-    transition-duration: 0.5s;
     cursor: pointer;
 
     position: relative;
@@ -130,19 +129,18 @@ h1.movie-info-title span {
     left: 20px;
 }
 
+.btn {
+    transition: 0.4s !important;
+}
+
 .btn:hover {
     background-color: #000;
-    color: white;
+    color: #74dfaf;
     outline: none;
 }
 
-.btn-div {
-    align-items: center;
-    align-content: space-between;
-}
-
-.btn-div .btn-movie-info {
-    left: -40px;
+.btn-div__movie-info {
+    margin-left: -18px !important;
 }
 
 .b1 {
@@ -184,6 +182,8 @@ p {
 .similar-movies h1 {
     color:rgb(70, 70, 70);
 }
+
+
 
 /* 
 @media (max-width:640px) and (min-width:360px),

@@ -179,7 +179,7 @@ class MovieInfo extends Component {
                                         data-aos-duration="600"
                                         data-aos-easing="ease-in-out"
                                         data-aos-anchor-placement="bottom"
-                                        className="btn btn-movie-info b2" onClick={() => this.props.history.push('/movies')}>Back To Search</button>
+                                        className="btn btn-movie-info b1" onClick={() => this.props.history.push('/movies/now-playing')}><i class="fas fa-arrow-left"></i> Back To Main</button>
                                 </div>
                             </div>
                         </div>
