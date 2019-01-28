@@ -72,9 +72,9 @@ class TVShowInfo extends Component {
                             <div className="inner-box-right">
                                 {/* <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1>  */}
                                 <div className="group">
-                                    <div className="item line-left"></div>
-                                    <h1 className="tvshow-info-title item text">{tvShow.original_name}</h1> 
-                                    <div className="item line-right"></div>
+                                    <div className="group-item line-left"></div>
+                                    <h1 className="tvshow-info-title group-item text">{tvShow.original_name}</h1> 
+                                    <div className="group-item line-right"></div>
                                 </div>              
                                 {list !== null ? <p><strong>Genre:</strong> {genre}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={tvShow.vote_average / 2} /></div>
