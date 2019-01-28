@@ -24,7 +24,7 @@ const SideDrawer = props => {
           <hr className="sidedrawer-separator"/>
         </li>
         <li>
-          <a href="/genres">Genres</a>
+          <a href="/genres/80">Genres</a>
           <hr className="sidedrawer-separator"/>
         </li>
         <li>

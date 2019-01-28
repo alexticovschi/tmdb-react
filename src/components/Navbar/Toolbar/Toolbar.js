@@ -24,7 +24,7 @@ const Toolbar = props => (
             <a href="/tv-shows">TV Shows</a>
           </li>
           <li>
-            <a href="/genres">Genres</a>
+            <a href="/genres/80">Genres</a>
           </li>
           <li>
             <a href="/login">Login </a>
