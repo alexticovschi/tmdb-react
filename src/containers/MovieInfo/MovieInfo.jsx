@@ -242,14 +242,12 @@ class MovieInfo extends Component {
                         <section className="recommendations">
                             {this.state.movieRecommedations.length > 0 ?
                                 <div className="container slider">                                    
-                                    {/* <h1 className="title">Recommendations</h1> */}
                                     <div className="group">
                                         <div className="group-item line"></div>
                                         <h1 className="title group-item text">Recommendations</h1>
                                         <div className="group-item line"></div>
                                     </div>
-                                    {/* <hr className="separator"/>
- */}
+                                    
                                     <SwiperSlider items={movieRecommedations} />
 
                                 </div>

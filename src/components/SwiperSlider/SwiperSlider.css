@@ -1,6 +1,5 @@
 .container.slider {
-    padding: 140px 0px;
-    margin-bottom: 120px;
+    padding: 110px 0px;
 }
 
 .slider-container {
@@ -16,13 +15,12 @@
 }
 
 @media only screen and (max-width: 665px) { 
-    .container.slider {
-        padding-top: 46px;
-        margin-bottom: 0px;
+   .container.slider {
+        padding-top: 60px;
         flex-direction: column;
     }
-    .slider-container {
-        margin-bottom: 0px;
+    .container.slider {
+        margin-bottom: -140px;
     }
 
     .swiper-button-prev,

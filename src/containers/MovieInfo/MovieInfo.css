@@ -300,6 +300,10 @@ p {
     .btn-div__movie-info {
         margin-left: -22px !important;
     }
+
+    .container.slider {
+        margin-bottom: -80px !important;
+    }
 } 
 
 
