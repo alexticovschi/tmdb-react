@@ -2,25 +2,25 @@
     min-height: 50vh;
 }
 
-.actor-img.profile {
+.actor-img-profile {
     width: 160px !important;
     height: 232px !important;
     border-radius: 3px;
-}
-
-.actor-img.profile {
     margin-bottom: 14px;
+    opacity: 0.8;
+    transition: .4s;
 }
 
-.actor-img.profile:hover {
+.actor-img-profile:hover {
     opacity: 1;
     transform:none;
 }
 
 @media (max-width:475px) {
-    .actor-img.profile {
+    .actor-img-profile {
         width: 110px !important;
         height: 166px !important;
+        opacity: 1;
         border-radius: 3px;
     }
 }

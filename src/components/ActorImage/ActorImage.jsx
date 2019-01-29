@@ -19,7 +19,7 @@ const ActorImage = ({img_path}) => {
                     image={{
                         src: `${base_url + img_path}`,
                         alt: 'actor profile image small',
-                        className: 'actor-img profile',
+                        className: 'actor-img-profile',
                         // style: { maxWidth: '5em', padding: '4px' }
                     }}
                     zoomImage={{
