@@ -1,6 +1,7 @@
 .actor-img {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+    min-height: 281px;
     transition: 0.6s;
     opacity: 0.8;
     transition: all .5s ease;
@@ -40,7 +41,7 @@ a {
     }
 
     .actor-img {
-        min-height: 131px !important;
+        min-height: 151px !important;
         min-width: 101px !important;
     }
 }
