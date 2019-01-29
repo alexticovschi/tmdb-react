@@ -84,19 +84,18 @@ class ActorProfileInfo extends Component {
                                 <h1 className="actor-name group-item text">{actor.name}</h1> 
                                 <div className="group-item line-right"></div>
                             </div>
-                            {/* <h1 className="actor-nm">{actor.name}</h1> */}
 
                             <div className="bio-content">
                                 <div className="actor-bio-text">
                                     <h4 style={{paddingTop: "12px", marginBottom: "6px"}}>Biography</h4>
 
                                     <ShowMore
-                                    lines={3}
-                                    more='Show more'
-                                    less='Show less'
-                                    anchorClass='actor-biography-anchor'
+                                        lines={3}
+                                        more='Show more'
+                                        less='Show less'
+                                        anchorClass='actor-biography-anchor'
                                     >
-                                    {actor.biography}
+                                        {actor.biography}
                                     </ShowMore>
                                 </div>
 
@@ -114,9 +113,9 @@ class ActorProfileInfo extends Component {
                                     Place of Birth: <span>{actor.place_of_birth}</span>
                                     </h4>
                                     {actor.homepage !== null ?
-                                    <h4>
-                                        Official Site: <span><a href={actor.homepage} >{actor.homepage}</a></span>
-                                    </h4>
+                                        <h4>
+                                            Official Site: <span><a href={actor.homepage} >{actor.homepage}</a></span>
+                                        </h4>
                                     : null}
                                 </div>
                             </div>
@@ -126,7 +125,7 @@ class ActorProfileInfo extends Component {
                             <button
                                 className="btn btn-movie-info b1"
                                 onClick={() => this.props.history.goBack()}>
-                                Back To Movie Info
+                                <i class="fas fa-arrow-left"></i> Go Back
                             </button>
                             <Link 
                                 to={`/cast/${actor.id}/images/profiles`}
@@ -150,24 +149,24 @@ class ActorProfileInfo extends Component {
                             {this.state.actorTaggedImages.map((img, i) => (
                             <div className="item" key={i}>
                                 <ImageZoom
-                                image={{
-                                    src: `${base_url + img.file_path}`,
-                                    alt: 'actor profile image small',
-                                }}
-                                zoomImage={{
-                                    src: `${base_url2 + img.file_path}`,
-                                    alt: 'actor profile image original'
-                                }}
+                                    image={{
+                                        src: `${base_url + img.file_path}`,
+                                        alt: 'actor profile image small',
+                                    }}
+                                    zoomImage={{
+                                        src: `${base_url2 + img.file_path}`,
+                                        alt: 'actor profile image original'
+                                    }}
                                 />    
                                 <div className="text-content">
-                                <div className="title">
-                                    {img.media.original_title || img.media.original_name} 
-                                    ({
-                                    img.media.release_date ? img.media.release_date.substr(0,4) : null 
-                                        || 
-                                    img.media.first_air_date ? img.media.first_air_date.substr(0,4) : null
-                                    })
-                                </div>
+                                    <div className="title">
+                                        {img.media.original_title || img.media.original_name} 
+                                        ({
+                                        img.media.release_date ? img.media.release_date.substr(0,4) : null 
+                                            || 
+                                        img.media.first_air_date ? img.media.first_air_date.substr(0,4) : null
+                                        })
+                                    </div>
                                 </div>
                             </div>
                             ))}
