@@ -48,7 +48,7 @@ class SwiperSlider extends Component {
             <Swiper {...params}>
                 {this.props.items.map(item => (
                     <Link key={item.id} to={`/movie-info/${item.id}`} onClick={() => this.props.history.push(`/movie-info/${item.id}`)}>
-                        <img className="swiper-img" alt="poster" src={base_url + item.poster_path} />
+                        <img className="swiper-img card" alt="poster" src={base_url + item.poster_path} />
                     </Link>
                 ))}
             </Swiper>

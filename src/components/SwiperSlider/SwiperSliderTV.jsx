@@ -7,7 +7,7 @@ class SwiperSlider extends Component {
   render() {
     
     const params = {
-        speed: 600,
+        speed: 500,
         parallax: true,
         parallaxEl: {
           el: '.parallax-bg',
@@ -47,8 +47,8 @@ class SwiperSlider extends Component {
         <div className="slider-container">
             <Swiper {...params}>
                 {this.props.items.map(item => (
-                    <Link key={item.id} to={`/tv-show-info/${item.id}`} onClick={() => this.props.history.push(`/movie-info/${item.id}`)}>
-                        <img className="swiper-img" alt="poster" src={base_url + item.poster_path} />
+                    <Link key={item.id} to={`/movie-info/${item.id}`} onClick={() => this.props.history.push(`/movie-info/${item.id}`)}>
+                        <img className="swiper-img card" alt="poster" src={base_url + item.poster_path} />
                     </Link>
                 ))}
             </Swiper>

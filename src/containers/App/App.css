@@ -13,9 +13,12 @@ body {
   background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%) !important;
 }
 
-/* .container {
-  background-color: rgb(255, 255, 255);
-} */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  transition: .5s !important;
+}
 
 .scroll-up-button {
   transition: .4s !important;
