@@ -118,6 +118,27 @@ class TVShowInfo extends Component {
 
                     </div>
                     
+                    <div style={{width: "100%"}}>
+                        {this.state.tvShowCredits.length > 0 ?
+                            <section className="cast">
+                                <div className="group">
+                                    <div className="group-item line"></div>
+                                    <h1 className="title group-item text">Cast</h1>
+                                    <div className="group-item line"></div>
+                                </div>
+
+                                <div className="main-content">
+                                    {this.state.tvShowCredits.map(actor => {
+                                        if(actor.profile_path !== null) {
+                                            return <ActorImageCard key={actor.id} actor={actor}/>
+                                        }
+                                        return null;
+                                    })}
+                                </div>
+                            </section>
+                        : null}
+                    </div>
+                    
                     <div>
                         {this.state.tvShowRecommedations.length > 0 ?
                             <section className="recommendations">

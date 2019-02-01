@@ -239,23 +239,24 @@ class MovieInfo extends Component {
                     </div>
 
                     <div>
-                        <section className="recommendations">
-                            {this.state.movieRecommedations.length > 0 ?
+                        {this.state.movieRecommedations.length > 0 ?
+                            <section className="recommendations">
                                 <div className="container slider">                                    
                                     <div className="group">
                                         <div className="group-item line"></div>
                                         <h1 className="title group-item text">Recommendations</h1>
                                         <div className="group-item line"></div>
                                     </div>
-                                    
+ 
                                     <SwiperSlider items={movieRecommedations} />
 
                                 </div>
-                            : null}
-                        </section>
+                            </section>
+                        : null}
+                        
             
-                        <section className="similar-movies">  
-                            {this.state.similar_movies.length > 0 ?
+                        {this.state.similar_movies.length > 0 ?
+                            <section className="similar-movies">  
                                 <div>
                                     <div className="group">
                                         <div className="group-item line"></div>
@@ -269,10 +270,11 @@ class MovieInfo extends Component {
                                         getMovieById={this.getMovieById} 
                                     />                           
                                 </div>
-                            : null}
-                         </section>    
+                            </section>  
+                        : null}
+                           
                     </div>  
-                </div> 
+                </div>
 
                 <Loader/>
             </div>
