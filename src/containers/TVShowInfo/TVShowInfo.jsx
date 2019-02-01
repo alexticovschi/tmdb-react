@@ -3,6 +3,7 @@ import Loader from '../../components/Loader/Loader';
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SwiperSlider from "../../components/SwiperSlider/SwiperSliderTV";
+import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
@@ -64,6 +65,8 @@ class TVShowInfo extends Component {
         return (
             <div className="box" style={{ marginTop: "56px" }}>
                 <div className="container">
+                    <SearchBoxWithSuggestionsTV/>
+
                     <div className="row">
                         <div className="box-left">
                             <img className="img-info" src={base_url + tvShow.poster_path} alt={"img card"} />

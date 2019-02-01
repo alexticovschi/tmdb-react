@@ -18,7 +18,7 @@ class SearchResults extends Component {
                     console.log(tvshow)
                     return(
                         <li key={index} onClick={this.handleClick} className="result">
-                            <Link to={`/tv-show-info/${tvshow.id}`} >
+                            <Link to={`/tv-show-info/${tvshow.id}`} onClick={() => this.props.history.push(`/tv-show-info/${tvshow.id}`)}>
                                 <img src={tvshow.poster_path === null ? 'https://dummyimage.com/243x350/7b8a91/ffffff&text=Poster+Not+Available' : `${link}${tvshow.poster_path}`} alt={`${tvshow.title} poster`} className="resultPoster" />
                                 <div>
                                     <p></p>

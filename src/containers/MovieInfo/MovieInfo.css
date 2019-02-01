@@ -90,19 +90,11 @@ h1.title {
 
 .movie-info-title {
     text-align: left;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-top: 0px;
     padding: 6px 0px;
     border-radius: 3px;
     color: rgb(51, 51, 51);
-}
-
-
-h1 strong {
-    text-align: center;
-}
-h1.movie-info-title span {
-    padding-left: 6px;
 }
 
 .card-title {
@@ -263,7 +255,7 @@ p {
     } 
 
     .movie-info-title {
-        font-size: 1.9rem;
+        font-size: 1.5rem;
     }
 }
 @media (max-width:500px) {
@@ -271,10 +263,16 @@ p {
         flex-direction: column;
     }
 
-    h1.movie-info-title {
-        margin-top: 6px;
-        margin-left: -px;
+    .group.movie-info {
+        display: inline-block;
+        margin-left: -12px;
     }
+
+    .group.movie-info .movie-info-title { 
+        white-space: normal !important;
+        width: 100%;
+    }
+
 
     .ReactModal__Content.ReactModal__Content--after-open {
         width: 100% !important;
