@@ -10,31 +10,35 @@
 .legend {
     font-size: 1.2rem !important;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    opacity: 0.9 !important;
+    opacity: 0.7 !important;
+    margin: 0 auto;
 }
 
-.legend span.movie-title {
-    color: rgb(240, 253, 60);
-    font-size: 1.3rem;
-    margin-left: 20px !important;
+.legend p {
+    text-align: center;
 }
 
-.poster-small {
-    position: absolute;
-    margin-left: 10px;
-    margin-top: -250px;
-    height: 190px;
-    max-width: 120px;
+.legend .movie-title {
+    color: #74dfaf;
+    font-size: 1.7rem;
 }
 
 @media (max-width: 765px) {
     .control-dots {
         display: none !important;
     }
-    .legend span {
-        font-size: 1.2rem;
-    }
     .legend {
-        font-size: 1rem !important;
+        margin-bottom: -20px;
+        height: 54px;
+        padding: 0px !important;
+    }
+    .legend .movie-title {
+        font-size: 0.9rem !important;
+        text-align: center !important;
+    }
+    .legend p {
+        font-size: 0.8rem !important;
+        text-align: center;
+        margin: 0px;
     }
 }

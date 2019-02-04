@@ -16,7 +16,8 @@ export default ({movies}) => {
                     <Link 
                         to={`/movie-info/${movie.id}`} 
                         className="legend">
-                            <span className="movie-title">{movie.title} </span>- Release date: {movie.release_date}
+                            <p className="movie-title">{movie.title}</p>
+                            <p>Release date: {movie.release_date}</p>
                     </Link>
                 </div>
             ))}
