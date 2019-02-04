@@ -10,12 +10,17 @@
     border-bottom: 1px solid #fff;
     z-index: 100;
 }
+
+.toolbar-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
   
 .toolbar__navigation {
     display: flex;
     height: 100%;
     align-items: center;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
 }
   
 .toolbar__logo a img {
@@ -41,7 +46,7 @@
 }
   
 .toolbar_navigation-items li {
-    padding: 0 0.5rem;
+    padding-left: 0.7rem;
 }
 .toolbar_navigation-items a {
     color: #fff;
@@ -52,6 +57,12 @@
 .toolbar_navigation-items a:hover,
 .toolbar_navigation-items a:active {
     color: #74dfaf;
+}
+
+@media (max-width: 1200px) {
+    .toolbar-wrapper {
+        padding: 0 12px;
+    }
 }
   
 @media (max-width: 768px) {

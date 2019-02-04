@@ -22,11 +22,11 @@
 } */
 
 .toggle-button {
-  outline: none !important;
-  margin-top: 6px !important;
-  margin-right: -28px !important;
+    outline: none !important;
+    margin-top: 2px !important;
+    margin-right: -28px !important;
 }
-  
+    
 span.sc-htpNat.sc-gqjmRU.hBLQuC,
 span.sc-htpNat.sc-gqjmRU.hBLQuC::before,
 span.sc-htpNat.sc-gqjmRU.hBLQuC::after,
@@ -36,3 +36,4 @@ span.sc-htpNat.sc-gqjmRU.jvJXDA::after {
     width: 30px !important;
     height: 2px;
 }
+  
