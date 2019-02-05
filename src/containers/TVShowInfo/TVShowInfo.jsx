@@ -56,20 +56,22 @@ class TVShowInfo extends Component {
         const {tvShow, tvShowRecommedations} = this.state;
         const base_url = 'https://image.tmdb.org/t/p/w500';
         const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
+        const not_available_poster = "https://dummyimage.com/342x500/7b8a91/ffffff&text=Poster+Not+Available";
+
         const genres = tvShow.genres;
         let gen = [];
         let list = genres && genres.map(g => gen.push(g.name));
         let genre = gen.map(x => x + ' ');
         
-        console.log(this.state)
+        
         return (
-            <div className="box" style={{ marginTop: "56px" }}>
-                <div className="container">
-                    <SearchBoxWithSuggestionsTV/>
+            <div className="box">
+                <SearchBoxWithSuggestionsTV/>
 
+                <div className="container">
                     <div className="row">
                         <div className="box-left">
-                            <img className="img-info" src={base_url + tvShow.poster_path} alt={"img card"} />
+                            <img className="img-info" src={ tvShow.poster_path === null ? not_available_poster: base_url + tvShow.poster_path } alt={"img card"} />
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
@@ -88,7 +90,7 @@ class TVShowInfo extends Component {
                                 {tvShow.BoxOffice ? <p><strong>BoxOffice: </strong>  {tvShow.BoxOffice}</p> : null}
                                 {tvShow.homepage ? <p><strong>Website: </strong>  <a href={tvShow.homepage} target="_blank" rel="noopener noreferrer">{tvShow.original_name} Official Website</a></p> : null}
 
-                                <button className="btn btn-movie-info tvshow b2" onClick={() => this.props.history.push('/tv-shows')}><i class="fas fa-arrow-left"></i> Back To Main</button>
+                                <button className="btn btn-movie-info tvshow b2" onClick={() => this.props.history.push('/tv-shows')}><i className="fas fa-arrow-left"></i> Back To Main</button>
                             </div>
                         </div>
 
@@ -119,27 +121,6 @@ class TVShowInfo extends Component {
                             : null}
                         </div>
 
-                    </div>
-                    
-                    <div style={{width: "100%"}}>
-                        {this.state.tvShowCredits.length > 0 ?
-                            <section className="cast">
-                                <div className="group">
-                                    <div className="group-item line"></div>
-                                    <h1 className="title group-item text">Cast</h1>
-                                    <div className="group-item line"></div>
-                                </div>
-
-                                <div className="main-content">
-                                    {this.state.tvShowCredits.map(actor => {
-                                        if(actor.profile_path !== null) {
-                                            return <ActorImageCard key={actor.id} actor={actor}/>
-                                        }
-                                        return null;
-                                    })}
-                                </div>
-                            </section>
-                        : null}
                     </div>
                     
                     <div>

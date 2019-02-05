@@ -4,7 +4,12 @@ body {
 }
 
 .box {
+    margin-top: 56px;
     background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%);
+}
+
+.row {
+    min-height: 58vh;
 }
 
 section.similar-tvshows {

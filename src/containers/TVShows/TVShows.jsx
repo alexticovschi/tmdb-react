@@ -27,22 +27,24 @@ class TVShows extends Component {
         const airingTodayTVShows = this.state.airingTodayTVShows;
 
         return (
-            <div>
+            <div className="tvshows-wrapper">
+                <SearchBoxWithSuggestionsTV/>
+
                 <div className="container tvshows"> 
-                        <SearchBoxWithSuggestionsTV/>
 
-                        <div className="group" style={{marginTop: "20px"}}>
-                            <div className="group-item line"></div>
-                            <h1 className="group-item text">Airing Today</h1> 
-                            <div className="group-item line"></div>
-                        </div>
+                    <div className="group">
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">Airing Today</h1> 
+                        <div className="group-item line"></div>
+                    </div>
 
-                        <TVShowNavigationButtons/>
+                    <TVShowNavigationButtons/>
 
-                        <TVShowsList
-                            tvShowList={airingTodayTVShows}
-                            getTVShowById={this.getTVShowById}
-                        />
+                    <TVShowsList
+                        tvShowList={airingTodayTVShows}
+                        getTVShowById={this.getTVShowById}
+                    />
+
                 </div>
                 
                 <Loader/>

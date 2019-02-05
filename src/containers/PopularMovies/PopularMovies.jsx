@@ -24,11 +24,12 @@ class PopularMovies extends Component {
         const { popularMovies } = this.state;
 
         return (
-            <div>
-                <div className="container movie-type"> 
-                    <SearchBoxWithSuggestions/>
+            <div className="movies-wrapper">
+                <SearchBoxWithSuggestions/>
 
-                    <div className="group" style={{marginTop: "20px"}}>
+                <div className="container"> 
+
+                    <div className="group">
                         <div className="group-item line"></div>
                         <h1 className="group-item text">Popular</h1> 
                         <div className="group-item line"></div>

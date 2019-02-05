@@ -13,6 +13,7 @@ body {
   background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%) !important;
 }
 
+
 .card {
   display: flex;
   align-items: center;
@@ -33,16 +34,18 @@ body {
 .scroll-up-button:hover {
   background-color: #01d277 !important;
 }
-.container.movie-type {
-  margin-top: 56px;
+.movies-wrapper {
+  margin-top: 60px;
 }
 
-.container.movie-type h1 {
-  margin-bottom: -5px;
-  /* font-size: 2rem !important; */
+.movies-wrapper .group,
+.tvshows-wrapper .group {
+  padding-top: 10px;
 }
 
-
+.movies-wrapper .group h1 {
+  font-size: 1.8rem;
+}
 
 /* horizontal line with words in the middle */
 .group { 
@@ -64,6 +67,20 @@ body {
   top: -5px;
 }
 
+/* movie-info-title styles */
+.line-left {
+  border-bottom: 30px solid #74dfaf !important;
+  width: 20px;
+  position: relative;
+  top: -6px;
+}
+.line-right {
+  width: auto;
+  border-bottom: 30px solid #74dfaf !important;
+  position: relative;
+  top: -6px;
+}
+
 
 /* Scrollbar styles */
 body::-webkit-scrollbar {
@@ -79,21 +96,18 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid #d4fdeb;
 }
 
+@media (max-width:775px) {
+  .movies-wrapper {
+    margin-top: 56px;
+  }
 
+  .movies-wrapper .group h1 {
+    margin-top: 20px;
+    margin-bottom: -2px;
+    font-size: 1.4rem;
+  }
+}
 
-/* movie-info-title styles */
-.line-left {
-  border-bottom: 30px solid #74dfaf !important;
-  width: 20px;
-  position: relative;
-  top: -6px;
-}
-.line-right {
-  width: auto;
-  border-bottom: 30px solid #74dfaf !important;
-  position: relative;
-  top: -6px;
-}
 
 @media (max-width:465px) {
   .line {

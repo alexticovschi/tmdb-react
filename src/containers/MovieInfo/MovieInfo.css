@@ -1,4 +1,5 @@
 .box {
+    margin-top: 60px !important;
     width: 100%;
     height: 100%;
 }
@@ -113,7 +114,7 @@ h1.title {
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 4px 2px;
+    margin: 4px 6px;
     cursor: pointer;
 
     position: relative;
@@ -254,8 +255,12 @@ p {
         padding-right: 0px;
     } 
 
+    p strong {
+        font-size: 16px;
+    }
+
     .movie-info-title {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 }
 @media (max-width:500px) {
@@ -269,7 +274,7 @@ p {
     }
 
     .group.movie-info .movie-info-title { 
-        white-space: normal !important;
+        white-space: initial;
         width: 100%;
     }
 
@@ -288,8 +293,8 @@ p {
     }
 
     .btn-movie-info {
-        padding: 12px 6px;
-        font-size: 13px;
+        padding: 10px 6px;
+        font-size: 11.5px;
         margin: 4px 3px;
         bottom: 20px;
         top: 10px;
@@ -300,7 +305,7 @@ p {
     }
 
     .container.slider {
-        margin-bottom: -80px !important;
+        margin-bottom: -45px !important;
     }
 } 
 
@@ -319,3 +324,4 @@ p {
     width: 1300px;
     margin: 0 auto;
 }
+

@@ -72,8 +72,6 @@ class MovieInfo extends Component {
         const movie = await resp.json();
 
         this.setState({ movie });
-        // console.log('[MOVIE]:',this.state.movie);
-        console.log({movie});
     }
 
     getSimilarMovies = async (ID) => {
@@ -83,8 +81,6 @@ class MovieInfo extends Component {
         const movies = await resp.json();
 
         this.setState({ similar_movies: movies.results });
-        // console.log('[MOVIE]:',this.state.similar_movies);
-        // console.log({movies});
     }
 
     getMovieCredits = async (ID) => {
@@ -93,7 +89,6 @@ class MovieInfo extends Component {
     
         const credits = await resp.json();
         this.setState({ credits: credits.cast });
-        // console.log('[CREDITS]', credits);
     }
 
     getMovieRecommendations = async (ID) => {
@@ -110,7 +105,6 @@ class MovieInfo extends Component {
 
         const trailers = await resp.json();
         this.setState({ trailers: trailers.results });
-        console.log('[trailers]', trailers);
     }
 
     render() {
@@ -118,14 +112,16 @@ class MovieInfo extends Component {
         const base_url = 'https://image.tmdb.org/t/p/w500';
         const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
         // const base_url3 = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
+        const not_available_poster = "https://dummyimage.com/342x500/7b8a91/ffffff&text=Poster+Not+Available";
+
         const genres = movie.genres;
         let list = genres && genres.map(g => g.name + ' ');
 
-        console.log(this.state.trailers.slice(0,1)[0]);
         return (
             <div className="box" style={{ marginTop: "56px" }}>
+                <SearchBoxWithSuggestions/>
+
                 <div className="container">
-                    <SearchBoxWithSuggestions/>
 
                     <div className="row">
                         <div 
@@ -136,12 +132,14 @@ class MovieInfo extends Component {
                             data-aos-easing="ease-in-out"
                             data-aos-anchor-placement="bottom"
                         >
-                            <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} />
+                            {/* <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} /> */}
+                            <img className="img-info" src={ movie.poster_path === null ? not_available_poster: base_url + movie.poster_path } alt={"img card"} />
+
                         </div>
 
                         <div className="box-right">
                             <div className="inner-box-right">
-                                <div className="group">
+                                <div className="group movie-info">
                                     <div className="group-item line-left"></div>
                                     <h1 className="movie-info-title group-item text">{movie.original_title}</h1> 
                                     <div className="group-item line-right"></div>
@@ -151,7 +149,6 @@ class MovieInfo extends Component {
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>
 
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
-                                {/* <p><strong>Tagline: </strong>  {movie.tagline}</p>  */}
                                 <p><strong>Overview: </strong>  {movie.overview}</p> 
                                 {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
@@ -182,7 +179,7 @@ class MovieInfo extends Component {
                                         data-aos-duration="600"
                                         data-aos-easing="ease-in-out"
                                         data-aos-anchor-placement="bottom"
-                                        className="btn btn-movie-info b1" onClick={() => this.props.history.push('/movies/now-playing')}><i class="fas fa-arrow-left"></i> Back To Main</button>
+                                        className="btn btn-movie-info b1" onClick={() => this.props.history.push('/movies/now-playing')}><i className="fas fa-arrow-left"></i> Back To Main</button>
                                 </div>
                             </div>
                         </div>
@@ -196,6 +193,7 @@ class MovieInfo extends Component {
                             <div className="resp-container">
                                 {this.state.trailers.slice(0,1).map(trailer => (
                                     <Modal 
+                                        key={trailer.key}
                                         isOpen={this.state.modalIsOpen} 
                                         onRequestClose={this.closeModal}
                                         style={customStyles}>
@@ -215,7 +213,7 @@ class MovieInfo extends Component {
                         : null} 
 
                         <div style={{width: "100%"}}>
-                            {this.state.credits ?
+                            {this.state.credits && this.state.credits.length > 0 ?
                                 <section className="cast">
                                     <div className="group">
                                         <div className="group-item line"></div>
@@ -274,7 +272,7 @@ class MovieInfo extends Component {
                         : null}
                            
                     </div>  
-                </div>
+                </div> 
 
                 <Loader/>
             </div>

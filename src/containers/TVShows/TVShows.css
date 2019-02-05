@@ -1,9 +1,3 @@
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-
 .btn-div {
     align-items: center;
     justify-content: center;
@@ -11,8 +5,8 @@
     flex-wrap: wrap !important;
 }
 
-.container.tvshows {
-    margin-top: 56px;
+.tvshows-wrapper {
+    margin-top: 60px;
 }
 
 .container.now-on-the-air {
@@ -22,6 +16,13 @@
 .container.tvshows h1 {
     font-size: 1.8rem;
     color: rgb(51, 51, 51);
+}
+
+
+@media (max-width:775px) {
+    .tvshows-wrapper {
+        margin-top: 56px;
+    }
 }
 
 

@@ -25,13 +25,14 @@ class TopRatedTvShows extends Component {
         const topRatedTVShows = this.state.topRatedTVShows;
 
         return (
-            <div>
-                <div className="container tvshows"> 
-                    <SearchBoxWithSuggestionsTV/>
+            <div className="tvshows-wrapper">
+                <SearchBoxWithSuggestionsTV/>
 
-                    <div className="group" style={{marginTop: "20px"}}>
+                <div className="container tvshows"> 
+
+                    <div className="group">
                         <div className="group-item line"></div>
-                        <h1 className="group-item text">Top Rated</h1> 
+                        <h1 className="group-item title text">Top Rated</h1> 
                         <div className="group-item line"></div>
                     </div>
 

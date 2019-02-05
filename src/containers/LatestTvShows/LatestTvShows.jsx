@@ -16,7 +16,7 @@ class LatestTvShows extends Component {
 
     getLatestTVShows = async (ID) => {
         const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
-        const resp = await fetch(`https://api.themoviedb.org/3/tv/popular?&api_key=${APIKEY}&language=en-US`);
+        const resp = await fetch(`https://api.themoviedb.org/3/tv/latest?&api_key=${APIKEY}&language=en-US`);
         const latestTVShows = await resp.json();
         this.setState({ latestTVShows: latestTVShows.results });
     }
@@ -25,28 +25,27 @@ class LatestTvShows extends Component {
         const latestTVShows = this.state.latestTVShows;
 
         return (
-            <div>
+            <div className="tvshows-wrapper">
+                <SearchBoxWithSuggestionsTV/>
+
                 <div className="container tvshows">
-                    <div className="similar_movies">
-                        <SearchBoxWithSuggestionsTV/>
                         
-                        <div className="group" style={{marginTop: "20px"}}>
-                            <div className="group-item line"></div>
-                            <h1 className="group-item text">Latest</h1> 
-                            <div className="group-item line"></div>
-                        </div>
-
-                        <TVShowNavigationButtons/>
-
-                        <TVShowsList
-                            tvShowList={latestTVShows}
-                            getTVShowById={this.getTVShowById}
-                        />
+                    <div className="group">
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">Latest</h1> 
+                        <div className="group-item line"></div>
                     </div>
+
+                    <TVShowNavigationButtons/>
+
+                    <TVShowsList
+                        tvShowList={latestTVShows}
+                        getTVShowById={this.getTVShowById}
+                    />
                 </div>
-                
+
                 <Loader/>
-            </div>
+            </div>  
         )
     }
 }

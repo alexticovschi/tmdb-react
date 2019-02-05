@@ -26,27 +26,27 @@ class PopularTvShows extends Component {
         const popularTvShows = this.state.popularTVShows;
 
         return (
-            <div>
+            <div className="tvshows-wrapper">
+                <SearchBoxWithSuggestionsTV/>
+
                 <div className="container tvshows"> 
-                    <div className="similar_movies">
-                        <SearchBoxWithSuggestionsTV/>
 
-                        <div className="group" style={{marginTop: "20px"}}>
-                            <div className="group-item line"></div>
-                            <h1 className="group-item text">Popular</h1> 
-                            <div className="group-item line"></div>
-                        </div>
-
-                        <TVShowNavigationButtons/>
-
-                        <TVShowsList
-                            tvShowList={popularTvShows}
-                            getTVShowById={this.getTVShowById}
-                        />
+                    <div className="group">
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">Popular</h1> 
+                        <div className="group-item line"></div>
                     </div>
+
+                    <TVShowNavigationButtons/>
+
+                    <TVShowsList
+                        tvShowList={popularTvShows}
+                        getTVShowById={this.getTVShowById}
+                    />
                 </div>
-                
+
                 <Loader/>
+
             </div>
         )
     }

@@ -24,11 +24,12 @@ class NowPlayingMovies extends Component {
         const { nowPlayingMovies } = this.state;
 
         return (
-            <div>
-                <div className="container movie-type"> 
-                    <SearchBoxWithSuggestions/>
+            <div className="movies-wrapper">
+                <SearchBoxWithSuggestions/>
 
-                    <div className="group" style={{marginTop: "20px"}}>
+                <div className="container"> 
+
+                    <div className="group">
                         <div className="group-item line"></div>
                         <h1 className="group-item text">In Theatres</h1> 
                         <div className="group-item line"></div>

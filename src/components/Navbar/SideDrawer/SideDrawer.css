@@ -1,6 +1,5 @@
 .side-drawer {
     height: 100%;
-    /* background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 100%); */
     background: #74dfaf;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -8,7 +7,7 @@
     left: 0;
     width: 60%;
     max-width: 400px;
-    z-index: 200;
+    z-index: 200000000;
     transform: translateX(-100%);
     transition: transform 0.4s ease-out;
 }
@@ -27,19 +26,6 @@
     /* justify-content: center; */
 }
 
-
-
-/* .side-drawer li {
-    margin: 0.3rem 5.4rem;
-    margin-right: 2.5rem;
-}
-
-.side-drawer a {
-    color:#ffffff;
-    text-decoration: none;
-    font-size: 1.1rem;
-} */
-  
 .side-drawer li {
     margin: 0.9rem;
     border-bottom: 1px solid rgb(255, 255, 255);
@@ -53,11 +39,6 @@
     margin-left: 2.5rem;
 }
   
-/* .side-drawer a:hover,
-.side-drawer a:active {
-    color: #ffffff;
-}
-   */
 @media (min-width: 769px) {
     .side-drawer {
         display: none;
@@ -65,7 +46,6 @@
 }
   
 .sidedrawer-separator {
-    /* background: radial-gradient(circle, rgba(87, 83, 83, 0.191) 0%, rgba(19, 10, 10, 0) 90%); */
     border: none;
     height: 2px;
     margin-left: -45px !important;

@@ -25,24 +25,23 @@ class NowOnTheAirTVShows extends Component {
         const nowOnTheAirTVShows = this.state.nowOnTheAirTVShows;
 
         return (
-            <div>
+            <div className="tvshows-wrapper">
+                <SearchBoxWithSuggestionsTV/>
+
                 <div className="container tvshows"> 
-                    <div className="similar_movies">
-                        <SearchBoxWithSuggestionsTV/>
                        
-                        <div className="group" style={{marginTop: "20px"}}>
-                            <div className="group-item line"></div>
-                            <h1 className="group-item text">Now On The Air</h1> 
-                            <div className="group-item line"></div>
-                        </div>
-
-                        <TVShowNavigationButtons/>
-
-                        <TVShowsList
-                            tvShowList={nowOnTheAirTVShows}
-                            getTVShowById={this.getTVShowById}
-                        />
+                    <div className="group">
+                        <div className="group-item line"></div>
+                        <h1 className="group-item text">Now On The Air</h1> 
+                        <div className="group-item line"></div>
                     </div>
+
+                    <TVShowNavigationButtons/>
+
+                    <TVShowsList
+                        tvShowList={nowOnTheAirTVShows}
+                        getTVShowById={this.getTVShowById}
+                    />
                 </div>
                 
                 <Loader/>
