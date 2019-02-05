@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SearchResults from './SearchResults';
 import search from './search.svg';
-import './SearchBoxWithSuggestions.css';
+// import './SearchBoxWithSuggestions.css';
 
 class SearchBoxWithSuggestions extends Component {
     state = {
@@ -49,21 +49,23 @@ class SearchBoxWithSuggestions extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} id="form">
-                <input 
-                    type="text" 
-                    onKeyUp={this.performSearch} 
-                    onChange={this.onSearchChange} 
-                    id="searchInput" 
-                    className="searchBar" 
-                    placeholder="Search a tv show..." 
-                    required
-                />
-                <button onClick={this.clearSuggestions} class="close-icon" type="reset" />
-                <img src={search} role="img" className="searchIcon"/>
+            <div className="searchbox-wrapper">
+                <form onSubmit={this.onSubmit} id="form">
+                    <input 
+                        type="text" 
+                        onKeyUp={this.performSearch} 
+                        onChange={this.onSearchChange} 
+                        id="searchInput" 
+                        className="searchBar" 
+                        placeholder="Search a tv show..." 
+                        required
+                    />
+                    <button onClick={this.clearSuggestions} className="close-icon" type="reset" />
+                    <img src={search} className="searchIcon" alt=""/>
 
-                <SearchResults results={this.state.results} />
-            </form>
+                    <SearchResults results={this.state.results} />
+                </form>
+            </div>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './SearchResults.css';
+// import './SearchResults.css';
 
 class SearchResults extends Component {
 
