@@ -1,0 +1,28 @@
+.btn-div .btn-movie-info {
+    left: 0;
+}
+
+@media (max-width: 465px) {
+    .btn-movie-info.tv-show.b2 {
+        width: 88px !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .btn-movie-info.tv-show.b2 {
+        width: 80px !important;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .btn-movie-info.tv-show.b2 {
+        width: 78px !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .btn-movie-info.tv-show.b2 {
+        width: 90px !important;
+    }
+}
