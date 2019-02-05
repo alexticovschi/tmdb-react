@@ -11,28 +11,28 @@ const TVShowNavigationButtons = () => {
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
                 data-aos-anchor-placement="bottom" 
-                to={`/tv-shows/popular`} className="btn btn-movie-info b2">Popular</Link>
+                to={`/tv-shows/popular`} className="btn btn-movie-info tv-show b2">Popular</Link>
             <Link 
                 data-aos="flip-right"
                 data-aos-delay="550"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
                 data-aos-anchor-placement="bottom" 
-                to={`/tv-shows/latest`} className="btn btn-movie-info b2">Latest</Link>
+                to={`/tv-shows`} className="btn btn-movie-info tv-show b2">Airing Today</Link>
             <Link 
                 data-aos="flip-right"
                 data-aos-delay="650"
                 data-aos-duration="950"
                 data-aos-easing="ease-in-out"
                 data-aos-anchor-placement="bottom" 
-                to={`/tv-shows/top-rated`} className="btn btn-movie-info b2">Top Rated</Link>
+                to={`/tv-shows/top-rated`} className="btn btn-movie-info tv-show b2">Top Rated</Link>
             <Link 
                 data-aos="flip-right"
                 data-aos-delay="750"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
                 data-aos-anchor-placement="bottom" 
-                to={`/tv-shows/now-on-the-air`} className="btn btn-movie-info b2">Now On The Air</Link>
+                to={`/tv-shows/now-on-the-air`} className="btn btn-movie-info tv-show b2">On The Air</Link>
         </div>
     );
 };
