@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const MovieItem = ({title, poster, id}) => {
+const MovieItem = ({title, poster, id, mediaType}) => {
     const _id = id.toString();
     return (
         <Link 
-            to={`/movie-info/${_id}`} 
+            to={mediaType === 'movie' ? `/movie-info/${_id}` :  `/tv-show-info/${_id}`} 
             onClick={() => this.props.history.push(`/movie_info/${_id}`)} 
             className="card"
             data-aos="fade-in"

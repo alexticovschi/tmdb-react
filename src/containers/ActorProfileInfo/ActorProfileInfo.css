@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+.actor-profile-wrapper {
+  margin-top: 60px;
+}
+
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -137,6 +141,9 @@ h4 span {
 }
 
 @media screen and (max-width: 500px) {
+  .actor-profile-wrapper {
+    margin-top: 56px;
+  }
   .container.filmography-profile-info {
     margin-bottom: -40px;
   }

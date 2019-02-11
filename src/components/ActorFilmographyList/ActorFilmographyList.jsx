@@ -7,6 +7,7 @@ const ActorFilmographyList = ({ movieList, getMovieById }) => {
     const not_available_poster = "https://dummyimage.com/243x350/7b8a91/ffffff&text=Poster+Not+Available";
     const list_of_movies = movieList && movieList.map((movie,idx) => (
         <ActorMovieItem
+            mediaType={movie.media_type}
             key={idx}
             id={movie.id}
             title={movie.title}

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ShowMore from 'react-show-more';
 import ImageZoom from 'react-medium-image-zoom';
 import Loader from '../../components/Loader/Loader';
+import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestionsPerson/SearchBoxWithSuggestions";
+
 
 import "./ActorProfileInfo.css";
 
@@ -39,9 +41,7 @@ class ActorProfileInfo extends Component {
         );
 
         const actorFilmographyData = await resp.json();
-        const actorFilmography = actorFilmographyData.cast.filter((movie) => movie.media_type !== "tv");
-        // console.log('[actorFilmography]',actorFilmographyData);
-        this.setState({ actorFilmographyData: actorFilmography });
+        this.setState({ actorFilmographyData: actorFilmographyData.cast });
     };
 
     getActorTaggedImages = async (ID) => {
@@ -63,8 +63,10 @@ class ActorProfileInfo extends Component {
         const filmography = this.state.actorFilmographyData;
         console.log(this.state)
         return (
-        <div>
-            <div className="container" style={{ marginTop: "56px" }}>
+        <div className="actor-profile-wrapper">
+            <SearchBoxWithSuggestions/>
+
+            <div className="container">
                 <div className="row-actor-profile-info">
                     <div className="side">
                         <img
