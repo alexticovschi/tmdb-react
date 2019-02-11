@@ -3,9 +3,10 @@ body {
     margin-bottom: -120px;
 }
 
-.box {
-    margin-top: 56px;
-    background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%);
+.box-tvshow-info {
+    margin-top: 60px;
+    width: 100%;
+    height: 100%;
 }
 
 .row {
@@ -37,6 +38,12 @@ h1.tvshow-info-title {
     margin-left: -18px;
 }
 
+@media (max-width:775px) {
+    .box-tvshow-info {
+        margin-top: 56px;
+    }
+}
+
 @media (max-width:475px) {
     .btn.btn-movie-info.tvshow {
         left: 18px !important;
@@ -45,3 +52,4 @@ h1.tvshow-info-title {
         font-size: 1.9rem;
     }
 }
+

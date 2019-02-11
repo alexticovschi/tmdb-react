@@ -90,7 +90,7 @@ class Home extends Component {
                 <div className="container">
                     <Carousel movies={this.state.nowPlayingMovies} /> 
                         
-                    <div className="group" style={{marginTop:"30px"}}>
+                    <div className="group">
                         <div className="group-item line"></div>
                         <h1 className="title group-item text">Latest Movies</h1> 
                         <div className="group-item line"></div>

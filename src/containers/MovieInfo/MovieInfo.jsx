@@ -118,7 +118,7 @@ class MovieInfo extends Component {
         let list = genres && genres.map(g => g.name + ' ');
 
         return (
-            <div className="box" style={{ marginTop: "56px" }}>
+            <div className="box-movie-info">
                 <SearchBoxWithSuggestions/>
 
                 <div className="container">

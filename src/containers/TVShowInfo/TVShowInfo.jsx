@@ -65,7 +65,7 @@ class TVShowInfo extends Component {
         
         
         return (
-            <div className="box">
+            <div className="box-tvshow-info">
                 <SearchBoxWithSuggestionsTV/>
 
                 <div className="container">
