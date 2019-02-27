@@ -8,6 +8,97 @@
     outline: 0;
 }
 
+
+/* Buttons styling */
+.button {
+    display: inline-block;
+    margin-right: 10px;
+    width: 200px;
+    border-radius: 4px;
+    left:0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+
+    padding: 12px 18px;
+    text-align: center;
+    color: rgb(75, 74, 74);
+    border: solid 2px #74dfaf;
+    cursor: pointer;
+} 
+
+.button.movie-info {
+    transition: all .4s ease !important;
+}
+
+.button:hover {
+    background: #74dfaf; 
+}
+
+
+.playContainer {
+    display:block;
+    background: #74dfaf; 
+    float:left;
+    position:relative;
+}
+
+.play {
+    display:block;
+    position: absolute;
+    width: 200px;
+    padding: 18px 0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 1;
+    transition: opacity .35s ease;
+
+
+    color: white;
+    border: solid 2px white;
+    cursor: pointer;
+} 
+
+.play i.fa-play {
+    color: #74dfaf;
+}
+
+.play:hover {
+  box-shadow:  0 1rem 2rem rgba(black, .2);
+}
+.play:hover::after {
+  transform: scaleX(1.6) scaleY(2.4);
+  opacity: 0;
+}
+  
+
+.button-light::after {
+  background-color: #74dfaf;
+  opacity: .3;
+}
+
+.play::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+  
+.button-animated {
+  animation: moveInUp .7s ease-out .75s;
+  animation-fill-mode: backwards;
+}
+
+
+
 section.cast {
     padding: 70px 0px;
     background-color: rgb(246, 246, 246);
@@ -68,8 +159,6 @@ h1.title {
 
 .img-info {
     max-width: 100% !important;
-    /* display: flex; */
-    
 }
 
 .box-left {
@@ -92,11 +181,14 @@ h1.title {
 
 .movie-info-title {
     text-align: left;
-    font-size: 2.2rem;
     margin-top: 0px;
     padding: 6px 0px;
     border-radius: 3px;
-    color: rgb(51, 51, 51);
+    color: rgb(56, 56, 56);
+
+    font-family: 'SF-Movie';
+    font-size: 3.8rem;
+    letter-spacing: 3.7px;
 }
 
 .card-title {
@@ -104,39 +196,6 @@ h1.title {
     font-weight: 400;
 }
 
-.btn-movie-info {
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    border: none;
-    color: white;
-    padding: 12px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 6px;
-    cursor: pointer;
-
-    position: relative;
-    bottom: 20px;
-    top: 10px;
-    left: 20px;
-}
-
-.btn {
-    transition: 0.4s !important;
-}
-
-.btn:hover {
-    background-color: #000;
-    color: #74dfaf;
-    outline: none;
-}
-
-.btn-div__movie-info {
-    margin-left: -18px !important;
-}
 
 .b1 {
     margin-left: 0px;
@@ -169,7 +228,6 @@ p {
     padding: 0px;
     left: 0;
     border-radius: 3px;
-    /* color: rgb(13, 73, 55); */
     color: rgb(75, 75, 75);
 }
 
@@ -179,20 +237,6 @@ p {
 }
 
 
-
-/* 
-@media (max-width:640px) and (min-width:360px),
-       (max-width:731px) and (min-width:411px),
-       (max-width:823px) and (min-width:411px),
-       (max-width:568px) and (min-width:320px),
-       (max-width:667px) and (min-width:375px),
-       (max-width:736px) and (min-width:414px),
-       (max-width:812px) and (min-width:375px) {
-            .ReactModal__Content.ReactModal__Content--after-open {
-                width: 90% !important;
-                height: 90% !important;
-            }
-} */
 
 
 @media only screen and (max-width: 1250px) {
@@ -266,7 +310,7 @@ p {
     }
 
     .movie-info-title {
-        font-size: 1.7rem;
+        font-size: 2.7rem;
     }
 }
 @media (max-width:500px) {
@@ -282,6 +326,7 @@ p {
     .group.movie-info .movie-info-title { 
         white-space: initial;
         width: 100%;
+        font-size: 2.6rem;
     }
 
 
@@ -298,16 +343,17 @@ p {
         border: 0;
     }
 
-    .btn-movie-info {
-        padding: 10px 6px;
-        font-size: 11.5px;
-        margin: 4px 3px;
-        bottom: 20px;
-        top: 10px;
+    .btn-movie-info .button {
+        font-size: 13px !important; 
     }
 
-    .btn-div__movie-info {
-        margin-left: -22px !important;
+    .play {
+        width: 120px !important;
+        padding: 10px 0px !important;
+    }
+
+    .btn-movie-info {
+        margin-left: 0;
     }
 
     .container.slider {
@@ -321,7 +367,7 @@ p {
 .custom_bg_poster {
     z-index: -1;
     opacity: 0.7;
-    padding: 2px;
+    /* padding: 2px; */
     width: 100%;
 }
 
@@ -330,4 +376,5 @@ p {
     width: 1300px;
     margin: 0 auto;
 }
+
 

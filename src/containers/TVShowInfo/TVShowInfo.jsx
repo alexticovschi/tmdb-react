@@ -27,6 +27,16 @@ class TVShowInfo extends Component {
         this.getTVShowsRecommendations(tv_show_id);
     }
 
+    componentDidUpdate(prevProps) {
+        if((this.props.location !== prevProps.location)) {
+            const { tv_show_id } = this.props.match.params;
+            this.getTVShowById(tv_show_id);
+            this.getSimilarTVShows(tv_show_id);
+            this.getTVShowCredits(tv_show_id);
+            this.getTVShowsRecommendations(tv_show_id);
+        }
+    } 
+
     getTVShowById = async (ID) => {
         const resp = await fetch(`https://api.themoviedb.org/3/tv/${ID}?&api_key=${APIKEY}&language=en-US`);
         const tvShow = await resp.json();
@@ -74,6 +84,7 @@ class TVShowInfo extends Component {
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
+                                {/* <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1>  */}
                                 <div className="group">
                                     <div className="group-item line-left"></div>
                                     <h1 className="tvshow-info-title group-item text">{tvShow.original_name}</h1> 
@@ -87,8 +98,6 @@ class TVShowInfo extends Component {
                                 <p><strong>Seasons: </strong>  {tvShow.number_of_seasons}</p> 
                                 {tvShow.BoxOffice ? <p><strong>BoxOffice: </strong>  {tvShow.BoxOffice}</p> : null}
                                 {tvShow.homepage ? <p><strong>Website: </strong>  <a href={tvShow.homepage} target="_blank" rel="noopener noreferrer">{tvShow.original_name} Official Website</a></p> : null}
-
-                                <button className="btn btn-movie-info tvshow b2" onClick={() => this.props.history.push('/tv-shows')}><i className="fas fa-arrow-left"></i> Back To Main</button>
                             </div>
                         </div>
 

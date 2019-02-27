@@ -1,28 +1,48 @@
-.btn-div .btn-movie-info {
-    left: 0;
+.btn-div {
+    margin-top: 12px !important;
+    padding-top: 4px;
+}
+
+.button.tv-show {
+    transition: all .4s !important;
+}
+
+.button.tv-show:hover {
+    background-color: #74dfaf;
 }
 
 @media (max-width: 465px) {
-    .btn-movie-info.tv-show.b2 {
-        width: 88px !important;
+    .btn-div {
+        margin-top: 4px !important;
+    }
+    
+    .button.tv-show {
+        font-size: 13px;
+        width: 184px !important;
+        margin: 0 auto;
+
+        margin-top: 5px;
+        margin-bottom: 6px;
     }
 }
 
 @media (max-width: 375px) {
-    .btn-movie-info.tv-show.b2 {
-        width: 80px !important;
+    .button.tv-show {
+        width: 162px !important;
     }
 }
 
 
 @media (max-width: 360px) {
-    .btn-movie-info.tv-show.b2 {
-        width: 78px !important;
+    .button.tv-show {
+        width: 160px !important;
+        margin: 0 auto;
+        margin: 3px 6px;
     }
 }
 
 @media (max-width: 320px) {
-    .btn-movie-info.tv-show.b2 {
-        width: 90px !important;
+    .button.tv-show {
+        width: 142px !important;
     }
 }

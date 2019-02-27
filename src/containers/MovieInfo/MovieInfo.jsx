@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import SimilarMovieList from '../../components/SimilarMovieList/SimilarMovieList';
+import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
-import { APIKEY } from '../../config';
-
 import './MovieInfo.css';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 import Modal from 'react-modal';
+
+import { APIKEY } from '../../config';
+
 
 const customStyles = {
     content : {
@@ -133,47 +134,41 @@ class MovieInfo extends Component {
                                     <div className="group-item line-right"></div>
                                 </div>
                                 
-                                {list !== null ? <p><strong>Genre:</strong> {list}</p> : null}
-                                <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>
+                                {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
+                                <div className="star-rating">
+                                    <strong>Rating: </strong>
+                                    <Rater interactive={false} total={5} rating={movie.vote_average / 2} />
+                                </div>
 
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
                                 <p><strong>Overview: </strong>  {movie.overview}</p> 
                                 {movie.BoxOffice ? <p><strong>BoxOffice: </strong>  {movie.BoxOffice}</p> : null}
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
-                                <div className="btn-div__movie-info">
-                                    {this.state.trailers.length > 0 ?
-                                        <div 
-                                            data-aos="flip-right"
-                                            data-aos-delay="550"
-                                            data-aos-duration="600"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-anchor-placement="bottom"
-                                            onClick={this.openModal} 
-                                            className="btn btn-movie-info b1">
-                                            <i className="fas fa-play"></i> View Trailer
-                                        </div>
-                                    : null}
+                                <div className="btn-movie-info">
                                     <a 
                                         data-aos="flip-right"
                                         data-aos-delay="750"
                                         data-aos-duration="600"
                                         data-aos-easing="ease-in-out"
                                         data-aos-anchor-placement="bottom"
-                                        className="btn btn-movie-info b1" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
-                                    <button
-                                        data-aos="flip-right"
-                                        data-aos-delay="950"
-                                        data-aos-duration="600"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-anchor-placement="bottom"
-                                        className="btn btn-movie-info b1" onClick={() => this.props.history.push('/movies/now-playing')}><i className="fas fa-arrow-left"></i> Back To Main</button>
+                                        className="button movie-info" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
+                                    
                                 </div>
                             </div>
                         </div>
 
-                        <div>            
-                            <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
+                        <div class="playContainer">            
+                            <div class="image">
+                                <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
+                            </div>
+                            {this.state.trailers.length > 0 ?
+                                <div 
+                                    onClick={this.openModal} 
+                                    className="play button-animated button-light">
+                                    <i className="fas fa-play"></i>
+                                </div>
+                            : null}
                         </div>
 
                         {this.state.trailers.length > 0 ?
@@ -249,7 +244,7 @@ class MovieInfo extends Component {
                                         <div className="group-item line"></div>
                                     </div>
 
-                                    <SimilarMovieList
+                                    <MovieList
                                         movieList={this.state.similar_movies}
                                         getMovieById={this.getMovieById} 
                                     />                           
