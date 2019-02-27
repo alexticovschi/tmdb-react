@@ -5,6 +5,8 @@ import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
+import { APIKEY } from '../../config';
+
 import './MovieInfo.css';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
@@ -65,44 +67,31 @@ class MovieInfo extends Component {
     
 
     getMovieById = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
-        // https://api.themoviedb.org/3/movie/tt4154756?api_key=9baa3cbfd9b62ea4f97966abadf41653
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`);
-
         const movie = await resp.json();
-
         this.setState({ movie });
     }
 
     getSimilarMovies = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/similar?&api_key=${APIKEY}&language=en-US&page=1`);
-
         const movies = await resp.json();
-
         this.setState({ similar_movies: movies.results });
     }
 
     getMovieCredits = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/credits?&api_key=${APIKEY}&language=en-US`);
-    
         const credits = await resp.json();
         this.setState({ credits: credits.cast });
     }
 
     getMovieRecommendations = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
-
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/recommendations?&api_key=${APIKEY}&language=en-US&page=1`);
         const movieRecommedations = await resp.json();
         this.setState({ movieRecommedations: movieRecommedations.results });
     }
 
     getTrailers = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/movie/${ID}/videos?&api_key=${APIKEY}&language=en-US`);
-
         const trailers = await resp.json();
         this.setState({ trailers: trailers.results });
     }
@@ -132,7 +121,6 @@ class MovieInfo extends Component {
                             data-aos-easing="ease-in-out"
                             data-aos-anchor-placement="bottom"
                         >
-                            {/* <img className="img-info" src={base_url + movie.poster_path} alt={"img card"} /> */}
                             <img className="img-info" src={ movie.poster_path === null ? not_available_poster: base_url + movie.poster_path } alt={"img card"} />
 
                         </div>
@@ -145,7 +133,7 @@ class MovieInfo extends Component {
                                     <div className="group-item line-right"></div>
                                 </div>
                                 
-                                {list !== null ? <p><strong>Genre:</strong>  {list}</p> : null}
+                                {list !== null ? <p><strong>Genre:</strong> {list}</p> : null}
                                 <div className="star-rating"><strong>Rating: </strong><Rater interactive={false} total={5} rating={movie.vote_average / 2} /></div>
 
                                 <p><strong>Released: </strong>  {movie.release_date}</p>
@@ -186,7 +174,6 @@ class MovieInfo extends Component {
 
                         <div>            
                             <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
-                            {/* <h1>{movie.original_title}</h1>  */}
                         </div>
 
                         {this.state.trailers.length > 0 ?
@@ -197,7 +184,7 @@ class MovieInfo extends Component {
                                         isOpen={this.state.modalIsOpen} 
                                         onRequestClose={this.closeModal}
                                         style={customStyles}>
-                                        {/* <button className="modal-btn btn-movie-info b2" onClick={this.closeModal}>X</button> */}
+
                                         <iframe 
                                             key={trailer.key}
                                             className="resp-iframe"
@@ -261,7 +248,6 @@ class MovieInfo extends Component {
                                         <h1 className="title group-item text">Similar Movies</h1>
                                         <div className="group-item line"></div>
                                     </div>
-                                    {/* <hr className="separator"/> */}
 
                                     <SimilarMovieList
                                         movieList={this.state.similar_movies}

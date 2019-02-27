@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import SearchResults from './SearchResults';
 import search from './search.svg';
-// import './SearchBoxWithSuggestions.css';
+
+import { APIKEY } from '../../config';
+
 
 class SearchBoxWithSuggestions extends Component {
     state = {
@@ -28,7 +30,6 @@ class SearchBoxWithSuggestions extends Component {
             this.clearSuggestions();
         }
         
-        const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
         await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${APIKEY}&language=en-US&query=${val}&page=1`)
             .then(response => {
                 if (response.status !== 200) {

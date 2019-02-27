@@ -5,6 +5,8 @@ import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TV
 import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 
 import './TVShows.css';
+import { APIKEY } from '../../config';
+
 
 class TVShows extends Component {
 
@@ -17,7 +19,6 @@ class TVShows extends Component {
     }
 
     getAiringTodayTVShows = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/tv/airing_today?&api_key=${APIKEY}&language=en-US`);
         const airingTodayTVShows = await resp.json();
         this.setState({ airingTodayTVShows: airingTodayTVShows.results });

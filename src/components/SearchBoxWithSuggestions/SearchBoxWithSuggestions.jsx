@@ -3,6 +3,9 @@ import SearchResults from './SearchResults';
 import search from './search.svg';
 import './SearchBoxWithSuggestions.css';
 
+import { APIKEY } from '../../config';
+
+
 class SearchBoxWithSuggestions extends Component {
     state = {
         results: [],
@@ -28,7 +31,6 @@ class SearchBoxWithSuggestions extends Component {
             this.clearSuggestions();
         }
         
-        const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
         await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${val}&page=1&include_adult=false`)
             .then(response => {
                 if (response.status !== 200) {

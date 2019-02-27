@@ -4,6 +4,9 @@ import Loader from '../../components/Loader/Loader';
 import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TVShowNavigationButtons';
 import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 
+import { APIKEY } from '../../config';
+
+
 class TopRatedTvShows extends Component {
 
     state = {
@@ -15,7 +18,6 @@ class TopRatedTvShows extends Component {
     }
 
     getTopRatedTVShows = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/tv/top_rated?&api_key=${APIKEY}&language=en-US`);
         const topRatedTVShows = await resp.json();
         this.setState({ topRatedTVShows: topRatedTVShows.results });

@@ -4,6 +4,9 @@ import Loader from '../../components/Loader/Loader';
 import MoviesNavigationButtons from '../../components/MoviesNavigationButtons/MoviesNavigationButtons';
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
+import { APIKEY } from '../../config';
+
+
 class PopularMovies extends Component {
     state = {
         popularMovies: []
@@ -14,7 +17,6 @@ class PopularMovies extends Component {
     }
 
     getPopularMovies = async () => {
-        const APIKEY = "9baa3cbfd9b62ea4f97966abadf41653";
         const resp = await fetch(`https://api.themoviedb.org/3/movie/popular?&api_key=${APIKEY}&language=en-US&page=1`);
         const popularMovies = await resp.json();
         this.setState({ popularMovies: popularMovies.results });

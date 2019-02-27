@@ -7,10 +7,9 @@ import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestion
 
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
-
 import './TVShowInfo.css';
+import { APIKEY } from '../../config';
 
-const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
 
 class TVShowInfo extends Component {
     state = {
@@ -75,7 +74,6 @@ class TVShowInfo extends Component {
                         </div>
                         <div className="box-right">
                             <div className="inner-box-right">
-                                {/* <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1>  */}
                                 <div className="group">
                                     <div className="group-item line-left"></div>
                                     <h1 className="tvshow-info-title group-item text">{tvShow.original_name}</h1> 

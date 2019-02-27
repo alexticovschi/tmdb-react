@@ -4,6 +4,9 @@ import Loader from '../../components/Loader/Loader';
 import TVShowNavigationButtons from '../../components/TVShowNavigationButtons/TVShowNavigationButtons';
 import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 
+import { APIKEY } from '../../config';
+
+
 class NowOnTheAirTVShows extends Component {
 
     state = {
@@ -15,7 +18,6 @@ class NowOnTheAirTVShows extends Component {
     }
 
     getNowOnTheAirTVShows = async (ID) => {
-        const APIKEY = '9baa3cbfd9b62ea4f97966abadf41653';
         const resp = await fetch(`https://api.themoviedb.org/3/tv/on_the_air?&api_key=${APIKEY}&language=en-US`);
         const nowOnTheAirTVShows = await resp.json();
         this.setState({ nowOnTheAirTVShows: nowOnTheAirTVShows.results });
