@@ -101,8 +101,10 @@ class TVShowInfo extends Component {
                             </div>
                         </div>
 
-                        <div>            
-                            <img className="custom_bg_poster" src={base_url2 + tvShow.backdrop_path} alt=""/>
+                        <div class="playContainer">            
+                            <div class="image">        
+                                <img className="custom_bg_poster" src={base_url2 + tvShow.backdrop_path} alt=""/>
+                            </div>
                         </div>
 
 

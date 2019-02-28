@@ -123,7 +123,6 @@ class MovieInfo extends Component {
                             data-aos-anchor-placement="bottom"
                         >
                             <img className="img-info" src={ movie.poster_path === null ? not_available_poster: base_url + movie.poster_path } alt={"img card"} />
-
                         </div>
 
                         <div className="box-right">

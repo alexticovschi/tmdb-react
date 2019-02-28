@@ -21,7 +21,9 @@ section.similar-tvshows {
 
 h1.tvshow-info-title {
     color: rgb(51, 51, 51);
-    font-size: 2.4rem;
+    font-family: 'SF-Movie';
+    font-size: 3.8rem;
+    letter-spacing: 3.7px;
 }
 
 .react-rater-star.is-active,
@@ -49,7 +51,6 @@ h1.tvshow-info-title {
         left: 18px !important;
     }
     h1.tvshow-info-title {
-        font-size: 1.9rem;
-    }
+        font-size: 2.7rem;    }
 }
 

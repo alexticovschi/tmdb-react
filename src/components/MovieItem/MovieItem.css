@@ -1,0 +1,55 @@
+@font-face {
+	font-family: "SF-Movie";
+	src: url("../../sf-movie-poster.regular.ttf");
+}
+
+.frame {
+	text-align: center;	
+	position: relative;
+	cursor: pointer;	
+	perspective: 500px; 
+	height: 100%;
+}
+
+.frame .details {
+	width: 96%;
+	height: 44%;	
+	padding: 2% 1%;
+	position: absolute;
+	top: 77%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotateY(90deg);
+	transform-origin: 50%;
+	background: rgba(44, 146, 95, 0.96);	
+	background: rgba(4, 15, 9, 0.92);	
+	opacity: 0;
+	transition: all 0.3s ease-in;
+	-webkit-filter: blur(0.000001px);
+	-webkit-font-smoothing: antialiased;
+}
+.frame:hover .details {
+	transform: translate(-50%, -50%) rotateY(0deg);
+	opacity: 1;
+}
+
+.details .card-title {
+    color: #ffffff;
+}
+
+.details h2.card-title {
+	font-size: 28px;
+	letter-spacing: 3px;
+	font-weight: 300 !important;
+	font-family: 'SF-Movie';
+	margin-bottom: 4px;
+}
+
+.details h3.card-title {
+    font-size: 14.5px;
+}
+
+@media (max-width: 675px) {
+	.details {
+		display: none;
+	}
+}
