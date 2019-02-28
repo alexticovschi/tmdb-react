@@ -83,7 +83,7 @@ class ActorProfileInfo extends Component {
 
                                 <div className="bio-content">
                                     <div className="actor-bio-text">
-                                        <h4 style={{paddingTop: "12px", marginBottom: "6px"}}>Biography</h4>
+                                        <h4 style={{paddingTop: "12px", marginBottom: "6px"}}>Biography:</h4>
 
                                         <ShowMore
                                             lines={3}
@@ -117,15 +117,10 @@ class ActorProfileInfo extends Component {
                                 </div>
                             </div>
                                 
-                            <div className="actor-profile-info-btns">
-                                <button
-                                    className="btn btn-movie-info b1"
-                                    onClick={() => this.props.history.goBack()}>
-                                    <i class="fas fa-arrow-left"></i> Go Back
-                                </button>
+                            <div className="actor-profile-btn">
                                 <Link 
                                     to={`/cast/${actor.id}/images/profiles`}
-                                    className="btn btn-movie-info b1">
+                                    className="button movie-info">
                                     Images
                                 </Link>
                             </div>
