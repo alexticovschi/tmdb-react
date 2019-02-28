@@ -28,7 +28,7 @@ const SideDrawer = props => {
           <hr className="sidedrawer-separator"/>
         </li>
         <li>
-          <a href="/login">Login</a>
+          <a href="https://www.themoviedb.org/login?language=en-US">Login</a>
           <hr className="sidedrawer-separator"/>
         </li>
       </ul>

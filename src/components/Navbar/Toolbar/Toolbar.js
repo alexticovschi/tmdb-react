@@ -34,7 +34,7 @@ const Toolbar = props => (
               <a href="/genres/80">Genres</a>
             </li>
             <li>
-              <a href="/login">Login </a>
+              <a href="https://www.themoviedb.org/login?language=en-US">Login </a>
             </li>
           </ul>
         </div>
