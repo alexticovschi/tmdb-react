@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 60%;
+    width: 60vw;
     max-width: 400px;
     z-index: 200000000;
     transform: translateX(-100%);
@@ -27,16 +27,27 @@
 }
 
 .side-drawer li {
-    margin: 0.9rem;
+    box-sizing: border-box;
+    text-align: center;
     border-bottom: 1px solid rgb(255, 255, 255);
 }
 
+.side-drawer ul li:last-child {
+    border-bottom: none;
+}
+
+
 .side-drawer a {
-    color:#ffffff;
     color:#000000;
     text-decoration: none;
     font-size: 1rem;
-    margin-left: 2.5rem;
+    display: block;
+    padding: 20px 0;
+}
+
+.side-drawer .btn {
+    display: block;
+    padding: 25px 0;
 }
   
 @media (min-width: 769px) {
@@ -44,10 +55,52 @@
         display: none;
     }
 }
+
+
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
   
-.sidedrawer-separator {
-    border: none;
-    height: 2px;
-    margin-left: -45px !important;
-    margin-top: 20px;
+.btn:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    background: #9efad0;
+    border-radius: 100%;
+    opacity: .6;
+  
+    transform: scale(0);
+}
+  
+@keyframes ripple {
+    0% {
+      transform: scale(0);
+    }
+    20% {
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+}
+  
+.btn:not(:active):after {
+    animation: ripple 1s ease-out;
+}
+  
+.btn:after {
+    visibility: hidden;
+}
+  
+.btn:focus:after {
+    visibility: visible;
 }

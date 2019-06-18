@@ -12,24 +12,19 @@ const SideDrawer = props => {
     <nav className={drawerClasses}>
       <ul>
         <li>
-          <a href="/">Home</a>
-          <hr className="sidedrawer-separator"/>
+          <a className="btn" href="/">Home</a>
         </li>
         <li>
-          <a href="/movies/now-playing">Movies</a>
-          <hr className="sidedrawer-separator"/>
+          <a className="btn" href="/movies/now-playing">Movies</a>
         </li>
         <li>
-          <a href="/tv-shows">TV Shows</a>
-          <hr className="sidedrawer-separator"/>
+          <a className="btn" href="/tv-shows">TV Shows</a>
         </li>
         <li>
-          <a href="/genres/80">Genres</a>
-          <hr className="sidedrawer-separator"/>
+          <a className="btn" href="/genres/80">Genres</a>
         </li>
         <li>
-          <a href="https://www.themoviedb.org/login?language=en-US">Login</a>
-          <hr className="sidedrawer-separator"/>
+          <a className="btn" href="https://www.themoviedb.org/login?language=en-US">Login</a>
         </li>
       </ul>
     </nav>
