@@ -22,7 +22,6 @@ class MovieGenres extends Component {
 
     componentDidUpdate(prevProps) {
         if((this.props.location !== prevProps.location)) {
-            const { genre_id } = this.props.match.params;
             this.getGenreById(this.state.selectedOption.value);
         }
     } 
@@ -71,21 +70,15 @@ class MovieGenres extends Component {
     handleChange = (selectedOption) => {
         this.setState({ selectedOption });
         this.props.history.push(`/genres/${selectedOption.value}`);
-        console.log(`Option selected:`, selectedOption);
       }
 
     onChange = (e) => this.props.history.push(`/genre/${e.target.value}`);
 
     render() {
-        let genres = this.state.genres;
-        let optionItems = genres.map((genre) =>
-            <option key={genre.id} value={genre.id}>{genre.name}</option>
-        );
-
         const { selectedOption } = this.state;
         const options = [];
         this.state.genres.map(item => {
-            options.push({label: item.name, value: item.id})
+            return options.push({label: item.name, value: item.id})
         });
 
         return (
@@ -119,7 +112,7 @@ class MovieGenres extends Component {
 
                         {this.state.total_pages > 2 &&
                         this.state.total_pages >= this.state.page ? (
-                            <button className="btn loadmore" onClick={this.loadMore}>
+                            <button className="btn loadmore ripple" onClick={this.loadMore}>
                             Load More
                             </button>
                         ) : null}
