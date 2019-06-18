@@ -12,19 +12,19 @@ const SideDrawer = props => {
     <nav className={drawerClasses}>
       <ul>
         <li>
-          <a className="btn" href="/">Home</a>
+          <a className="btn ripple" href="/">Home</a>
         </li>
         <li>
-          <a className="btn" href="/movies/now-playing">Movies</a>
+          <a className="btn ripple" href="/movies/now-playing">Movies</a>
         </li>
         <li>
-          <a className="btn" href="/tv-shows">TV Shows</a>
+          <a className="btn ripple" href="/tv-shows">TV Shows</a>
         </li>
         <li>
-          <a className="btn" href="/genres/80">Genres</a>
+          <a className="btn ripple" href="/genres/80">Genres</a>
         </li>
         <li>
-          <a className="btn" href="https://www.themoviedb.org/login?language=en-US">Login</a>
+          <a className="btn ripple" href="https://www.themoviedb.org/login?language=en-US">Login</a>
         </li>
       </ul>
     </nav>

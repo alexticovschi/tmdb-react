@@ -57,50 +57,17 @@
 }
 
 
-
-.btn {
-    position: relative;
-    overflow: hidden;
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+.ripple:hover {
+    background: #74dfaf radial-gradient(circle, transparent 1%, #74dfaf 1%) center/15000%;
+}
+.ripple:active {
+    background-color: #88f5c4;
+    background-size: 100%;
+    transition: background 0s;
 }
   
-.btn:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 120px;
-    height: 120px;
-    margin-left: -60px;
-    margin-top: -60px;
-    background: #9efad0;
-    border-radius: 100%;
-    opacity: .6;
-  
-    transform: scale(0);
-}
-  
-@keyframes ripple {
-    0% {
-      transform: scale(0);
-    }
-    20% {
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(1);
-    }
-}
-  
-.btn:not(:active):after {
-    animation: ripple 1s ease-out;
-}
-  
-.btn:after {
-    visibility: hidden;
-}
-  
-.btn:focus:after {
-    visibility: visible;
-}
