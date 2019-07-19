@@ -1,5 +1,5 @@
 import React from 'react';
-import './ActorImageCard.css';
+import './ActorImageCard.scss';
 import { Link } from 'react-router-dom';
 
 const ActorImageCard = ({actor}) => {
@@ -22,9 +22,7 @@ const ActorImageCard = ({actor}) => {
                     '/images/person_placeholder.jpeg' 
                 : base_url + actor.profile_path} alt={"img card"} />
                 </div>
-            <div className="actor_name">{actor.name}</div>
-
-            {/* <div className="actor_character">{actor.character}</div> */}
+            <div className="actor-name">{actor.name}</div>
         </Link>   
     );
 };

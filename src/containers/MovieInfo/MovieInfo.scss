@@ -1,3 +1,6 @@
+/* COLOR VARIABLES */
+$base-color: #74dfaf;
+
 .box-movie-info {
     margin-top: 60px;
     width: 100%;
@@ -8,41 +11,35 @@
     outline: 0;
 }
 
+/* movie-info-title styles */
+.line-left {
+    border-bottom: 30px solid $base-color !important;
+    width: 20px;
+    position: relative;
+    top: -6px;
+}
 
-/* Buttons styling */
-.button {
-    display: inline-block;
-    margin-right: 10px;
-    width: 200px;
-    border-radius: 4px;
-    left:0;
-    opacity: 1;
-
-    padding: 12px 18px;
-    text-align: center;
-    color: rgb(75, 74, 74);
-    border: solid 2px #74dfaf;
-    cursor: pointer;
-} 
+.line-right {
+    width: auto;
+    border-bottom: 30px solid $base-color !important;
+    position: relative;
+    top: -6px;
+}
 
 .button.movie-info {
     transition: all .4s ease !important;
 }
 
-.button:hover {
-    background: #74dfaf; 
-}
-
 
 .playContainer {
-    display:block;
-    background: #74dfaf; 
-    float:left;
-    position:relative;
+    display: block;
+    background: $base-color;
+    float: left;
+    position: relative;
 }
 
 .play {
-    display:block;
+    display: block;
     position: absolute;
     width: 200px;
     padding: 18px 0px;
@@ -53,47 +50,37 @@
     opacity: 1;
     transition: opacity .35s ease;
 
-
     color: white;
     border: solid 2px white;
     cursor: pointer;
-} 
 
-.play i.fa-play {
-    color: #74dfaf;
-}
+    i.fa-play {
+        color: $base-color;
+    }
 
-.play:hover {
-  box-shadow:  0 1rem 2rem rgba(black, .2);
-}
-.play:hover::after {
-  transform: scaleX(1.6) scaleY(2.4);
-  opacity: 0;
-}
-  
+    &:hover {
+        box-shadow: 0 1rem 2rem rgba(black, .2);
 
-.button-light::after {
-  background-color: #74dfaf;
-  opacity: .3;
+        &::after {
+            transform: scaleX(1.6) scaleY(2.4);
+            opacity: 0;
+        }
+    }
+    
+    &::after {
+        content: '';
+        background-color: $base-color;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+        opacity: .3;
+    }
 }
-
-.play::after {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s;
-}
-  
-.button-animated {
-  animation: moveInUp .7s ease-out .75s;
-  animation-fill-mode: backwards;
-}
-
 
 
 section.cast {
@@ -105,7 +92,6 @@ section.cast {
 
 section.similar-movies {
     padding-top: 70px;
-    /* padding-bottom: 0px; */
     background-color: rgb(246, 246, 246);
     display: inline-block;
     width: 100%;
@@ -138,55 +124,57 @@ section.similar-movies {
     color: rgb(61, 61, 61);
 }
 
-.row {  
+.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #fff; 
+    background-color: #fff;
     padding-bottom: 20px;
-}
 
+
+    .img-info {
+        max-width: 100% !important;
+    }
+    
+    .box-left {
+        flex: 30%;
+        background-color: #fff;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+    
+    .box-right {
+        flex: 70%;
+        background-color: white;
+        padding: 20px;
+    }
+    
+    .inner-box-right {
+        padding-left: 5px;
+    }
+    
+    .movie-info-title {
+        text-align: left;
+        margin-top: 0px;
+        padding: 6px 0px;
+        border-radius: 3px;
+        color: rgb(56, 56, 56);
+    
+        font-family: 'SF-Movie';
+        font-size: 3.8rem;
+        letter-spacing: 3.7px;
+    }
+}
 
 h1.title {
     text-align: center;
     font-size: 2rem;
     margin: 0 auto;
     color: rgb(51, 51, 51);
-} 
-
-.img-info {
-    max-width: 100% !important;
 }
 
-.box-left {
-    flex: 30%;
-    background-color: #fff;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-}
-  
-.box-right {
-    flex: 70%;
-    background-color: white;
-    padding: 20px;
-}
 
-.inner-box-right {
-    padding-left: 5px;
-}
-
-.movie-info-title {
-    text-align: left;
-    margin-top: 0px;
-    padding: 6px 0px;
-    border-radius: 3px;
-    color: rgb(56, 56, 56);
-
-    font-family: 'SF-Movie';
-    font-size: 3.8rem;
-    letter-spacing: 3.7px;
-}
 
 .card-title {
     font-size: 0.9rem;
@@ -220,7 +208,8 @@ p {
     padding-right: 40px;
 }
 
-.star-rating, p strong {
+.star-rating,
+p strong {
     font-size: 1.1rem;
     padding: 0px;
     left: 0;
@@ -230,7 +219,7 @@ p {
 
 
 .similar-movies h1 {
-    color:rgb(70, 70, 70);
+    color: rgb(70, 70, 70);
 }
 
 
@@ -274,6 +263,7 @@ p {
     h1.title {
         font-size: 22px;
     }
+
     .plot {
         padding: 0px;
         text-align: left;
@@ -282,6 +272,7 @@ p {
     .b1 {
         margin-left: 0px;
     }
+
     .resp-iframe {
         height: 270px;
     }
@@ -290,7 +281,7 @@ p {
         margin-left: -10px;
     }
 
-    .inner-box-right p{
+    .inner-box-right p {
         font-size: 14px;
     }
 
@@ -300,7 +291,7 @@ p {
         font-size: 16px;
         font-family: sans-serif;
         padding-right: 0px;
-    } 
+    }
 
     p strong {
         font-size: 16px;
@@ -310,6 +301,7 @@ p {
         font-size: 2.7rem;
     }
 }
+
 @media (max-width:500px) {
     .row {
         flex-direction: column;
@@ -320,7 +312,7 @@ p {
         margin-left: -12px;
     }
 
-    .group.movie-info .movie-info-title { 
+    .group.movie-info .movie-info-title {
         white-space: initial;
         width: 100%;
         font-size: 2.7rem;
@@ -341,7 +333,7 @@ p {
     }
 
     .btn-movie-info .button {
-        font-size: 13px !important; 
+        font-size: 13px !important;
     }
 
     .play {
@@ -356,7 +348,7 @@ p {
     .container.slider {
         margin-bottom: -45px !important;
     }
-} 
+}
 
 
 
@@ -373,5 +365,3 @@ p {
     width: 1300px;
     margin: 0 auto;
 }
-
-

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Swiper from "react-id-swiper";
 import { Link } from "react-router-dom";
-import "./SwiperSlider.css";
+import "./SwiperSlider.scss";
 
 class SwiperSlider extends Component {
   render() {

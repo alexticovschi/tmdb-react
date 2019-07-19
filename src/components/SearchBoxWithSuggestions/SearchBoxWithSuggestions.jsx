@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import SearchResults from './SearchResults';
 import search from './search.svg';
-import './SearchBoxWithSuggestions.css';
+import './SearchBoxWithSuggestions.scss';
 
 import { APIKEY } from '../../config';
-
 
 class SearchBoxWithSuggestions extends Component {
     state = {

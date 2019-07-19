@@ -1,12 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 0;
-}
-
 .actor-profile-wrapper {
   margin-top: 60px;
 }
@@ -19,38 +10,34 @@ body {
 .row-actor-profile-info {
   display: flex;
   flex-direction: row;
+
+  .side {
+    flex: 30%;
+    background-color: #ffffff;
+    padding-top: 50px;
+  }
+
+  .main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .inner-main {
+    padding-left: 20px;
+  }
 }
 
-.side {
-  flex: 30%;
-  background-color: #ffffff;
-  padding-top: 50px;
-}
-
-.main {
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
-
-.inner-main {
-  padding-left: 20px;
-}
 
 section.tagged-images {
   padding: 50px 0px;
   background-color: rgb(246, 246, 246);
 }
 
-.masonry {
-  margin-top: 150px;
-}
-
 .actor-profile-img {
   max-width: 100% !important;
   margin-bottom: 60px;
-  /* border-radius: 6px; */
-  padding-left: 5px;
+  padding-left: 15px;
 }
 
 .container.filmography-profile-info {
@@ -61,30 +48,27 @@ section.filmography-profile-info {
   padding-bottom: 40px;
 }
 
-.bio-content>p {
-  font-size: 16px;
-  font-family: sans-serif;
-}
-
 h1 {
   font-family: 'Times New Roman', Times, serif;
+
+  &.actor-name {
+    font-size: 2.2rem;
+  }
 }
 
-h1.actor-name {
-  font-size: 2.2rem;
-}
 
-.bio-title, h4 {
+.bio-title,
+h4 {
   font-family: 'Times New Roman', Times, serif;
   color: rgb(87, 83, 83);
   font-weight: 600;
   font-size: 1.3rem;
-}
 
-h4 span {
-  color: rgb(49, 47, 47);
-  font-weight: 400;
-  font-size: 18.5px;
+  span {
+    color: rgb(49, 47, 47);
+    font-weight: 400;
+    font-size: 18.5px;
+  }
 }
 
 .personal-info {
@@ -96,10 +80,10 @@ h4 span {
 .actor-biography-anchor {
   color: #74dfaf;
   transition: .4s;
-}
 
-.actor-biography-anchor:hover {
-  color: #499673;
+  &:hover {
+    color: #499673;
+  }
 }
 
 .actor-bio-text {
@@ -112,26 +96,20 @@ h4 span {
   .actor-profile-wrapper {
     margin-top: 56px;
   }
+
   .container.filmography-profile-info {
     margin-bottom: -40px;
+    margin-top: 40px;
   }
 
   .row-actor-profile-info {
     flex-direction: column;
   }
 
-  .inner-main {
-    padding-left: 0px;
-  }
-
-  .container.filmography-profile-info {
-    margin-top: 40px;
-  }
-
   .actor-profile-img {
     margin: -59px 0 0 0;
-    padding:0;
-    clip-path: inset(110px 0px 230px 0px);
+    padding: 0;
+    clip-path: inset(110px 0px 210px 0px);
   }
 
   .actor-biography-anchor {
@@ -139,7 +117,7 @@ h4 span {
   }
 
   .group.actor-name {
-    margin-top: -120px !important;
+    margin-top: -200px !important;
   }
 
   .group.tagged-images {
@@ -147,8 +125,7 @@ h4 span {
   }
 
   h1.actor-name {
-    padding-top: -140px;
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 
   .actor-biography-anchor {
@@ -156,7 +133,7 @@ h4 span {
   }
 
   .main {
-    margin-top: -100px;
+    margin-top: 0;
     height: 100%;
   }
 
@@ -164,11 +141,19 @@ h4 span {
     margin-top: -100px !important;
   }
 
-  .bio-content h4 {
-    font-size: 18px;
+  .actor-profile.main {
+    margin-left: -20px;
   }
-  .bio-content h4 span {
-    font-size: 17px;
+
+  .bio-content {
+    h4 {
+      font-size: 18px;
+
+      span {
+        font-size: 17px;
+      }
+    }
+
   }
 
   .bio_title {
@@ -176,6 +161,20 @@ h4 span {
   }
 
 }
+
+
+@media screen and (max-width: 360px) {
+  .actor-profile-img {
+    margin: -59px 0 0 0;
+    padding: 0;
+    clip-path: inset(110px 0px 180px 0px);
+  }
+
+  .group.actor-name {
+    margin-top: -190px !important;
+  }
+}
+
 
 @media screen and (min-width: 700px) {
   .bio-content {
@@ -195,10 +194,10 @@ h4 span {
   margin-bottom: 4px;
   transition: opacity 800ms;
   text-align: center;
-}
 
-.text-content .title {
-  padding-top: 16px;
+  .title {
+    padding-top: 16px;
+  }
 }
 
 .item:hover .text-content {
@@ -213,12 +212,13 @@ h4 span {
     bottom: 0;
     margin-bottom: 4px;
     opacity: 0.8;
+
+    .title {
+      padding-top: 8px;
+      font-size: 14px;
+    }
   }
 
-  .text-content .title {
-    padding-top: 8px;
-    font-size: 14px;
-  }
 }
 
 
@@ -265,9 +265,8 @@ h4 span {
 @media only screen and (max-width: 440px) and (min-width: 319px) {
   .masonry {
     column-count: 2 !important;
-  }
-  .masonry {
+
     margin: 0.2em auto;
     column-gap: .4em;
-  } 
+  }
 }

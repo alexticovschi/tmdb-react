@@ -1,5 +1,5 @@
 import React from "react";
-import './SearchBox.css';
+import './SearchBox.scss';
 
 const SearchBox = ({ onSearchChange, getMovies }) => {
     const onFormSubmit = (e) => e.preventDefault();

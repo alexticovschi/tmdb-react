@@ -1,12 +1,11 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import './Carousel.css';
+import './Carousel.scss';
 
 import { Link } from 'react-router-dom';
 
 
 export default ({movies}) => {
-    // console.log(movies);
     const base_url = 'https://image.tmdb.org/t/p/original';
     return (
         <Carousel infiniteLoop={true} useKeyboardArrows={true}>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "./DrawerToggleButton.css";
-// import { HamburgerVortex } from 'react-animated-burgers';
+import "./DrawerToggleButton.scss";
 import { HamburgerElastic } from 'react-animated-burgers';
 
 class DrawerToggleButton extends Component {

@@ -45,52 +45,24 @@ h3 {
 }
 
 .loadmore {
-    display: flex;
-    flex-direction: column;
     width: 63%;
-    text-align: center;
-    align-items: center;
     margin: 0 auto;
     margin-bottom: 20px !important;
     height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.loadmore {
     border-radius: 4px;
     border: none;
-    color: white;
     padding: 14px 32px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    transition-duration: 0.5s;
     cursor: pointer;
 
     background-color: white;
     color: black;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 
-.loadmore:hover {
-    background-color: #000;
-    color: white;
-    outline: none;
-    border: 1px solid rgb(255, 255, 255);
-}
-
-.loadmore:visited {
-    outline: none;
-}
-
-.loadmore:focus {
-    outline: 0;
-    box-shadow: none !important;
-}
 
 .scroll-up-button:focus {
     outline: 0;

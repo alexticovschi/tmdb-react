@@ -6,7 +6,7 @@ import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/
 import { APIKEY } from '../../config';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import './Home.css';
+import './Home.scss';
 
 
 class Home extends Component {

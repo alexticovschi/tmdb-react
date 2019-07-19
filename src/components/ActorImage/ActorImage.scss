@@ -1,7 +1,3 @@
-.site {
-    min-height: 50vh;
-}
-
 .actor-img-profile {
     width: 160px !important;
     height: 232px !important;
@@ -9,12 +5,13 @@
     margin-bottom: 14px;
     opacity: 0.8;
     transition: .4s;
+
+    &:hover {
+        opacity: 1;
+        transform:none;
+    }
 }
 
-.actor-img-profile:hover {
-    opacity: 1;
-    transform:none;
-}
 
 @media (max-width:475px) {
     .actor-img-profile {

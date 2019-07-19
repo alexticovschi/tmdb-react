@@ -20,7 +20,7 @@ import MovieGenres from "../MovieGenres/MovieGenres";
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button"; 
-import './App.css';
+import './App.scss';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 

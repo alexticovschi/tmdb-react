@@ -1,21 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './MovieItem.css';
+import './MovieItem.scss';
 import Rater from 'react-rater';
 
-const MovieItem = ({poster, id, title, releaseDate, voteAvg}) => {
+const MovieItem = ({poster, id, title, releaseDate, voteAvg, mediaType}) => {
     const _id = id.toString();
     console.log()
     return (
         <Link 
             to={`/movie-info/${_id}`} 
-            onClick={() => this.props.history.push(`/movie-info/${_id}`)} 
+            // to={mediaType === 'movie' ? `/movie-info/${_id}` :  `/tv-show-info/${_id}`} 
+            onClick={() => this.props.history.push({}`/movie-info/${_id}`)} 
             className="card" 
             data-aos="fade-in"
             data-aos-delay="50"
-            data-aos-duration="300"
+            data-aos-duration="100"
             data-aos-easing="ease-in-out"
-            data-aos-anchor-placement="bottom"
+            data-aos-anchor-placement="top"
         >
             <div className="frame">
                 <img src={poster} alt="film poster"/>

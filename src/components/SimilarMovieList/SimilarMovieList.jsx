@@ -10,6 +10,7 @@ const MovieList = ({ movieList, getMovieById }) => {
             id={movie.id}
             getMovieById={getMovieById}
             title={movie.title}
+            mediaType={movie.media_type}
             poster={ movie.poster_path === null ? not_available_poster : base_url + movie.poster_path }
         />
     ));

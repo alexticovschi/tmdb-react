@@ -5,7 +5,7 @@ import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
-import './MovieInfo.css';
+import './MovieInfo.scss';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 import Modal from 'react-modal';
@@ -112,7 +112,6 @@ class MovieInfo extends Component {
                 <SearchBoxWithSuggestions/>
 
                 <div className="container">
-
                     <div className="row">
                         <div 
                             className="box-left" 
@@ -157,14 +156,14 @@ class MovieInfo extends Component {
                             </div>
                         </div>
 
-                        <div class="playContainer">            
-                            <div class="image">
+                        <div className="playContainer">            
+                            <div className="image">
                                 <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
                             </div>
                             {this.state.trailers.length > 0 ?
                                 <div 
                                     onClick={this.openModal} 
-                                    className="play button-animated button-light">
+                                    className="play button-light">
                                     <i className="fas fa-play"></i>
                                 </div>
                             : null}

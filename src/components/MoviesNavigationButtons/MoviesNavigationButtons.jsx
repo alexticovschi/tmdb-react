@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './MoviesNavigationButtons.css';
+import './MoviesNavigationButtons.scss';
 
 const MoviesNavigationButtons = () => {
     return (

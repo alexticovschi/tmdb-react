@@ -1,0 +1,34 @@
+.actor-images-wrapper {
+    .actor-images-name {
+        padding-top: 30px;
+        margin-top: 36px;
+        font-size: 2.2rem;
+    }
+
+    .actor-profile-btn {
+        margin-bottom: 26px;
+        margin-left: 16px;
+    }
+
+    .group.actor-images {
+        padding-top: 50px;
+        padding-bottom: 16px;
+    }
+
+    .main-content.actors {
+        flex: 1;
+        min-height: 55.6vh;
+        justify-content: space-evenly;
+
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 465px) {
+    .actor-images-name {
+        font-size: 1.7rem;
+    }
+}
