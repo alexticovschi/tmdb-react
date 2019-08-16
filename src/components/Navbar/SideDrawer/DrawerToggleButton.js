@@ -7,19 +7,15 @@ class DrawerToggleButton extends Component {
         isActive: false
     }
 
+    static getDerivedStateFromProps(nextProps) {
+        return {
+            isActive: nextProps.isOpen,
+        };
+    }
+
     toggleButton = () => {
         this.setState({
             isActive: !this.state.isActive
-        })
-    }
-
-    isDrawerOpen = () => {
-        setTimeout(() => {
-            if(!this.props.isOpen) {
-                this.setState({
-                    isActive: false
-                })
-            } 
         })
     }
 
@@ -27,7 +23,6 @@ class DrawerToggleButton extends Component {
         return (
             <div onClick={this.props.click} className="toggle-button">
                 <HamburgerElastic
-                    onClick={this.isDrawerOpen()}
                     isActive={this.state.isActive} 
                     toggleButton={this.toggleButton} 
                     barColor="#74dfaf" />
