@@ -24,8 +24,10 @@ const TVShowsList = ({ tvShowList, getTVShowById }) => {
       />
     ));
   return (
-    <div className="container">
-      <main className="main-content">{tv_shows_list}</main>
+    <div className="tvshow-list-wrapper">
+      <div className="container">
+        <main className="main-content">{tv_shows_list}</main>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
-import Loader from "../../components/Loader/Loader";
 import TVShowNavigationButtons from "../../components/TVShowNavigationButtons/TVShowNavigationButtons";
 import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 
@@ -45,7 +44,6 @@ class PopularTvShows extends Component {
           />
         </div>
 
-        <Loader />
       </div>
     );
   }

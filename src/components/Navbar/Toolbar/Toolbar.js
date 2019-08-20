@@ -7,11 +7,11 @@ const Toolbar = props => (
   <header className="toolbar">
     <div className="toolbar-wrapper">
       <nav className="toolbar__navigation"
-        data-aos="fade-in"
-        data-aos-delay="0"
-        data-aos-duration="200"
-        data-aos-easing="ease-in-out"
-        data-aos-anchor-placement="bottom"
+        // data-aos="fade-in"
+        // data-aos-delay="0"
+        // data-aos-duration="200"
+        // data-aos-easing="ease-in-out"
+        // data-aos-anchor-placement="bottom"
       >
         <div className="toolbar__logo">
           <a href="/">

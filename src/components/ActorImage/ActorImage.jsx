@@ -1,6 +1,7 @@
 import React from "react";
 import "./ActorImage.scss";
 import ImageZoom from "react-medium-image-zoom";
+import Zoom from "react-reveal/Zoom";
 
 const ActorImage = ({ img_path }) => {
   const base_url = "https://image.tmdb.org/t/p/w185";
@@ -8,13 +9,9 @@ const ActorImage = ({ img_path }) => {
 
   return (
     <div className="actor-card">
+      <Zoom>
       <div
         className="img-wrapper"
-        data-aos="fade-in"
-        data-aos-delay="50"
-        data-aos-duration="200"
-        data-aos-easing="ease-in-out"
-        data-aos-anchor-placement="bottom"
       >
         <ImageZoom
           image={{
@@ -28,6 +25,7 @@ const ActorImage = ({ img_path }) => {
           }}
         />
       </div>
+      </Zoom>
     </div>
   );
 };

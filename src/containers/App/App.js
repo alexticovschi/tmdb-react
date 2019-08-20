@@ -22,9 +22,6 @@ import { withRouter } from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button"; 
 import './App.scss';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
-AOS.init();
 
 class App extends Component {
 

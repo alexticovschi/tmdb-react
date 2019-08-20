@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "animate.css": "^3.7.0",
-    "aos": "^3.0.0-beta.6",
     "node-sass": "^4.12.0",
     "react": "^16.6.0",
     "react-animated-burgers": "^1.2.6",
@@ -14,6 +13,7 @@
     "react-modal": "^3.8.1",
     "react-rater": "^5.0.5",
     "react-responsive-carousel": "^3.1.43",
+    "react-reveal": "^1.2.2",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.3",
     "react-scroll-up-button": "^1.6.4",

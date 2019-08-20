@@ -71,6 +71,11 @@ body {
     }
   }
 
+  .movie-list-wrapper,
+  .tvshow-list-wrapper {
+    min-height: 100vh;
+  }
+
   .movies-wrapper {
     margin-top: 60px;
 

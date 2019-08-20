@@ -10,6 +10,8 @@ import { APIKEY } from "../../config";
 
 import "./ActorProfileInfo.scss";
 
+import Fade from "react-reveal/Fade";
+
 class ActorProfileInfo extends Component {
   state = {
     actorProfileInfo: [],
@@ -62,6 +64,7 @@ class ActorProfileInfo extends Component {
         <div className="container">
           <div className="row-actor-profile-info">
             <div className="side">
+            <Fade delay={400}>
               <img
                 className="actor-profile-img"
                 src={
@@ -71,6 +74,7 @@ class ActorProfileInfo extends Component {
                 }
                 alt={"img card"}
               />
+              </Fade>
             </div>
             <div className="actor-profile main">
               <div className="inner-main">

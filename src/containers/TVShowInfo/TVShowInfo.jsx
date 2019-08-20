@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Loader from "../../components/Loader/Loader";
 import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import ActorImageCard from "../../components/ActorImageCard/ActorImageCard";
 import SwiperSlider from "../../components/SwiperSlider/SwiperSliderTV";
@@ -222,7 +221,6 @@ class TVShowInfo extends Component {
           </div>
         </div>
 
-        <Loader />
       </div>
     );
   }

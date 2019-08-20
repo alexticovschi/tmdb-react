@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
-import Loader from '../../components/Loader/Loader';
 import ActorImageCard from '../../components/ActorImageCard/ActorImageCard';
 import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
+import Loader from "../../components/Loader/Loader";
 
 import './MovieInfo.scss';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 import Modal from 'react-modal';
+
+import Fade from "react-reveal/Fade";
 
 import { APIKEY } from '../../config';
 
@@ -113,16 +115,13 @@ class MovieInfo extends Component {
 
                 <div className="container">
                     <div className="row">
-                        <div 
-                            className="box-left" 
-                            data-aos="fade-in"
-                            data-aos-delay="50"
-                            data-aos-duration="600"
-                            data-aos-easing="ease-in-out"
-                            data-aos-anchor-placement="bottom"
-                        >
-                            <img className="img-info" src={ movie.poster_path === null ? not_available_poster: base_url + movie.poster_path } alt={"img card"} />
+                        
+                        <div className="box-left">
+                            <Fade delay={500}>
+                                <img className="img-info" src={ movie.poster_path === null ? not_available_poster: base_url + movie.poster_path } alt={"img card"} />
+                            </Fade>
                         </div>
+                        
 
                         <div className="box-right">
                             <div className="inner-box-right">
@@ -144,13 +143,7 @@ class MovieInfo extends Component {
                                 {movie.homepage ? <p><strong>Website: </strong>  <a href={movie.homepage} target="_blank" rel="noopener noreferrer">{movie.original_title} Official Website</a></p> : null}
 
                                 <div className="btn-movie-info">
-                                    <a 
-                                        data-aos="flip-right"
-                                        data-aos-delay="750"
-                                        data-aos-duration="600"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-anchor-placement="bottom"
-                                        className="button movie-info" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
+                                    <a className="button movie-info" href={`http://imdb.com/title/${movie.imdb_id}`} target="_blank" rel="noopener noreferrer">View on IMDB</a>
                                     
                                 </div>
                             </div>
@@ -252,7 +245,6 @@ class MovieInfo extends Component {
                            
                     </div>  
                 </div> 
-
                 <Loader/>
             </div>
         );

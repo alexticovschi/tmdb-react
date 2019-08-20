@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import MovieList from "../../components/MovieList/MovieList";
-import Loader from "../../components/Loader/Loader";
 import MoviesNavigationButtons from "../../components/MoviesNavigationButtons/MoviesNavigationButtons";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 
@@ -42,7 +41,6 @@ class TopRatedMovies extends Component {
           <MovieList movieList={topRatedMovies} />
         </div>
 
-        <Loader />
       </div>
     );
   }
