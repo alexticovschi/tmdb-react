@@ -8,6 +8,7 @@ import { APIKEY } from "../../config";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import Fade from "react-reveal/Fade";
 
 import "./Home.scss";
 
@@ -43,7 +44,7 @@ class Home extends Component {
     );
     const nowPlayingMovies = await resp.json();
     setTimeout(() => {
-        this.setState({ nowPlayingMovies: nowPlayingMovies.results });
+      this.setState({ nowPlayingMovies: nowPlayingMovies.results });
     }, 2000);
   };
 
@@ -91,7 +92,9 @@ class Home extends Component {
             <SearchBoxWithSuggestions />
 
             <div className="container">
-              <Carousel movies={this.state.nowPlayingMovies} />
+              <Fade delay={500}>
+                <Carousel movies={this.state.nowPlayingMovies} />
+              </Fade>
 
               <div className="group">
                 <div className="group-item line" />
