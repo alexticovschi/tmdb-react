@@ -84,7 +84,7 @@ class Home extends Component {
       <div className="home-wrapper">
         {!this.state.nowPlayingMovies.length ? (
           <div className="loader-container">
-            <Loader type="Rings" color="#fff" width={180} />
+            <Loader type="Rings" color="#fff" width={200} height={200} />
           </div>
         ) : (
           <div>
