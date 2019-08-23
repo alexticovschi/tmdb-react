@@ -151,16 +151,18 @@ class ActorProfileInfo extends Component {
                 <div className="masonry">
                   {this.state.actorTaggedImages.map((img, i) => (
                     <div className="item" key={i}>
-                      <ImageZoom
-                        image={{
-                          src: `${base_url + img.file_path}`,
-                          alt: "actor profile image small"
-                        }}
-                        zoomImage={{
-                          src: `${base_url2 + img.file_path}`,
-                          alt: "actor profile image original"
-                        }}
-                      />
+                      <Fade delay={10 * i}>
+                        <ImageZoom
+                          image={{
+                            src: `${base_url + img.file_path}`,
+                            alt: "actor profile image small"
+                          }}
+                          zoomImage={{
+                            src: `${base_url2 + img.file_path}`,
+                            alt: "actor profile image original"
+                          }}
+                        />
+                      </Fade>
                       <div className="text-content">
                         <div className="title">
                           {img.media.original_title || img.media.original_name}(
