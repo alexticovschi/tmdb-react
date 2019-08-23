@@ -11,9 +11,9 @@ import 'react-rater/lib/react-rater.css';
 import Modal from 'react-modal';
 
 import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
 
 import { APIKEY } from '../../config';
-
 
 const customStyles = {
     content : {
@@ -117,12 +117,11 @@ class MovieInfo extends Component {
                     <div className="row">
                         
                         <div className="box-left">
-                            <Fade delay={500}>
+                            <Fade delay={1000}>
                                 <img className="img-info" src={ movie.poster_path === null ? not_available_poster: base_url + movie.poster_path } alt={"img card"} />
                             </Fade>
                         </div>
                         
-
                         <div className="box-right">
                             <div className="inner-box-right">
                                 <div className="group movie-info">
@@ -149,20 +148,23 @@ class MovieInfo extends Component {
                             </div>
                         </div>
 
-                        <div className="playContainer">            
-                            <div className="image">
-                                <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
-                            </div>
-                            {this.state.trailers.length > 0 ?
-                                <div 
-                                    onClick={this.openModal} 
-                                    className="play button-light">
-                                    <i className="fas fa-play"></i>
+                        <Fade delay={1500}>
+                            <div className="playContainer">            
+                                <div className="image">
+                                    <img className="custom_bg_poster" src={base_url2 + movie.backdrop_path} alt=""/>
                                 </div>
-                            : null}
-                        </div>
+                                {this.state.trailers.length > 0 ?
+                                    <div 
+                                        onClick={this.openModal} 
+                                        className="play button-light">
+                                        <i className="fas fa-play"></i>
+                                    </div>
+                                : null}
+                            </div>
+                        </Fade>
 
                         {this.state.trailers.length > 0 ?
+                            
                             <div className="resp-container">
                                 {this.state.trailers.slice(0,1).map(trailer => (
                                     <Modal 
@@ -171,15 +173,17 @@ class MovieInfo extends Component {
                                         onRequestClose={this.closeModal}
                                         style={customStyles}>
 
-                                        <iframe 
-                                            key={trailer.key}
-                                            className="resp-iframe"
-                                            style={{borderRadius:"6px", margin:"10px auto"}} 
-                                            title="1" 
-                                            allow="encrypted-media" 
-                                            allowFullScreen
-                                            src={`https://www.youtube.com/embed/${trailer.key}`}
-                                        />
+                                        <Zoom delay={600}>
+                                            <iframe 
+                                                key={trailer.key}
+                                                className="resp-iframe"
+                                                style={{borderRadius:"6px", margin:"10px auto"}} 
+                                                title="1" 
+                                                allow="encrypted-media" 
+                                                allowFullScreen
+                                                src={`https://www.youtube.com/embed/${trailer.key}`}
+                                            />
+                                        </Zoom>
                                     </Modal>
                                 ))}
                             </div>
@@ -242,9 +246,9 @@ class MovieInfo extends Component {
                                 </div>
                             </section>  
                         : null}
-                           
-                    </div>  
+                    </div>
                 </div> 
+
                 <Loader/>
             </div>
         );

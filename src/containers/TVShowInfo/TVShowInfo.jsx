@@ -3,11 +3,14 @@ import TVShowsList from "../../components/TVShowsList/TVShowsList";
 import ActorImageCard from "../../components/ActorImageCard/ActorImageCard";
 import SwiperSlider from "../../components/SwiperSlider/SwiperSliderTV";
 import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
+import Loader from "../../components/Loader/Loader";
 
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import "./TVShowInfo.scss";
 import { APIKEY } from "../../config";
+
+import Fade from "react-reveal/Fade";
 
 class TVShowInfo extends Component {
   state = {
@@ -82,20 +85,22 @@ class TVShowInfo extends Component {
     return (
       <div className="box-tvshow-info">
         <SearchBoxWithSuggestionsTV />
-
         <div className="container">
           <div className="row">
-            <div className="box-left">
-              <img
-                className="img-info"
-                src={
-                  tvShow.poster_path === null
-                    ? not_available_poster
-                    : base_url + tvShow.poster_path
-                }
-                alt={"img card"}
-              />
-            </div>
+            <Fade delay={1000}>
+              <div className="box-left">
+                <img
+                  className="img-info"
+                  src={
+                    tvShow.poster_path === null
+                      ? not_available_poster
+                      : base_url + tvShow.poster_path
+                  }
+                  alt={"img card"}
+                />
+              </div>
+            </Fade>
+
             <div className="box-right">
               <div className="inner-box-right">
                 {/* <h1 className="tvshow-info-title"><span>{tvShow.original_name}</span></h1>  */}
@@ -151,15 +156,17 @@ class TVShowInfo extends Component {
               </div>
             </div>
 
-            <div class="playContainer">
-              <div class="image">
-                <img
-                  className="custom_bg_poster"
-                  src={base_url2 + tvShow.backdrop_path}
-                  alt=""
-                />
+            <Fade delay={1500}>
+              <div class="playContainer">
+                <div class="image">
+                  <img
+                    className="custom_bg_poster"
+                    src={base_url2 + tvShow.backdrop_path}
+                    alt=""
+                  />
+                </div>
               </div>
-            </div>
+            </Fade>
 
             <div style={{ width: "100%" }}>
               {this.state.tvShowCredits.length > 0 ? (
@@ -185,19 +192,23 @@ class TVShowInfo extends Component {
 
           <div>
             {this.state.tvShowRecommedations.length > 0 ? (
-              <section className="recommendations">
-                <div className="container slider">
-                  <div>
-                    <div className="group">
-                      <div className="group-item line" />
-                      <h1 className="title group-item text">Recommendations</h1>
-                      <div className="group-item line" />
-                    </div>
+              <Fade delay={400}>
+                <section className="recommendations">
+                  <div className="container slider">
+                    <div>
+                      <div className="group">
+                        <div className="group-item line" />
+                        <h1 className="title group-item text">
+                          Recommendations
+                        </h1>
+                        <div className="group-item line" />
+                      </div>
 
-                    <SwiperSlider items={tvShowRecommedations} />
+                      <SwiperSlider items={tvShowRecommedations} />
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
+              </Fade>
             ) : null}
           </div>
 
@@ -220,7 +231,7 @@ class TVShowInfo extends Component {
             </section>
           </div>
         </div>
-
+        <Loader />
       </div>
     );
   }

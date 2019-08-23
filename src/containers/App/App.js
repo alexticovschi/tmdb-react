@@ -14,7 +14,6 @@ import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
 import PopularMovies from '../PopularMovies/PopularMovies';
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
 import Footer from '../../components/Footer/Footer';
-import Loader from "../../components/Loader/Loader";
 import MovieGenres from "../MovieGenres/MovieGenres";
 
 import { Switch, Route } from 'react-router-dom';
@@ -48,9 +47,7 @@ class App extends Component {
           </Switch>
 
         <ScrollUpButton ContainerClassName="scroll-up-button"/>
-        
-        <Loader/>
-        
+                
         <Footer/>
       </div>
     );
