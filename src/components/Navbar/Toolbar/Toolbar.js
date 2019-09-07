@@ -28,7 +28,7 @@ const Toolbar = props => (
               <Link to="/genres/80">Genres</Link>
             </li>
             <li>
-              <Link to="https://www.themoviedb.org/login?language=en-US">Login</Link>
+              <a href="https://www.themoviedb.org/login?language=en-US">Login</a>
             </li>
           </ul>
         </div>
