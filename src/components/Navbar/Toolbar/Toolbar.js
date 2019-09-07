@@ -1,18 +1,12 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import "./Toolbar.scss";
 
 const Toolbar = props => (
   <header className="toolbar">
     <div className="toolbar-wrapper">
-      <nav className="toolbar__navigation"
-        // data-aos="fade-in"
-        // data-aos-delay="0"
-        // data-aos-duration="200"
-        // data-aos-easing="ease-in-out"
-        // data-aos-anchor-placement="bottom"
-      >
+      <nav className="toolbar__navigation">
         <div className="toolbar__logo">
           <a href="/">
             <img src="https://www.themoviedb.org/assets/1/v4/logos/powered-by-rectangle-green-dcada16968ed648d5eb3b36bbcfdd8cdf804f723dcca775c8f2bf4cea025aad6.svg" alt=""/>
@@ -22,19 +16,19 @@ const Toolbar = props => (
         <div className="toolbar_navigation-items">
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/movies/now-playing">Movies</a>
+              <Link to="/movies/now-playing">Movies</Link>
             </li>
             <li>
-              <a href="/tv-shows">TV Shows</a>
+              <Link to="/tv-shows">TV Shows</Link>
             </li>
             <li>
-              <a href="/genres/80">Genres</a>
+              <Link to="/genres/80">Genres</Link>
             </li>
             <li>
-              <a href="https://www.themoviedb.org/login?language=en-US">Login </a>
+              <Link to="https://www.themoviedb.org/login?language=en-US">Login</Link>
             </li>
           </ul>
         </div>
