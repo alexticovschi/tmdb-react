@@ -14,6 +14,7 @@ import "./Home.scss";
 
 class Home extends Component {
   state = {
+    loading: true,
     movie: [],
     upcomingMovies: [],
     nowPlayingMovies: [],
@@ -30,7 +31,7 @@ class Home extends Component {
     this.getLatestMovies();
   }
 
-  getUpcomingMovies = async ID => {
+  getUpcomingMovies = async () => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/movie/upcoming?&api_key=${APIKEY}&language=en-US`
     );
@@ -38,17 +39,19 @@ class Home extends Component {
     this.setState({ upcomingMovies: upcomingMovies.results });
   };
 
-  getNowPlayingMovies = async ID => {
+  getNowPlayingMovies = async () => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/movie/now_playing?&api_key=${APIKEY}&language=en-US`
     );
     const nowPlayingMovies = await resp.json();
-    setTimeout(() => {
-      this.setState({ nowPlayingMovies: nowPlayingMovies.results });
-    }, 2000);
+    this.setState({
+      nowPlayingMovies: nowPlayingMovies.results
+    });
+
+    setTimeout(() => this.setState({ loading: false }), 1000);
   };
 
-  getPopularMovies = async ID => {
+  getPopularMovies = async () => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/movie/popular?&api_key=${APIKEY}&language=en-US`
     );
@@ -56,7 +59,7 @@ class Home extends Component {
     this.setState({ popularMovies: popularMovies.results });
   };
 
-  getTopRatedMovies = async ID => {
+  getTopRatedMovies = async () => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/movie/top_rated?&api_key=${APIKEY}&language=en-US`
     );
@@ -64,7 +67,7 @@ class Home extends Component {
     this.setState({ topRatedMovies: topRatedMovies.results });
   };
 
-  getLatestMovies = async ID => {
+  getLatestMovies = async () => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/discover/movie?&api_key=${APIKEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
     );
@@ -83,9 +86,9 @@ class Home extends Component {
   render() {
     return (
       <div className="home-wrapper">
-        {!this.state.nowPlayingMovies.length ? (
+        {this.state.loading ? (
           <div className="loader-container">
-            <Loader type="Rings" color="#fff" width={200} height={200} />
+            <Loader type="Oval" color="#fff" width={60} height={60} />
           </div>
         ) : (
           <div>
